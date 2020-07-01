@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+  <meta charset="utf-8">
+  <meta name="author" content="MiMonarchRD" />
+  
+  
+  <title>HUAWEI ATLAS200学习日志（三）人脸识别实例 | Hexo</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="学习呦,AI,嵌入式," />
+  
+
+  
+  <meta name="description" content="写点东西的地方">
+
+  
+
+  
+
+  
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+  
+
+  
+
+  
+
+  <script>
+  // theme-ad's config script
+  // it can be used in every script
+  
+  window.AD_CONFIG = {
+    leancloud: {"appid":"Hyq9wkH495DgNHWhDQCOfQSp-gzGzoHsz","appkey":"WaR7nrzhliHj9aVwdQzkdlGd","comment":false,"count":false},
+    welcome: {"enable":false,"interval":30},
+    start_time: "2019-04-10",
+    passwords: ["efe07af7441da2b69c4a41e42e73be4db47f66010a56900788a458354a7373ec", ],
+    is_post: true,
+    lock: false,
+    author: "MiMonarchRD",
+    share: {"twitter":false,"facebook":false,"weibo":true,"qq":true,"wechat":true},
+    mathjax: true,
+    page_type: "",
+    root: "/"
+  };
+</script>
+
+  
+<script src="/vendor/sha256.min.js"></script>
+<script src="/js/auth.js"></script>
+<script src="/js/index.js"></script>
+<script src="/vendor/qrcode.min.js"></script>
+
+
+  
+    <link rel="icon" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/touch-icon.png">
+  
+
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  
+<link rel="stylesheet" href="/css/index.css">
+<link rel="stylesheet" href="/styles/components/highlight/highlight.css">
+
+
+  
+<meta name="generator" content="Hexo 4.2.1"></head>
+  <body>
+    <header class="site-header">
+  <div class="site-header-brand">
+    
+      <span class="site-header-brand-title">
+        <a href="/">小Blogs</a>
+      </span>
+    
+    
+      <span class="site-header-brand-motto"> | Programing is an art form.</span>
+    
+  </div>
+  <div class="site-header-right">
+    <nav class="site-header-navigation">
+      
+        <a href="/" target="_self">首页</a>
+      
+        <a href="/archives/" target="_self">归档</a>
+      
+        <a href="/tags/" target="_self">标签</a>
+      
+        <a href="/categories/" target="_self">分类</a>
+      
+        <a href="/friends/" target="_self">友链</a>
+      
+        <a href="/about/" target="_self">关于</a>
+      
+    </nav>
+    <div class="site-header-btn">
+      
+        <a href="https://github.com/MIMONATCH/" target="_blank" id="site-github">
+          <i class="fa fa-github-alt"></i>
+        </a>
+      
+      <a href="javascript:void(0);" id="site-search">
+        <i class="fa fa-search"></i>
+      </a>
+      <a href="javascript:void(0);" id="site-nav-btn">
+        <i class="fa fa-ellipsis-v"></i>
+      </a>
+    </div>
+  </div>
+</header>
+<nav class="table-content" id="site-nav">
+  <div class="table-content-title">
+    <span>导航</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc">
+      
+        <li class="toc-item">
+          <a href="/" target="_self">
+            首页
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/archives/" target="_self">
+            归档
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/tags/" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/categories/" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/friends/" target="_self">
+            友链
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/about/" target="_self">
+            关于
+          </a>
+        </li>
+      
+    </ol>
+  </div>
+</nav>
+<div id="site-process"></div>
+    <main>
+      
+  <div class="passage">
+  <div class="passage-meta">
+    <span>
+      <i class="fa fa-calendar"></i>2019-06-11
+    </span>
+    
+      <span>
+        | <a href="/categories/%E5%AD%A6%E4%B9%A0%E5%91%A6/"><i class="fa fa-bookmark"></i>学习呦</a>
+      </span>
+    
+    
+      <span>
+        | <i class="fa fa-unlock-alt"></i>UNLOCK
+      </span>
+    
+  </div>
+  <h1 class="passage-title">
+    HUAWEI ATLAS200学习日志（三）人脸识别实例
+  </h1>
+  
+  <article class="passage-article">
+    <p>这次的实验是用官方提供的实例程序（人脸识别程序）</p>
+<p><strong>准备工作：</strong></p>
+<p>从官方的仓库下下载好实例程序代码</p>
+<p>之后将实例的代码上传到Ubuntu服务器（也就是开发环境）</p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-42.png" alt=""></p>
+<p>已经下载好了，可以见到有部署脚本，运行程序停止程序脚本</p>
+<p>之后要配置两个环境变量（DDK_HOME和 LD_LIBRARY_PATH）这两个环境变量就是Mind Studio的环境变量，类同JDK、JAVA_HOME</p>
+<pre><code>export DDK_HOME=/home/[安装Mind Studio的用户名]/tools/che/ddk/ddk
+export LD_LIBRARY_PATH=$DDK_HOME/uihost/lib</code></pre><p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-43.png" alt=""></p>
+<p>配置的环境变量，之后用.命令生效环境变量</p>
+<p><strong>部署：</strong></p>
+<p>在实例程序的根目录下运行部署脚本（这个脚本会执行三个动作：1、编译和部署Ascenddk公共库，2、下载网络模块，3、配置主机服务器）</p>
+<p>这里有一个小细节，用sh命令默认不是bash解释器执行sh脚本，所以会出现错误，这里要用bash解释器（Linux是多shell嘛，这里用bash这个shell）</p>
+<pre><code>bash deploy.sh x.x.x.x[默认的开发板IP] internet</code></pre><p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-44.png" alt=""></p>
+<p>上面提到的小细节</p>
+<p>部署脚本后有两个参数（host_ip：开发板IP，load_mode：就是加载模块的方式是本地还是从网络直接下载，如果从本地加载要提前下载好模块放到实例的script文件夹下）</p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-45.png" alt=""></p>
+<p>运行部署脚本有一个步骤是选择演示IP，我选的是mind Studio同一个IP</p>
+<p>部署成功后开启演示服务器</p>
+<pre><code>python3 presenterserver/presenter_server.py --app face_detection &amp;</code></pre><p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-46.png" alt=""></p>
+<p>可以通过-h查看如何实验这个命令  </p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-47.png" alt=""></p>
+<p>可以在7007端口查看演示服务器上的实例</p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-48-1024x198.png" alt=""></p>
+<p>什么实例都没有</p>
+<p><strong>运行实例程序：</strong></p>
+<p>先安装摄像头</p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-49-1024x351.png" alt=""></p>
+<p>拆盖子的时候小心，树莓派的摄像头一定要断电连接  </p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-50-1024x166.png" alt=""></p>
+<p>可以看到正在运行的实例程序</p>
+<p>运行程序</p>
+<pre><code>bash run_facedetectionapp.sh x.x.x.x[开发板默认IP] video/image Channel-1/Channel-2 &amp;</code></pre><p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-52.png" alt=""></p>
+<p>可以看到step那个info</p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-51-1024x592.png" alt=""></p>
+<p>人脸检测</p>
+<p>PS：这个人脸检测的实例最大支持10个通道同时检测，视频的最高帧率为20fps，当网络带宽很窄时，会自动的降低帧率。</p>
+<p><strong>总结：</strong></p>
+<p>实验2和实验3的任务分别从两个方面来进行，实验二是针对机器学习方面（说具体就是完成了图像的分类，构建了分类模型）实验三是针对连接外部硬件（具体就是连接了摄像头，完成了图像采集，并且进行了人脸检测）实验4就是针对性的开始完成最后的实验了</p>
+
+  </article>
+  <aside class="table-content" id="site-toc">
+  <div class="table-content-title">
+    <i class="fa fa-arrow-right fa-lg" id="site-toc-hide-btn"></i>
+    <span>目录</span>
+  </div>
+  <div class="table-content-main">
+    
+  </div>
+</aside>
+  
+  
+    <div class="passage-tags">
+     
+      <a href="/tags/AI/"><i class="fa fa-tags"></i>AI</a>
+     
+      <a href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"><i class="fa fa-tags"></i>嵌入式</a>
+    
+    </div>
+  
+</div>
+
+    </main>
+    
+    <div class="site-footer-wrapper">
+  <footer class="site-footer">
+    
+      
+        <div class="site-footer-col">
+          <h5 class="site-footer-title">博客推荐</h5>
+          
+            <span class="site-footer-item">
+              <a href="http://yuyy.info/" target="_blank">YuYY</a>
+            </span>
+          
+        </div>
+      
+    
+    <div class="site-footer-info">
+      <i class="fa fa-clock-o"></i> 本站已稳定运行<span id="site-time"></span>
+    </div>
+    
+    
+      <div class="site-footer-info">
+        <i class="fa fa-at"></i> Email: huzi19980410@gmail.com
+      </div>
+    
+    <div class="site-footer-info">
+      <i class="fa fa-copyright"></i> 
+      2019 <a href="https://github.com/dongyuanxin/theme-ad/" target="_blank">Theme-AD</a>.
+      Created by <a href="https://godbmw.com/" target="_blank">GodBMW</a>.
+      All rights reserved.
+    </div>
+  </footer>
+</div>
+    <div id="site-layer" style="display:none;">
+  <div class="site-layer-content">
+    <div class="site-layer-header">
+      <span class="site-layer-header-title" id="site-layer-title"></span>
+      <i class="fa fa-close" id="site-layer-close"></i>
+    </div>
+    <div class="site-layer-body" id="site-layer-container">
+      <div class="site-layer-input" id="site-layer-search" style="display: none;">
+        <div class="site-layer-input-choose">
+          <a href="javascript:void(0);" title="Change Search Engine">Google</a>
+        </div>
+        <input type="text">
+        <i class="fa fa-search"></i>
+      </div>
+      
+        <div class="site-layer-reward" id="site-layer-reward" style="display: none;">
+          
+            <div>
+              <img src="/images/wechat.png" alt="WeChat">
+              
+                <p>WeChat</p>
+              
+            </div>
+          
+            <div>
+              <img src="/images/alipay.png" alt="AliPay">
+              
+                <p>AliPay</p>
+              
+            </div>
+          
+        </div>
+      
+      <div id="site-layer-welcome" style="display:none;"></div>
+    </div>
+  </div>
+</div>
+    
+
+<div class="bottom-bar">
+  <div class="bottom-bar-left">
+    <a href="/passages/e8-bf-99-e4-b8-80-e5-88-87-e9-83-bd-e5-a4-aa-e5-bf-ab-e4-ba-86/" data-enable="true">
+      <i class="fa fa-arrow-left"></i>
+    </a>
+    <a href="/passages/huawei-atlas200-e5-ad-a6-e4-b9-a0-e6-97-a5-e5-bf-97-ef-bc-88-e4-ba-8c-ef-bc-89mind-studio-e5-bc-80-e5-8f-91-e8-be-85-e5-8a-a9-e5-b7-a5-e5-85-b7-e7-9a-84-e4-bd-bf-e7-94-a8/" data-enable="true">
+      <i class="fa fa-arrow-right"></i>
+    </a>
+  </div>
+  <div class="bottom-bar-right">
+    <a href="javascript:void(0);" data-enable="true" id="site-toc-show-btn">
+      <i class="fa fa-bars"></i>
+    </a>
+    
+    <a href="javascript:void(0);" id="site-toggle-share-btn">
+      <i class="fa fa-share-alt"></i>
+    </a>
+    
+      <a href="javascript:void(0);" id="site-reward">
+        <i class="fa fa-thumbs-up"></i>
+      </a>
+    
+    <a href="javascript:void(0);" id="back-top-btn">
+      <i class="fa fa-chevron-up"></i>
+    </a>
+  </div>
+</div>
+    <div id="share-btn">
+  
+  
+  
+    <a id="share-btn-weibo" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-weibo"></i>
+    </a>
+  
+  
+    <a id="share-btn-qq" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-qq"></i>
+    </a>
+  
+  
+    <a id="share-btn-wechat" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-wechat"></i>
+    </a>
+  
+</div>
+    
+
+
+
+
+
+    
+  </body>
+</html>

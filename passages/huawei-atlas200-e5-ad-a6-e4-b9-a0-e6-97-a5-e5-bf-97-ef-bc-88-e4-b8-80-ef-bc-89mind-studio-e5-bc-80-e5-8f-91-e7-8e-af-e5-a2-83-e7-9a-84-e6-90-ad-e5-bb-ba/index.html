@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+  <meta charset="utf-8">
+  <meta name="author" content="MiMonarchRD" />
+  
+  
+  <title>HUAWEI Atlas200学习日志（一）Mind Studio开发环境的搭建 | Hexo</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="学习呦,AI,开发," />
+  
+
+  
+  <meta name="description" content="写点东西的地方">
+
+  
+
+  
+
+  
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+  
+
+  
+
+  
+
+  <script>
+  // theme-ad's config script
+  // it can be used in every script
+  
+  window.AD_CONFIG = {
+    leancloud: {"appid":"Hyq9wkH495DgNHWhDQCOfQSp-gzGzoHsz","appkey":"WaR7nrzhliHj9aVwdQzkdlGd","comment":false,"count":false},
+    welcome: {"enable":false,"interval":30},
+    start_time: "2019-04-10",
+    passwords: ["efe07af7441da2b69c4a41e42e73be4db47f66010a56900788a458354a7373ec", ],
+    is_post: true,
+    lock: false,
+    author: "MiMonarchRD",
+    share: {"twitter":false,"facebook":false,"weibo":true,"qq":true,"wechat":true},
+    mathjax: true,
+    page_type: "",
+    root: "/"
+  };
+</script>
+
+  
+<script src="/vendor/sha256.min.js"></script>
+<script src="/js/auth.js"></script>
+<script src="/js/index.js"></script>
+<script src="/vendor/qrcode.min.js"></script>
+
+
+  
+    <link rel="icon" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/touch-icon.png">
+  
+
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  
+<link rel="stylesheet" href="/css/index.css">
+<link rel="stylesheet" href="/styles/components/highlight/highlight.css">
+
+
+  
+<meta name="generator" content="Hexo 4.2.1"></head>
+  <body>
+    <header class="site-header">
+  <div class="site-header-brand">
+    
+      <span class="site-header-brand-title">
+        <a href="/">小Blogs</a>
+      </span>
+    
+    
+      <span class="site-header-brand-motto"> | Programing is an art form.</span>
+    
+  </div>
+  <div class="site-header-right">
+    <nav class="site-header-navigation">
+      
+        <a href="/" target="_self">首页</a>
+      
+        <a href="/archives/" target="_self">归档</a>
+      
+        <a href="/tags/" target="_self">标签</a>
+      
+        <a href="/categories/" target="_self">分类</a>
+      
+        <a href="/friends/" target="_self">友链</a>
+      
+        <a href="/about/" target="_self">关于</a>
+      
+    </nav>
+    <div class="site-header-btn">
+      
+        <a href="https://github.com/MIMONATCH/" target="_blank" id="site-github">
+          <i class="fa fa-github-alt"></i>
+        </a>
+      
+      <a href="javascript:void(0);" id="site-search">
+        <i class="fa fa-search"></i>
+      </a>
+      <a href="javascript:void(0);" id="site-nav-btn">
+        <i class="fa fa-ellipsis-v"></i>
+      </a>
+    </div>
+  </div>
+</header>
+<nav class="table-content" id="site-nav">
+  <div class="table-content-title">
+    <span>导航</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc">
+      
+        <li class="toc-item">
+          <a href="/" target="_self">
+            首页
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/archives/" target="_self">
+            归档
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/tags/" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/categories/" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/friends/" target="_self">
+            友链
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/about/" target="_self">
+            关于
+          </a>
+        </li>
+      
+    </ol>
+  </div>
+</nav>
+<div id="site-process"></div>
+    <main>
+      
+  <div class="passage">
+  <div class="passage-meta">
+    <span>
+      <i class="fa fa-calendar"></i>2019-06-02
+    </span>
+    
+      <span>
+        | <a href="/categories/%E5%AD%A6%E4%B9%A0%E5%91%A6/"><i class="fa fa-bookmark"></i>学习呦</a>
+      </span>
+    
+    
+      <span>
+        | <i class="fa fa-unlock-alt"></i>UNLOCK
+      </span>
+    
+  </div>
+  <h1 class="passage-title">
+    HUAWEI Atlas200学习日志（一）Mind Studio开发环境的搭建
+  </h1>
+  
+  <article class="passage-article">
+    <p>华为Atlas开发者套件 Atlas 200 Developer Kit（缩写：Atlas 200 DK ）是以海思Ascend 310芯片为核心的一个开发者板形态产品，主要功能是将Ascend 310芯片的核心功能通过该板上的外围接口开放出来，方便用户快速简捷的接入并使用Ascend 310芯片强大的处理能力。</p>
+<p>Atlas DK配备一个核心系统模块Atlas 200模块，通过高速连接器将Ascend 310的主要业务接口通过底板扩展出来。</p>
+<p>可以运用于平安城市、无人机、机器人、视频服务器、闸机等众多领域。—<em><a href="https://www.huawei.com/minisite/ascend/cn/about.html" target="_blank" rel="noopener">来自官网简介</a></em></p>
+<p><strong>开发环境搭建：</strong></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-1.png" alt=""></p>
+<p>官方文档的AI开发流程的一部分</p>
+<p>开发环境是基于Ubuntu16.04的，所以要干什么应该很清楚（必须是16.04）</p>
+<p>不需要clone整个仓库，只需要其中一个版本的工具就行</p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-2-1024x304.png" alt=""></p>
+<p>下载的工具是B750SP05</p>
+<p>之后就是在Ubuntu下安装Mine Studio</p>
+<p>安装可以通过_<a href="https://www.huawei.com/minisite/ascend/pdf/03%20Ascend%20310%20Mind%20Studio%20%E5%AE%89%E8%A3%85.pdf" target="_blank" rel="noopener">官方的文档</a>_，官方提供了两种安装的方式。引导式安装和手动安装，我用的是引导式安装</p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-3.png" alt=""></p>
+<p>按照引导的流程走</p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-4.png" alt=""></p>
+<p>可以看到安装就成功了，直接在浏览器里面IP:Port来访问</p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-5-1024x576.png" alt=""></p>
+<p>Mine Studio还有profile没截图</p>
+<p><strong>然后是Atlas200和Mine Studio的连接</strong></p>
+<p>_<a href="https://www.huawei.com/minisite/ascend/pdf/04%20Ascend%20310%20Atlas%20200%20DK%20%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97.pdf" target="_blank" rel="noopener">官方的文档</a>_提供了两种连接的方式（网线和usb）</p>
+<p>我采用的是usb的方式连接Atlas200</p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-9.png" alt=""></p>
+<p><em>USB</em> Type-<em>C</em> （type-c接口连接到电脑）</p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-6.png" alt=""></p>
+<p>这是连接好后的usb网卡</p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-7.png" alt=""></p>
+<p>这个是usb网卡的配置</p>
+<p>之后是制作UI Host交叉编译环境（如果用了制卡工具直接通过搭建的环境制作了Atlas的系统就不用后面这一步了）</p>
+<p>从官方的tools仓库下载交叉编译环境的python文件</p>
+<p>安装完成后就是在Mine Studio中添加Atlas200</p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-8.png" alt=""></p>
+<p>通过usb进行通讯</p>
+<p>后续还可以配置openpgp公钥和完成验证软件的完整性工作。</p>
+<p><strong>总结</strong>：官方的文档非常的详细，虽然整个社区不大，资源不多。但是华为的官方资料感觉就能够完成基础的操作。</p>
+
+  </article>
+  <aside class="table-content" id="site-toc">
+  <div class="table-content-title">
+    <i class="fa fa-arrow-right fa-lg" id="site-toc-hide-btn"></i>
+    <span>目录</span>
+  </div>
+  <div class="table-content-main">
+    
+  </div>
+</aside>
+  
+  
+    <div class="passage-tags">
+     
+      <a href="/tags/AI/"><i class="fa fa-tags"></i>AI</a>
+     
+      <a href="/tags/%E5%BC%80%E5%8F%91/"><i class="fa fa-tags"></i>开发</a>
+    
+    </div>
+  
+</div>
+
+    </main>
+    
+    <div class="site-footer-wrapper">
+  <footer class="site-footer">
+    
+      
+        <div class="site-footer-col">
+          <h5 class="site-footer-title">博客推荐</h5>
+          
+            <span class="site-footer-item">
+              <a href="http://yuyy.info/" target="_blank">YuYY</a>
+            </span>
+          
+        </div>
+      
+    
+    <div class="site-footer-info">
+      <i class="fa fa-clock-o"></i> 本站已稳定运行<span id="site-time"></span>
+    </div>
+    
+    
+      <div class="site-footer-info">
+        <i class="fa fa-at"></i> Email: huzi19980410@gmail.com
+      </div>
+    
+    <div class="site-footer-info">
+      <i class="fa fa-copyright"></i> 
+      2019 <a href="https://github.com/dongyuanxin/theme-ad/" target="_blank">Theme-AD</a>.
+      Created by <a href="https://godbmw.com/" target="_blank">GodBMW</a>.
+      All rights reserved.
+    </div>
+  </footer>
+</div>
+    <div id="site-layer" style="display:none;">
+  <div class="site-layer-content">
+    <div class="site-layer-header">
+      <span class="site-layer-header-title" id="site-layer-title"></span>
+      <i class="fa fa-close" id="site-layer-close"></i>
+    </div>
+    <div class="site-layer-body" id="site-layer-container">
+      <div class="site-layer-input" id="site-layer-search" style="display: none;">
+        <div class="site-layer-input-choose">
+          <a href="javascript:void(0);" title="Change Search Engine">Google</a>
+        </div>
+        <input type="text">
+        <i class="fa fa-search"></i>
+      </div>
+      
+        <div class="site-layer-reward" id="site-layer-reward" style="display: none;">
+          
+            <div>
+              <img src="/images/wechat.png" alt="WeChat">
+              
+                <p>WeChat</p>
+              
+            </div>
+          
+            <div>
+              <img src="/images/alipay.png" alt="AliPay">
+              
+                <p>AliPay</p>
+              
+            </div>
+          
+        </div>
+      
+      <div id="site-layer-welcome" style="display:none;"></div>
+    </div>
+  </div>
+</div>
+    
+
+<div class="bottom-bar">
+  <div class="bottom-bar-left">
+    <a href="/passages/huawei-atlas200-e5-ad-a6-e4-b9-a0-e6-97-a5-e5-bf-97-ef-bc-88-e4-ba-8c-ef-bc-89mind-studio-e5-bc-80-e5-8f-91-e8-be-85-e5-8a-a9-e5-b7-a5-e5-85-b7-e7-9a-84-e4-bd-bf-e7-94-a8/" data-enable="true">
+      <i class="fa fa-arrow-left"></i>
+    </a>
+    <a href="/passages/e5-a7-a5-e5-a7-a5-e5-85-ab-e5-8d-81-e5-a4-a7-e5-af-bf-e7-a5-9d-e5-af-bf-e8-af-8d/" data-enable="true">
+      <i class="fa fa-arrow-right"></i>
+    </a>
+  </div>
+  <div class="bottom-bar-right">
+    <a href="javascript:void(0);" data-enable="true" id="site-toc-show-btn">
+      <i class="fa fa-bars"></i>
+    </a>
+    
+    <a href="javascript:void(0);" id="site-toggle-share-btn">
+      <i class="fa fa-share-alt"></i>
+    </a>
+    
+      <a href="javascript:void(0);" id="site-reward">
+        <i class="fa fa-thumbs-up"></i>
+      </a>
+    
+    <a href="javascript:void(0);" id="back-top-btn">
+      <i class="fa fa-chevron-up"></i>
+    </a>
+  </div>
+</div>
+    <div id="share-btn">
+  
+  
+  
+    <a id="share-btn-weibo" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-weibo"></i>
+    </a>
+  
+  
+    <a id="share-btn-qq" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-qq"></i>
+    </a>
+  
+  
+    <a id="share-btn-wechat" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-wechat"></i>
+    </a>
+  
+</div>
+    
+
+
+
+
+
+    
+  </body>
+</html>

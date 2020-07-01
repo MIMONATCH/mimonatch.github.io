@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+  <meta charset="utf-8">
+  <meta name="author" content="MiMonarchRD" />
+  
+  
+  <title>HUAWEI ATLAS200学习日志（二）Mind Studio开发辅助工具的使用 | Hexo</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="学习呦,AI,嵌入式,学习," />
+  
+
+  
+  <meta name="description" content="写点东西的地方">
+
+  
+
+  
+
+  
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+  
+
+  
+
+  
+
+  <script>
+  // theme-ad's config script
+  // it can be used in every script
+  
+  window.AD_CONFIG = {
+    leancloud: {"appid":"Hyq9wkH495DgNHWhDQCOfQSp-gzGzoHsz","appkey":"WaR7nrzhliHj9aVwdQzkdlGd","comment":false,"count":false},
+    welcome: {"enable":false,"interval":30},
+    start_time: "2019-04-10",
+    passwords: ["efe07af7441da2b69c4a41e42e73be4db47f66010a56900788a458354a7373ec", ],
+    is_post: true,
+    lock: false,
+    author: "MiMonarchRD",
+    share: {"twitter":false,"facebook":false,"weibo":true,"qq":true,"wechat":true},
+    mathjax: true,
+    page_type: "",
+    root: "/"
+  };
+</script>
+
+  
+<script src="/vendor/sha256.min.js"></script>
+<script src="/js/auth.js"></script>
+<script src="/js/index.js"></script>
+<script src="/vendor/qrcode.min.js"></script>
+
+
+  
+    <link rel="icon" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/touch-icon.png">
+  
+
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  
+<link rel="stylesheet" href="/css/index.css">
+<link rel="stylesheet" href="/styles/components/highlight/highlight.css">
+
+
+  
+<meta name="generator" content="Hexo 4.2.1"></head>
+  <body>
+    <header class="site-header">
+  <div class="site-header-brand">
+    
+      <span class="site-header-brand-title">
+        <a href="/">小Blogs</a>
+      </span>
+    
+    
+      <span class="site-header-brand-motto"> | Programing is an art form.</span>
+    
+  </div>
+  <div class="site-header-right">
+    <nav class="site-header-navigation">
+      
+        <a href="/" target="_self">首页</a>
+      
+        <a href="/archives/" target="_self">归档</a>
+      
+        <a href="/tags/" target="_self">标签</a>
+      
+        <a href="/categories/" target="_self">分类</a>
+      
+        <a href="/friends/" target="_self">友链</a>
+      
+        <a href="/about/" target="_self">关于</a>
+      
+    </nav>
+    <div class="site-header-btn">
+      
+        <a href="https://github.com/MIMONATCH/" target="_blank" id="site-github">
+          <i class="fa fa-github-alt"></i>
+        </a>
+      
+      <a href="javascript:void(0);" id="site-search">
+        <i class="fa fa-search"></i>
+      </a>
+      <a href="javascript:void(0);" id="site-nav-btn">
+        <i class="fa fa-ellipsis-v"></i>
+      </a>
+    </div>
+  </div>
+</header>
+<nav class="table-content" id="site-nav">
+  <div class="table-content-title">
+    <span>导航</span>
+  </div>
+  <div class="table-content-main">
+    <ol class="toc">
+      
+        <li class="toc-item">
+          <a href="/" target="_self">
+            首页
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/archives/" target="_self">
+            归档
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/tags/" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/categories/" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/friends/" target="_self">
+            友链
+          </a>
+        </li>
+      
+        <li class="toc-item">
+          <a href="/about/" target="_self">
+            关于
+          </a>
+        </li>
+      
+    </ol>
+  </div>
+</nav>
+<div id="site-process"></div>
+    <main>
+      
+  <div class="passage">
+  <div class="passage-meta">
+    <span>
+      <i class="fa fa-calendar"></i>2019-06-04
+    </span>
+    
+      <span>
+        | <a href="/categories/%E5%AD%A6%E4%B9%A0%E5%91%A6/"><i class="fa fa-bookmark"></i>学习呦</a>
+      </span>
+    
+    
+      <span>
+        | <i class="fa fa-unlock-alt"></i>UNLOCK
+      </span>
+    
+  </div>
+  <h1 class="passage-title">
+    HUAWEI ATLAS200学习日志（二）Mind Studio开发辅助工具的使用
+  </h1>
+  
+  <article class="passage-article">
+    <p>在开发的过程中，Atlas200是黑盒，我们无法很好的了解程序的运行情况，Atlas200的性能情况以及发生异常后的捕获。所以需要用到相关的开发辅助工具帮助我们了解程序的执行状态</p>
+<p>Mind Studio中的性能数据包含时间片分析、指令数性能、内存性能指标、HCCS性能指标、FU性能指标、Task Scheduler性能指标、带宽性能指标、系统性能指标</p>
+<p>这么多的数据怎么显示查看呢？在Mind Studio中提供了三种工具（日志、profiling工具、还有黑匣子异常捕获，通过这三种工具查看。</p>
+<p><strong>日志：</strong></p>
+<p>日志主要用于记录系统的运行过程及异常信息，为快速定位系统运行中出现的问题及开发过程中程序调试问题提供详细信息。</p>
+<p>养成查看日志的良好习惯有助于直接定位问题（但往往很多人都忽视了）</p>
+<p>日志分成两种，一种是Deivce的log一种是Host的log。</p>
+<p>先来看device（对应文件/var/device-0*.log）主要是采集Control CPU上的日志</p>
+<p><strong>下面将演示如何查看日志</strong></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-11.png" alt=""></p>
+<p>点击连接配置图标（WiFi图标的位置）  </p>
+<p>和Atlas200成功建立连接之后会出现device和host两个日志文件</p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-12.png" alt=""></p>
+<p>可以点击左上角的设置，设置日志记录级别</p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-13-1024x234.png" alt=""></p>
+<p>可以在右上角设置是否自动刷新，也可以通过下拉框筛选日志</p>
+<p>之后是host（对应位置/var/host-0*.log）主要是用户态和内核态的日志</p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-14-1024x327.png" alt=""></p>
+<p>和查看device日志一样的操作</p>
+<p>下面是日志文件中各个字段的说明：</p>
+<p>Type：日志级别</p>
+<p>Time：日志生成的时间戳</p>
+<p>Module：上报日志的模块名</p>
+<p>Content： 日志内容，如果需要查看日志信息的上下文内容，可双击该列下的日志<br>信息，在系统显示的页面中查看日志信息的上下文内容。若Time列内容为空，则<br>无法查看对应日志信息的上下文内容。</p>
+<p>PID：上报日志的进程号</p>
+<p>PName：上报日志的进程名</p>
+<p>SubModule：上报日志的子模块名</p>
+<p><strong>日志的导出和上传：</strong></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-15.png" alt=""></p>
+<p>日志同样也可以导出</p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-16.png" alt=""></p>
+<p>还可以选择上传日志</p>
+<p><strong>系统化性能分析工具Profiling</strong></p>
+<p>Profiling可以实现硬件和软件的性能数据的采集、分析、汇总展示</p>
+<p>能够采集的数据分成硬件和软件部分</p>
+<p>硬件：Control CPU上的PMU事件、Task Schedule CPU上的PMU事件、AI CPU上的PMU事件、外围设备的性能数据等。</p>
+<p>软件：HIAI Engine、OME、RTS等模块的性能数据</p>
+<p><strong>下面演示如何使用图像化展示Profiling采集的数据</strong></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-17.png" alt=""></p>
+<p>点击在.mind文件中的流程编排工具栏中的Profiling按钮</p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-18.png" alt=""></p>
+<p>硬件数据采集配置界面和软件数据采集配置界面</p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-19.png" alt=""></p>
+<p>硬件配置参数说明-Part1</p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-20.png" alt=""></p>
+<p>硬件配置参数说明-Part2</p>
+<p>上图是硬件配置界面参数说明</p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-21.png" alt=""></p>
+<p>软件配置参数说明</p>
+<p>上图是软件配置参数说明</p>
+<p>之后点击start按钮开始自动采集性能数据</p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-22.png" alt=""></p>
+<p>当红色框标出的两条消息日志中间没有错误表示采集成功</p>
+<p><strong>展示性能数据：</strong></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-23.png" alt=""></p>
+<p>节点右键点击Profiling Result直接可以跳转到msvp性能数据展示的页面</p>
+<p>下面对性能分析的各部分数据进行一个说明</p>
+<p>summary分析：（下面的数据是真实采集的数据）</p>
+<p>对采集的性能数据以表格的形式进行汇总呈现，其中包括很多部分采集的数据接下来一一说明</p>
+<p>Collection Info：呈现本次性能数据采集的起止时间及本次采集的性能数据大小</p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-24.png" alt=""></p>
+<p>Host Info：呈现本次性能数据采集的Host侧基本信息，包括Host侧的操作系统和<br>CPU信息。在开发者板形态，由于Host和Device皆位于miniRC上，所以此处采集<br>到的数据即为miniRC的基本信息</p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-25.png" alt=""></p>
+<p>Atlas200 8核可还行</p>
+<p>Device：呈现本次性能数据采集的Device侧信息</p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-26.png" alt=""></p>
+<p>NPU（嵌入式神经网络处理器，华为手机上的寒武纪就是NPU）</p>
+<p>HiAi引擎的相关信息：显示每个Engine运行的起止时间</p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-27-1024x385.png" alt=""></p>
+<p>OME信息：模型的数据输入、推理、数据输出耗时；每个op运行的详细信<br>息，包括op name、op type、运行时间和内存使用情况等</p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-28-1024x359.png" alt=""></p>
+<p>Control CPU信息：</p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-29-1024x322.png" alt=""></p>
+<p>Control CPU使用量相关信息</p>
+<p>TS CPU信息：</p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-30-1024x287.png" alt=""></p>
+<p>AI CPU 信息：</p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-31-1024x305.png" alt=""></p>
+<p>AI CPU使用量截图</p>
+<p>AI Core信息：显示采集AI Core PMU事件计算出的指标数据以及AI Core状态<br>信息</p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-32-1024x384.png" alt=""></p>
+<p>Peripherals信息（外围设备信息）：</p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-33-1024x254.png" alt=""></p>
+<p>上下行数据：</p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-34-1024x181.png" alt=""></p>
+<p><strong>Timeline时间线分析：</strong></p>
+<p>HiAI Engine：每个Engine运行的起止时间</p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-36-1024x193.png" alt=""></p>
+<p>每个引擎的运行时间都很明确</p>
+<p>RTS分析：</p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-37-1024x387.png" alt=""></p>
+<p>其中有<br>Thread：每个线程调用runtime API的时序信息<br>compute：AI Core上kernel函数的运行时序信息，单击每个kernel函数运行的矩<br>形，可以显示kernel函数运行的起止时间和task-based模式采集的AI Core PMU<br>值<br>Streams：Stream内的task运行时序信息，包括流间同步信息</p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-38-1024x378.png" alt=""></p>
+<p>Scheduling：Task Scheduler调度的task的运行时序信息</p>
+<p>OME信息：每个op运行的起止时间和相关信息</p>
+<p><strong>黑匣子异常获取工具：</strong></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-40.png" alt=""></p>
+<p>在tool选项卡下</p>
+<p>可以获取最新的异常信息、全部的异常信息、还有可以获得n条异常信息</p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-41.png" alt=""></p>
+<p>显示没有异常（等有异常再更新下）</p>
+<p><strong>总结：</strong></p>
+<p>Mind Studio的性能分析工具异常的强大，灵活性很高，并且易于使用。有友好的UI界面，并且设计的监控数据足够的多且详细（官方文档只是针对了一部分数据采集字段的说明，其他也没说，网上也查不到太多资料。）用性能分析工具能够很好的得出卡发板功耗性能等数据，有助于做算法的优化。</p>
+
+  </article>
+  <aside class="table-content" id="site-toc">
+  <div class="table-content-title">
+    <i class="fa fa-arrow-right fa-lg" id="site-toc-hide-btn"></i>
+    <span>目录</span>
+  </div>
+  <div class="table-content-main">
+    
+  </div>
+</aside>
+  
+  
+    <div class="passage-tags">
+     
+      <a href="/tags/AI/"><i class="fa fa-tags"></i>AI</a>
+     
+      <a href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/"><i class="fa fa-tags"></i>嵌入式</a>
+     
+      <a href="/tags/%E5%AD%A6%E4%B9%A0/"><i class="fa fa-tags"></i>学习</a>
+    
+    </div>
+  
+</div>
+
+    </main>
+    
+    <div class="site-footer-wrapper">
+  <footer class="site-footer">
+    
+      
+        <div class="site-footer-col">
+          <h5 class="site-footer-title">博客推荐</h5>
+          
+            <span class="site-footer-item">
+              <a href="http://yuyy.info/" target="_blank">YuYY</a>
+            </span>
+          
+        </div>
+      
+    
+    <div class="site-footer-info">
+      <i class="fa fa-clock-o"></i> 本站已稳定运行<span id="site-time"></span>
+    </div>
+    
+    
+      <div class="site-footer-info">
+        <i class="fa fa-at"></i> Email: huzi19980410@gmail.com
+      </div>
+    
+    <div class="site-footer-info">
+      <i class="fa fa-copyright"></i> 
+      2019 <a href="https://github.com/dongyuanxin/theme-ad/" target="_blank">Theme-AD</a>.
+      Created by <a href="https://godbmw.com/" target="_blank">GodBMW</a>.
+      All rights reserved.
+    </div>
+  </footer>
+</div>
+    <div id="site-layer" style="display:none;">
+  <div class="site-layer-content">
+    <div class="site-layer-header">
+      <span class="site-layer-header-title" id="site-layer-title"></span>
+      <i class="fa fa-close" id="site-layer-close"></i>
+    </div>
+    <div class="site-layer-body" id="site-layer-container">
+      <div class="site-layer-input" id="site-layer-search" style="display: none;">
+        <div class="site-layer-input-choose">
+          <a href="javascript:void(0);" title="Change Search Engine">Google</a>
+        </div>
+        <input type="text">
+        <i class="fa fa-search"></i>
+      </div>
+      
+        <div class="site-layer-reward" id="site-layer-reward" style="display: none;">
+          
+            <div>
+              <img src="/images/wechat.png" alt="WeChat">
+              
+                <p>WeChat</p>
+              
+            </div>
+          
+            <div>
+              <img src="/images/alipay.png" alt="AliPay">
+              
+                <p>AliPay</p>
+              
+            </div>
+          
+        </div>
+      
+      <div id="site-layer-welcome" style="display:none;"></div>
+    </div>
+  </div>
+</div>
+    
+
+<div class="bottom-bar">
+  <div class="bottom-bar-left">
+    <a href="/passages/huawei-atlas200-e5-ad-a6-e4-b9-a0-e6-97-a5-e5-bf-97-ef-bc-88-e4-b8-89-ef-bc-89-e4-ba-ba-e8-84-b8-e8-af-86-e5-88-ab-e5-ae-9e-e4-be-8b/" data-enable="true">
+      <i class="fa fa-arrow-left"></i>
+    </a>
+    <a href="/passages/huawei-atlas200-e5-ad-a6-e4-b9-a0-e6-97-a5-e5-bf-97-ef-bc-88-e4-b8-80-ef-bc-89mind-studio-e5-bc-80-e5-8f-91-e7-8e-af-e5-a2-83-e7-9a-84-e6-90-ad-e5-bb-ba/" data-enable="true">
+      <i class="fa fa-arrow-right"></i>
+    </a>
+  </div>
+  <div class="bottom-bar-right">
+    <a href="javascript:void(0);" data-enable="true" id="site-toc-show-btn">
+      <i class="fa fa-bars"></i>
+    </a>
+    
+    <a href="javascript:void(0);" id="site-toggle-share-btn">
+      <i class="fa fa-share-alt"></i>
+    </a>
+    
+      <a href="javascript:void(0);" id="site-reward">
+        <i class="fa fa-thumbs-up"></i>
+      </a>
+    
+    <a href="javascript:void(0);" id="back-top-btn">
+      <i class="fa fa-chevron-up"></i>
+    </a>
+  </div>
+</div>
+    <div id="share-btn">
+  
+  
+  
+    <a id="share-btn-weibo" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-weibo"></i>
+    </a>
+  
+  
+    <a id="share-btn-qq" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-qq"></i>
+    </a>
+  
+  
+    <a id="share-btn-wechat" href="javascript:void(0);" target="_blank">
+      <i class="fa fa-wechat"></i>
+    </a>
+  
+</div>
+    
+
+
+
+
+
+    
+  </body>
+</html>
