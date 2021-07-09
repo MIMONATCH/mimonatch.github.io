@@ -42,22 +42,18 @@
   
 <link rel="stylesheet" href="/css/style.css">
 
-<meta name="generator" content="Hexo 4.2.1"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 <body>
   <div id="container">
     <div id="wrap">
       <header id="header">
-  <a href="https://www.pixiv.net/artworks/90437941" target="_blank" rel="noopener"><div id="banner"></div></a>
+  <a target="_blank" rel="noopener" href="https://www.pixiv.net/artworks/90437941"><div id="banner"></div></a>
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
         <a href="/" id="logo">集合</a>
       </h1>
-      
-        <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">万物终归一站</a>
-        </h2>
       
     </div>
     <div id="header-inner" class="inner">
@@ -110,35 +106,35 @@
       
         <p>华为Atlas开发者套件 Atlas 200 Developer Kit（缩写：Atlas 200 DK ）是以海思Ascend 310芯片为核心的一个开发者板形态产品，主要功能是将Ascend 310芯片的核心功能通过该板上的外围接口开放出来，方便用户快速简捷的接入并使用Ascend 310芯片强大的处理能力。</p>
 <p>Atlas DK配备一个核心系统模块Atlas 200模块，通过高速连接器将Ascend 310的主要业务接口通过底板扩展出来。</p>
-<p>可以运用于平安城市、无人机、机器人、视频服务器、闸机等众多领域。—<em><a href="https://www.huawei.com/minisite/ascend/cn/about.html" target="_blank" rel="noopener">来自官网简介</a></em></p>
+<p>可以运用于平安城市、无人机、机器人、视频服务器、闸机等众多领域。—<em><a target="_blank" rel="noopener" href="https://www.huawei.com/minisite/ascend/cn/about.html">来自官网简介</a></em></p>
 <p><strong>开发环境搭建：</strong></p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-1.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-1.png"></p>
 <p>官方文档的AI开发流程的一部分</p>
 <p>开发环境是基于Ubuntu16.04的，所以要干什么应该很清楚（必须是16.04）</p>
 <p>不需要clone整个仓库，只需要其中一个版本的工具就行</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-2-1024x304.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-2-1024x304.png"></p>
 <p>下载的工具是B750SP05</p>
 <p>之后就是在Ubuntu下安装Mine Studio</p>
-<p>安装可以通过_<a href="https://www.huawei.com/minisite/ascend/pdf/03%20Ascend%20310%20Mind%20Studio%20%E5%AE%89%E8%A3%85.pdf" target="_blank" rel="noopener">官方的文档</a>_，官方提供了两种安装的方式。引导式安装和手动安装，我用的是引导式安装</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-3.png" alt=""></p>
+<p>安装可以通过_<a target="_blank" rel="noopener" href="https://www.huawei.com/minisite/ascend/pdf/03%20Ascend%20310%20Mind%20Studio%20%E5%AE%89%E8%A3%85.pdf">官方的文档</a>_，官方提供了两种安装的方式。引导式安装和手动安装，我用的是引导式安装</p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-3.png"></p>
 <p>按照引导的流程走</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-4.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-4.png"></p>
 <p>可以看到安装就成功了，直接在浏览器里面IP:Port来访问</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-5-1024x576.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-5-1024x576.png"></p>
 <p>Mine Studio还有profile没截图</p>
 <p><strong>然后是Atlas200和Mine Studio的连接</strong></p>
-<p>_<a href="https://www.huawei.com/minisite/ascend/pdf/04%20Ascend%20310%20Atlas%20200%20DK%20%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97.pdf" target="_blank" rel="noopener">官方的文档</a>_提供了两种连接的方式（网线和usb）</p>
+<p>_<a target="_blank" rel="noopener" href="https://www.huawei.com/minisite/ascend/pdf/04%20Ascend%20310%20Atlas%20200%20DK%20%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97.pdf">官方的文档</a>_提供了两种连接的方式（网线和usb）</p>
 <p>我采用的是usb的方式连接Atlas200</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-9.png" alt=""></p>
-<p><em>USB</em> Type-<em>C</em> （type-c接口连接到电脑）</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-6.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-9.png"></p>
+<p><em>USB</em> Type-<em>C</em> （type-c接口连接到电脑）</p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-6.png"></p>
 <p>这是连接好后的usb网卡</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-7.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-7.png"></p>
 <p>这个是usb网卡的配置</p>
 <p>之后是制作UI Host交叉编译环境（如果用了制卡工具直接通过搭建的环境制作了Atlas的系统就不用后面这一步了）</p>
 <p>从官方的tools仓库下载交叉编译环境的python文件</p>
 <p>安装完成后就是在Mine Studio中添加Atlas200</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-8.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-8.png"></p>
 <p>通过usb进行通讯</p>
 <p>后续还可以配置openpgp公钥和完成验证软件的完整性工作。</p>
 <p><strong>总结</strong>：官方的文档非常的详细，虽然整个社区不大，资源不多。但是华为的官方资料感觉就能够完成基础的操作。</p>
@@ -146,7 +142,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://mimonatch.github.io/passages/huawei-atlas200-e5-ad-a6-e4-b9-a0-e6-97-a5-e5-bf-97-ef-bc-88-e4-b8-80-ef-bc-89mind-studio-e5-bc-80-e5-8f-91-e7-8e-af-e5-a2-83-e7-9a-84-e6-90-ad-e5-bb-ba/" data-id="ckqv2rh0o0021esvs8sancysa" class="article-share-link">Share</a>
+      <a data-url="http://mimonatch.github.io/passages/huawei-atlas200-e5-ad-a6-e4-b9-a0-e6-97-a5-e5-bf-97-ef-bc-88-e4-b8-80-ef-bc-89mind-studio-e5-bc-80-e5-8f-91-e7-8e-af-e5-a2-83-e7-9a-84-e6-90-ad-e5-bb-ba/" data-id="ckqvbhfux000xbwvs8ep3c7mv" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI/" rel="tag">AI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BC%80%E5%8F%91/" rel="tag">开发</a></li></ul>

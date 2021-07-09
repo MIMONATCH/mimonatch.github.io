@@ -29,22 +29,18 @@
   
 <link rel="stylesheet" href="/css/style.css">
 
-<meta name="generator" content="Hexo 4.2.1"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 <body>
   <div id="container">
     <div id="wrap">
       <header id="header">
-  <a href="https://www.pixiv.net/artworks/90437941" target="_blank" rel="noopener"><div id="banner"></div></a>
+  <a target="_blank" rel="noopener" href="https://www.pixiv.net/artworks/90437941"><div id="banner"></div></a>
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
         <a href="/" id="logo">集合</a>
       </h1>
-      
-        <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">万物终归一站</a>
-        </h2>
       
     </div>
     <div id="header-inner" class="inner">
@@ -103,15 +99,15 @@
 <p>Hexo简洁，用的nodejs。从建站到部署只需要几分钟的时间。相较于Wordpress，Hexo不需要数据库的支持，这一点我认为是他快速简洁的最大的原因。通过将MarkDown文件转换成为html文件之后上传到GitHub并且部署到GitHub page或其他仓库。以至于从写文章到发布文章不需要将写好的文章存储到数据库中。多数的个人博客的组合就是Hexo+Github Page</p>
 <p>其他的博客我不太熟悉喽，烦请各位自己去查一查原理吧。</p>
 <p>简要说了两种博客的优缺点，接下来就是抉择的时候了。我的树莓派是3B+，通过SD卡的方式存储，非eMMc等现在高级的Linux开发板。待机功耗基本在5W左右，处理1080p视频能力很弱（树莓派的GPU就不是为了处理视频而生，当然，博客不需要太考虑这一点，除非是现在的视频媒体）树莓派3B+支持无线和以太网，多少数据大家看下图吧。</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/6808e739b6003af350d3bcb33b2ac65c1238b6d7.png" alt=""></p>
-<p>图片<a href="http://tieba.baidu.com/photo/p?kw=%E6%A0%91%E8%8E%93%E6%B4%BE&ie=utf-8&flux=1&tid=6211096781&pic_id=6808e739b6003af350d3bcb33b2ac65c1238b6d7&pn=1&fp=2&see_lz=0" target="_blank" rel="noopener">来源</a></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/6808e739b6003af350d3bcb33b2ac65c1238b6d7.png"></p>
+<p>图片<a target="_blank" rel="noopener" href="http://tieba.baidu.com/photo/p?kw=%E6%A0%91%E8%8E%93%E6%B4%BE&ie=utf-8&flux=1&tid=6211096781&pic_id=6808e739b6003af350d3bcb33b2ac65c1238b6d7&pn=1&fp=2&see_lz=0">来源</a></p>
 <p>看到这儿是不是觉得树莓派真的不行？其实，我这里的用途不是针对树莓派的优点所应用的，树莓派有40帧GPIO，而且支持很多OS，Ubuntu，raspberry官方系统，win10IoT等。做很多的物联网设备还是很在行的，自动投食，机械臂，电报机等等。</p>
 <p>(⊙﹏⊙)呃……说了这么多的话也是让大家了解下树莓派做博客的一些弊端。各大网站上还有很多的Linux的开发板，自己搜一搜，对比下，有的可以直接装64位Linux也是很不错的。</p>
 <p>这次的博客我就用树莓派3B+和wordpress的组合，wordpress简单。等以后的阿里云ECS到期了就转战到Hexo！</p>
 <p><strong>环境准备：</strong></p>
 <p>wordpress是php写的，所以php的环境就必不可少了。</p>
-<p>制卡和上电以及配置树莓派WiFi或者网络的步骤烦请大家移步去我的<a href="https://www.xiaoblogs.cn/?p=185" target="_blank" rel="noopener">另一篇博客</a>吧。我的镜像是2019.9月的镜像。</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-8.png" alt=""></p>
+<p>制卡和上电以及配置树莓派WiFi或者网络的步骤烦请大家移步去我的<a target="_blank" rel="noopener" href="https://www.xiaoblogs.cn/?p=185">另一篇博客</a>吧。我的镜像是2019.9月的镜像。</p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-8.png"></p>
 <p>我是无线网卡连接</p>
 <p>通过shell软件连接到树莓派上（我用的是SecureCRT）</p>
 <p>1、首先安装php</p>
@@ -119,69 +115,89 @@
 <pre><code>sudo apt-get update
 sudo apt-get install php7.3 php7.3-fpm php7.3-mysql php7.3-common
 sudo apt-get install default-mysql-server
-sudo apt-get install nginx apache2</code></pre><p>php，mysql，nginx就都安装好了。方便快捷，甚至还可以通过下载lnmp一键安装包（<a href="https://lnmp.org/" target="_blank" rel="noopener">点我去官网</a>）</p>
+sudo apt-get install nginx apache2
+</code></pre>
+<p>php，mysql，nginx就都安装好了。方便快捷，甚至还可以通过下载lnmp一键安装包（<a target="_blank" rel="noopener" href="https://lnmp.org/">点我去官网</a>）</p>
 <p>也可以下载源码自己编译</p>
 <p>我这里同时安装了nginx和apache，我的想法是nginx做静态文件的处理和调度（如果需要）apache2做动态文件的处理。</p>
 <p>根据我的思路，nginx处理外部访问博客的请求，静态文件（图片，css，html等就直接的处理之后返回给客户端，但是动态的文件，php就将请求转发给后面的apache2，通过apache2处理之后返回给客户端）</p>
 <p>一点一点来</p>
 <p>先配置下nginx的php解析处理</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-13.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-13.png"></p>
 <p>php7.3-fpm已经运行了</p>
 <p>打开nginx 的配置文件</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-14.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-14.png"></p>
 <p>位置在这里</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-15.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-15.png"></p>
 <p>配置虚拟服务器server的时候到site-enabled指定的文件夹中去</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-17.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-17.png"></p>
 <p>server块就是nginx里面的虚拟主机，可以配置多个虚拟主机，每一主机都可以处理不同的请求</p>
 <p>listen：监听端口</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-18.png" alt=""></p>
-<p>server_name：虚拟主机名，比如你的域名(我的域名：<a href="http://www.xiaoblogs.cn)通过这个名字可以让nginx知道要用你配置的哪个server块来处理" target="_blank" rel="noopener">www.xiaoblogs.cn)通过这个名字可以让nginx知道要用你配置的哪个server块来处理</a></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-18.png"></p>
+<p>server_name：虚拟主机名，比如你的域名(我的域名：<a target="_blank" rel="noopener" href="http://www.xiaoblogs.cn)通过这个名字可以让nginx知道要用你配置的哪个server块来处理/">www.xiaoblogs.cn)通过这个名字可以让nginx知道要用你配置的哪个server块来处理</a></p>
 <p>root：就是你配置的虚拟主机的目录</p>
 <p>index：访问的主页，可以是html也可以是动态文件php等</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-19.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-19.png"></p>
 <p>location：路径匹配部分。这里说的是匹配到你的服务器的根目录后的路径</p>
 <p>php的连接方式用的是通过sock通信，同样也可以通过cgi绑定一个单独的端口通信。</p>
 <p>在你配置的虚拟server的根目录建立一个.php的文件，之后填入</p>
 <pre><code>&lt;?php
     phpinfo();
-?&gt;</code></pre><p><strong>别忘记了，你的php文件以及存放的路径文件夹的权限都要是nginx能访问的www-data</strong></p>
+?&gt;
+</code></pre>
+<p><strong>别忘记了，你的php文件以及存放的路径文件夹的权限都要是nginx能访问的www-data</strong></p>
 <p>好了，测试一下吧</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/%E6%89%B9%E6%B3%A8-2020-01-15-095308-1024x522.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/%E6%89%B9%E6%B3%A8-2020-01-15-095308-1024x522.png"></p>
 <p>可以看到能够正确的访问到index.php并且也表明正确的解析了php文件<br><strong>注意哦，处理的服务器是nginx</strong></p>
 <p>接下来就是数据库了</p>
 <p>安装mysql上面已经安装完成了</p>
 <p>首先创建一个账户供wordpress使用，通过root用户添加一个用户</p>
 <p>但是默认的root密码要更改</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-22.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-22.png"></p>
 <p>通过切换到root用户之后就可以直接登录MySQL了，不需要进入无密码模式</p>
-<pre><code>mysql -u root</code></pre><p>之后更改root用户密码，毕竟总是用root用户直接登录MySQL不安全</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-23.png" alt=""></p>
+<pre><code>mysql -u root
+</code></pre>
+<p>之后更改root用户密码，毕竟总是用root用户直接登录MySQL不安全</p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-23.png"></p>
 <p>切换到mysql数据库，这个数据库中存放的是MySQL中的用户名密码权限等数据</p>
-<pre><code>update user set authentication_string=password(&quot;你的密码&quot;) where user=&quot;root&quot;;</code></pre><p>之后刷新下MySQL系统权限表</p>
-<pre><code>flush privileges;</code></pre><p>就OK了</p>
+<pre><code>update user set authentication_string=password(&quot;你的密码&quot;) where user=&quot;root&quot;;
+</code></pre>
+<p>之后刷新下MySQL系统权限表</p>
+<pre><code>flush privileges;
+</code></pre>
+<p>就OK了</p>
 <p>下一步是通过MySQL的root创建一个wordpress的数据库的用户和wordpress数据库，root用户给予这个新用户对wordpress数据库全部权限</p>
 <pre><code>create user wordpress@localhost identified by &quot;你的密码&quot;;
-create database 你的wordpress数据库;</code></pre><p>命令解释：</p>
+create database 你的wordpress数据库;
+</code></pre>
+<p>命令解释：</p>
 <p>CREATE USER ‘<strong>USERNAME</strong>‘@’<strong>HOST</strong>‘ IDENTIFIED BY ‘<strong>PASSWORD</strong>‘;</p>
 <p>给予权限</p>
-<pre><code>grant all privileges on 数据库.* to 用户@主机</code></pre><p>之后别忘了测试下</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-24.png" alt=""></p>
+<pre><code>grant all privileges on 数据库.* to 用户@主机
+</code></pre>
+<p>之后别忘了测试下</p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-24.png"></p>
 <p>可以进入就说明权限设置完毕啦</p>
 <p>好了，前置准备就完成了。接下来就是下载wordpress了。</p>
 <p>安装wordpress</p>
-<p><a href="https://wordpress.org/latest.tar.gz" target="_blank" rel="noopener">官网连接</a> &amp; <a href="http://seafile.xiaoblogs.cn:8000/f/ab50bbc1c7594974bdc8/" target="_blank" rel="noopener">我的私有云盘</a>（<strong>是5.3版本</strong>）</p>
+<p><a target="_blank" rel="noopener" href="https://wordpress.org/latest.tar.gz">官网连接</a> &amp; <a target="_blank" rel="noopener" href="http://seafile.xiaoblogs.cn:8000/f/ab50bbc1c7594974bdc8/">我的私有云盘</a>（<strong>是5.3版本</strong>）</p>
 <p>上传到你的树莓派的/var/www/目录下并解压（建议var这个目录下）</p>
-<pre><code>sudo tar -xvf /path/to/wordpress压缩包.tar.gz</code></pre><p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-25.png" alt=""></p>
+<pre><code>sudo tar -xvf /path/to/wordpress压缩包.tar.gz
+</code></pre>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-25.png"></p>
 <p>看wordpress目录的所属者和所属组</p>
 <p>先设置成nginx的用户所属</p>
-<pre><code>sudo chown -R www-data:www-data wordpress</code></pre><p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-26.png" alt=""></p>
+<pre><code>sudo chown -R www-data:www-data wordpress
+</code></pre>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-26.png"></p>
 <p>所有的wordpress文件</p>
 <p>首先要配置wordpress数据库，之后直接在浏览器访问安装的php文件就完了</p>
 <p>将wp-config-sample.php重新命名成 wp-config.php（建议复制一份留作备份文件）</p>
 <pre><code>备份：sudo cp wp-config-sample.php wp-config-sample.php.backup
-重命名： sudo mv wp-config-sample.php wp-config.php</code></pre><p>用文本编辑器打开编辑</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-27.png" alt=""></p>
+重命名： sudo mv wp-config-sample.php wp-config.php
+</code></pre>
+<p>用文本编辑器打开编辑</p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-27.png"></p>
 <p>这里就是数据库的配置部分</p>
 <p>现在的wordpress还可以配置cookie，有兴趣的小伙伴可以试一试</p>
 <p>从上到下为数据库名，数据库用户，数据库密码，数据库IP</p>
@@ -190,24 +206,26 @@ create database 你的wordpress数据库;</code></pre><p>命令解释：</p>
 <p>之后还要回到nginx中配置wordpress呢</p>
 <p>在nginx目录下的site-available目录下有一个default文件直接在里面配置wordpress的虚拟server</p>
 <p>配置的部分</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-29.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-29.png"></p>
 <p>端口</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-30.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-30.png"></p>
 <p>根目录</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-31.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-31.png"></p>
 <p>资源文件不可直接访问</p>
 <p>以及前面配置的php解析部分</p>
 <p>之后就是检查下配置文件有无错误之后平滑加载配置文件就行</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-32.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-32.png"></p>
 <pre><code>sudo nginx -t
-sudo nginx -s reload</code></pre><p>之后才到通过浏览器访问直接安装wordpress哦</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-33-1024x528.png" alt=""></p>
+sudo nginx -s reload
+</code></pre>
+<p>之后才到通过浏览器访问直接安装wordpress哦</p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-33-1024x528.png"></p>
 <p>看到这个是不是超级激动？</p>
-<p>访问的域名是 <a href="http://example.com/wp-admin/install.php" target="_blank" rel="noopener">http://example.com/wp-admin/install.php</a> 格式</p>
+<p>访问的域名是 <a target="_blank" rel="noopener" href="http://example.com/wp-admin/install.php">http://example.com/wp-admin/install.php</a> 格式</p>
 <p>好了，剩下就是注册用户、设置站点的一些信息了</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-34.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-34.png"></p>
 <p>官方文档的著名的5分钟安装</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-35-1024x549.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-35-1024x549.png"></p>
 <p>可以看到就完成了</p>
 <p><strong>总结一下吧</strong></p>
 <p>Wordpress作为最广泛著名的个人CMS，还是有其特点的。安装简单，操作便捷。可拓展性强。有的时候有一个自己的博客写一写技术性的文章或者是心情的随笔都是很不错的地方哎。</p>
@@ -216,7 +234,7 @@ sudo nginx -s reload</code></pre><p>之后才到通过浏览器访问直接安�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://mimonatch.github.io/passages/e6-a0-91-e8-8e-93-e6-b4-be-e7-9a-84-e6-96-b0-e6-97-a7-e7-8e-a9-e6-b3-95-e6-90-ad-e5-bb-ba-e8-87-aa-e5-b7-b1-e7-9a-84-e4-b8-aa-e4-ba-ba-e5-8d-9a-e5-ae-a2-e5-9f-ba-e7-a1-80-e7-af-87/" data-id="ckqv2rh0x002jesvshi82awdj" class="article-share-link">Share</a>
+      <a data-url="http://mimonatch.github.io/passages/e6-a0-91-e8-8e-93-e6-b4-be-e7-9a-84-e6-96-b0-e6-97-a7-e7-8e-a9-e6-b3-95-e6-90-ad-e5-bb-ba-e8-87-aa-e5-b7-b1-e7-9a-84-e4-b8-aa-e4-ba-ba-e5-8d-9a-e5-ae-a2-e5-9f-ba-e7-a1-80-e7-af-87/" data-id="ckqvbhfuo000gbwvs62m3c18g" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wordpress/" rel="tag">wordpress</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" rel="tag">个人博客</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BB%BA%E7%AB%99/" rel="tag">建站</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9C%89%E8%B6%A3/" rel="tag">有趣</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" rel="tag">树莓派</a></li></ul>
@@ -270,7 +288,7 @@ sudo nginx -s reload</code></pre><p>之后才到通过浏览器访问直接安�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://mimonatch.github.io/passages/e7-9c-9f-e5-97-a3-e5-bc-8f-e5-bf-83-e6-80-81/" data-id="ckqv2rh05000qesvsgqc83wvj" class="article-share-link">Share</a>
+      <a data-url="http://mimonatch.github.io/passages/e7-9c-9f-e5-97-a3-e5-bc-8f-e5-bf-83-e6-80-81/" data-id="ckqvbhfup000kbwvsaujd272i" class="article-share-link">Share</a>
       
       
     </footer>
@@ -307,7 +325,7 @@ sudo nginx -s reload</code></pre><p>之后才到通过浏览器访问直接安�
     <div class="article-entry" itemprop="articleBody">
       
         <p>有幸体验了SE的大作《八方旅人》，一款典型的JRPG。</p>
-<p><img src="http://static.xiaoblogs.cn/img/2018_07_18_aec8e5f0492247d78f49cdc3155c463e.jpeg" alt=""></p>
+<p><img src="http://static.xiaoblogs.cn/img/2018_07_18_aec8e5f0492247d78f49cdc3155c463e.jpeg"></p>
 <p>本来奔着随笔形式去写，但JRPG的体验仅有口袋妖怪和塞尔达。其实说来也属游戏评测。</p>
 <p>奥斯泰拉大陆上，有着八个性格迥异，背负着使命，怀揣着梦想的旅者。浪漫的旅者们各个武艺高强且有特殊能力，像是勾引诱惑别人和你一块走上“不归路”也有拿上权杖美其名曰“指引”别人和你踏上“不归之路”。8个人组成一个队伍倒是符合阵容搭配。</p>
 <p>8位旅人，男子仿若“ 宗之潇洒美少年，举觞白眼望青天，皎如玉树临风前 ”。女子更是“ 千秋无绝色，悦目是佳人”。</p>
@@ -315,9 +333,9 @@ sudo nginx -s reload</code></pre><p>之后才到通过浏览器访问直接安�
 <p>很丰富的设定，想体验什么人生故事都可以吧。 玩一些角色像读故事书。有的角色让你有使命感去保护，有的角色则是伤感惋惜最后的反转。</p>
 <p>最喜欢商人（特蕾莎）的设定。活泼可爱元气满满的姑娘，总能让人联想到一天之初的朝阳。</p>
 <p>场景交互方面这八个人可谓是“八仙过海，各显神通”。猎人骑士等可以和随便一个路人进行战斗，盗贼可以偷东西。偷东西有一个成功率嘛。有一次去特蕾莎（商人）家偷东西，发现成功率为0，不愧是大商人。这种小细节特别的有意思。舞女很美，可以勾引别人加入队伍（你懂得）</p>
-<p><img src="http://static.xiaoblogs.cn/img/H63d=nGqS3ECx5E8pX4UAOuDvcVAazUakf5cet2ntCSsa1531554990846compressflag.jpg" alt=""></p>
+<p><img src="http://static.xiaoblogs.cn/img/H63d=nGqS3ECx5E8pX4UAOuDvcVAazUakf5cet2ntCSsa1531554990846compressflag.jpg"></p>
 <p>插画是真的好看呀，但是官方的仅仅只有很少的插画，同人倒是不少吧</p>
-<p><img src="http://static.xiaoblogs.cn/img/cygW0c2Qky.gif" alt=""></p>
+<p><img src="http://static.xiaoblogs.cn/img/cygW0c2Qky.gif"></p>
 <p>整个游戏画面是8bit像素画的风格，通过一种摄影技巧“移轴镜摄影 ”将游戏变成了一个巨大的沙盘模型。</p>
 <p>游戏里的多个城市也是不同。其中的雪城——弗雷姆格雷斯， 雪花覆盖在高台上，洁白无瑕，像是刚刚建成的碧玉台。雪花裹缠在树技上，晶莹闪烁，似刚刚栽植的美玉树</p>
 <p>操作和游戏内的Boost和break的设定让你在战斗的时候也要考虑属性克制，如何合理用的BP点数。这些我就不过多说游戏内的玩法了，我接触的不多。不过效果和令人玩游戏的“爽感”可是有的，尤其是精打细算用BP对对面的BOSS进行了break，破甲后ding的声音是最好听的，让你还是有成就感的。</p>
@@ -326,7 +344,7 @@ sudo nginx -s reload</code></pre><p>之后才到通过浏览器访问直接安�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://mimonatch.github.io/passages/231/" data-id="ckqv2rgzv0005esvs51t0d6xu" class="article-share-link">Share</a>
+      <a data-url="http://mimonatch.github.io/passages/231/" data-id="ckqvbhfua0001bwvs70xj2pag" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%85%AB%E6%96%B9%E6%97%85%E4%BA%BA/" rel="tag">八方旅人</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%AD%A7%E9%80%94%E6%97%85%E4%BA%BA/" rel="tag">歧途旅人</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B8%B8%E6%88%8F/" rel="tag">游戏</a></li></ul>
@@ -367,71 +385,79 @@ sudo nginx -s reload</code></pre><p>之后才到通过浏览器访问直接安�
         <p>NAS-网络附属存储，就是把服务和存储分离开来，分别实现。说到这个，为什么搭建NAS呢，先说下家里的电子设备的环境，4台电脑，两个笔记本两个台式。之间传输资源数据都是靠移动硬盘什么的，自己的网盘seafile。很不方便。而且家里的媒体服务器没有，现在投屏看一看视频或者是一遍看视频一遍下载文件这样的形成了一种带宽的两极化，用的时候几乎占满带宽，不用的时候根本不占带宽。算是一种资源的浪费，也就让我萌生了自建NAS的想法。</p>
 <p>话不多说，现在就开始。</p>
 <p>NAS系统有很多，群晖、FreeNAS、NAS4FREE、还有我用的OpenMediaVault。选择OMV的原因是正好看见有树莓派的镜像，因为家里闲置的能长时间运行并且功耗小的也就树莓派了，虽然OMV官方都有“善意”提示</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/08/image-3.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/08/image-3.png"></p>
 <p>。。。</p>
 <p>不过，家里除了我们一家三口用一用应该就没别人用了，性能足够了。还有就是以前听过的FreeNas，没选它的原因就是人家只支持64位。。树莓派是arm-v7</p>
 <p>首先是去官网下载镜像，还有去找一个烧录镜像的工具</p>
-<p><a href="https://www.openmediavault.org/" target="_blank" rel="noopener">官网链接点这里</a>（建议玩这些都要有小飞机）</p>
-<p><a href="https://sourceforge.net/projects/openmediavault/files/" target="_blank" rel="noopener">官方提供的镜像下载地址</a>（没用小飞机下载真的很痛苦哦）</p>
-<p>我把镜像（ Raspberry Pi 2B, 3B and 3B+ 都可以用）放到了<a href="https://pan.baidu.com/s/1kYw_ezTNKn6_3vtTdUGkAA" target="_blank" rel="noopener">百度云</a> （提取码：5xhn） 上和<a href="http://seafile.xiaoblogs.cn:8000/f/10dcdcade53f4690991d/" target="_blank" rel="noopener">自己的网盘seafile</a>上</p>
-<p>制作系统的工具也是在<a href="https://pan.baidu.com/s/1E6c9t4VxasgkkOPFiEicMA" target="_blank" rel="noopener">百度云</a>（提取码：ljqv）和<a href="http://seafile.xiaoblogs.cn:8000/f/519a014ad8d6404ba23b/" target="_blank" rel="noopener">私有云盘</a>上</p>
+<p><a target="_blank" rel="noopener" href="https://www.openmediavault.org/">官网链接点这里</a>（建议玩这些都要有小飞机）</p>
+<p><a target="_blank" rel="noopener" href="https://sourceforge.net/projects/openmediavault/files/">官方提供的镜像下载地址</a>（没用小飞机下载真的很痛苦哦）</p>
+<p>我把镜像（ Raspberry Pi 2B, 3B and 3B+ 都可以用）放到了<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1kYw_ezTNKn6_3vtTdUGkAA">百度云</a> （提取码：5xhn） 上和<a target="_blank" rel="noopener" href="http://seafile.xiaoblogs.cn:8000/f/10dcdcade53f4690991d/">自己的网盘seafile</a>上</p>
+<p>制作系统的工具也是在<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1E6c9t4VxasgkkOPFiEicMA">百度云</a>（提取码：ljqv）和<a target="_blank" rel="noopener" href="http://seafile.xiaoblogs.cn:8000/f/519a014ad8d6404ba23b/">私有云盘</a>上</p>
 <p>制作的过程真是一键操作，把SD卡插入电脑用工具一键制作就行了</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/08/%E6%89%B9%E6%B3%A8-2019-08-07-111107.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/08/%E6%89%B9%E6%B3%A8-2019-08-07-111107.png"></p>
 <p>速度挺快</p>
 <p>之后就是插卡上电~</p>
 <p><strong>登录的用户名和密码不一样</strong></p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/08/image-5.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/08/image-5.png"></p>
 <p>Web应用的用户是admin，shell的用户是root</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/08/image-4.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/08/image-4.png"></p>
 <p>注意要用root用户登录</p>
 <p>登录之后看到没有IP，如果你的树莓派插上路由器网线都没有获取到IP那么可以通过命令</p>
-<pre><code>armbian-config</code></pre><p>进入armbian的配置界面，或者通过命令</p>
-<pre><code>nmtui</code></pre><p>进入网卡的设置界面，配置自己的网卡</p>
+<pre><code>armbian-config
+</code></pre>
+<p>进入armbian的配置界面，或者通过命令</p>
+<pre><code>nmtui
+</code></pre>
+<p>进入网卡的设置界面，配置自己的网卡</p>
 <p>这里我碰到一个有趣的问题，我们家里的拓扑结构是这样的</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/08/image-6.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/08/image-6.png"></p>
 <p>为了方便，交换机，网关，路由器都变画成路由器了</p>
 <p>刚开始给NAS（树莓派）分配IP的时候错误的连接到了子网路由器（TP-Link上），结果就是分配了子网网段的IP，但是手动给配置的IP和网关都是天翼网关的。结果就是局域网内能连通，无法上外网。</p>
 <p>反正，我也搞不懂家里为什么这种拓扑结构。。</p>
 <p>如果你的家里只有一个路由器就能解决一些问题。</p>
 <p>之后进入系统（我因为手动配置IP的时候直接用的HDMI外接显示器，树莓派的输出都在显示器上，不要吐槽我手机拍屏幕）发现nginx启动不了。这可不行啊，Web服务都是在nginx上，这样就用不了Web应用。</p>
 <p>用命令看下nginx的状态</p>
-<pre><code>systemctl status nginx</code></pre><p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/08/image-7-1024x233.png" alt=""></p>
+<pre><code>systemctl status nginx
+</code></pre>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/08/image-7-1024x233.png"></p>
 <p>提示地址簇不支持这种协议</p>
 <p>好吧，来到/etc/nginx/sites-available/openmediavault-webgui下看（OMV配置文件）</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/08/image-8.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/08/image-8.png"></p>
 <p>listen这里怎么会这样写？</p>
 <p>“#”注释的是错误的，[::]正则表达式代表0.0.0.0任何访问的IP，后面的80就是http了，只要用下面的写法就行。</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/08/image-9.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/08/image-9.png"></p>
 <p>成功启动nginx进程</p>
 <p>去浏览器访问web应用吧</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/08/%E6%89%B9%E6%B3%A8-2019-08-07-114650-1024x529.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/08/%E6%89%B9%E6%B3%A8-2019-08-07-114650-1024x529.png"></p>
 <p>这里的登录用户是admin哦</p>
 <p>之后就是配置一气了，首先注意要先允许root用户通过ssh登录shell，要不然，只能外接显示器连接服务器了哦</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/08/%E6%89%B9%E6%B3%A8-2019-08-07-123740-1024x547.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/08/%E6%89%B9%E6%B3%A8-2019-08-07-123740-1024x547.png"></p>
 <p>注意了，ssh很关键的。远程ssh后期的维护都是靠shell呢</p>
 <p>基本的配置在<strong>System栏</strong></p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/08/image-10.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/08/image-10.png"></p>
 <p>可以设置web服务器监听的端口，配置https，域名（外网访问）。设置时间时区。邮件通知（需要stmp服务器，其他两个协议的也行pop3和IMAP。性能监视，还有有意思的定时任务（比如备份策略什么的）还有就是装东西的OMV-Plugin（OMV插件）和OMV-Extras（OMV拓展）</p>
 <p><strong>Storage栏：</strong></p>
 <p>存储设备设置的地方，有物理磁盘（physical disks）磁盘监视器，RAID冗余磁盘阵列。一键挂载的file system设置和u盘flash（不建议用u盘）</p>
 <p>正好家里的一块希捷的1T的HDD只是作为移动设备使用，来，格式化成ext4之后挂载了。</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/08/image-11.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/08/image-11.png"></p>
 <p>插到树莓派上就可以，不知道能不能热插拔</p>
 <p>现在只是识别了这一块硬盘，当然，如果你的硬盘是ntfs最好要转换格式成ext4哦，否则会出一些错误</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/08/image-12.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/08/image-12.png"></p>
 <p>这里的错误是系统内核的错误</p>
 <p>倒不是内核编译问题导致模块不能用，而是内核版本太低不支持虚拟化磁盘</p>
-<pre><code>apt-get install kernel*</code></pre><p>上面的命令就是升级内核的</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/08/image-13.png" alt=""></p>
+<pre><code>apt-get install kernel*
+</code></pre>
+<p>上面的命令就是升级内核的</p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/08/image-13.png"></p>
 <p>选中磁盘可以擦除磁盘</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/08/image-14.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/08/image-14.png"></p>
 <p>在File Systems中挂载磁盘，之后才能使用<br>当然，你有RAID可以使用RAID的管理器</p>
 <p><strong>先说Diagnostics和information：</strong></p>
 <p>Diagnostics就是显示系统的一些运行日志，运行的状态，系统信息，服务信息状态的。</p>
 <p>information就是“关于”（可以看看QQ和微信的“关于”）</p>
 <p><strong>Services：</strong></p>
 <p>这里就是NAS支持的服务了，有很多</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/08/image-15.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/08/image-15.png"></p>
 <p>自己看吧</p>
 <p>Apple Filing没有mac，用不了时光机</p>
 <p>FTP，通过ftp协议进行传输的一种文件协议。基于这种协议的文件服务器。顾名思义，传输文件。实时文件共享，双向传输。权限划分</p>
@@ -440,26 +466,26 @@ sudo nginx -s reload</code></pre><p>之后才到通过浏览器访问直接安�
 <p>ssh：不要问我</p>
 <p>媒体服务器media server（PlexMediaServer）：</p>
 <p>超级简单的安装，不需要shell，一键安装。</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/08/image-16.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/08/image-16.png"></p>
 <p>拓展里打开</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/08/image-17-1024x170.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/08/image-17-1024x170.png"></p>
 <p>plugin里面找到安装</p>
 <p>先看看 PlexMediaServer 原理</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/08/image-18.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/08/image-18.png"></p>
 <p>懂了吗</p>
 <p>一部电影，一首歌曲，多个设备，连续播放</p>
 <p>里面就是通过注册一个账号之后一步一步设置，没什么可截图的。</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/08/image-19-1024x380.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/08/image-19-1024x380.png"></p>
 <p>注意，如果要开启外网访问要用到内网穿透</p>
 <p>我这里通过ftp方式添加媒体</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/08/image-20.png" alt=""></p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/08/image-21-1024x419.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/08/image-20.png"></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/08/image-21-1024x419.png"></p>
 <p>把媒体拖到自己的媒体文件夹</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/08/image-23.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/08/image-23.png"></p>
 <p>在plex中添加自己的媒体文件夹</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/08/image-24.png" alt=""></p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/08/image-25-1024x332.png" alt=""></p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/08/image-26.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/08/image-24.png"></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/08/image-25-1024x332.png"></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/08/image-26.png"></p>
 <p>我这里就演示下多端同步</p>
 <p>有些人说你这还要先下载，之后拖到相应文件夹，麻不麻烦。</p>
 <p>下载的步骤可以用OMV提供的下载插件，拖到相应的文件夹完全可以用shell编程解决。有些人还要说我手机一个APP什么的，直接联网看。我只能说完全不一样的东西你非要杠我也没办法。</p>
@@ -470,7 +496,7 @@ sudo nginx -s reload</code></pre><p>之后才到通过浏览器访问直接安�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://mimonatch.github.io/passages/e6-a0-91-e8-8e-93-e6-b4-be-e7-9a-84-e5-8f-88-e4-b8-80-e6-ac-a1-e6-8a-98-e8-85-be-e6-90-ad-e5-bb-ba-e5-ae-b6-e7-94-a8nas/" data-id="ckqv2rh0y002lesvs9yc3d7ma" class="article-share-link">Share</a>
+      <a data-url="http://mimonatch.github.io/passages/e6-a0-91-e8-8e-93-e6-b4-be-e7-9a-84-e5-8f-88-e4-b8-80-e6-ac-a1-e6-8a-98-e8-85-be-e6-90-ad-e5-bb-ba-e5-ae-b6-e7-94-a8nas/" data-id="ckqvbhfum000fbwvsgygz5el0" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NAS/" rel="tag">NAS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OVM/" rel="tag">OVM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" rel="tag">树莓派</a></li></ul>
@@ -511,9 +537,9 @@ sudo nginx -s reload</code></pre><p>之后才到通过浏览器访问直接安�
         <p>这篇文章呢，自己的一个心情随笔。也是让看到这篇文章的小伙伴知道我，了解我平时的爱好。真的算是我的最大爱好了。</p>
 <p>前段时间，翻开了以前的优酷，看自己做的视频。也同时作为一个在优酷的up想一想自己下一个视频怎么录制，怎么创新，怎么出内容。</p>
 <p>之后，点开了高中时期玩Minecraft很喜欢的一个优酷up——籽岷</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-53.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-53.png"></p>
 <p>看着以前拍的视频，真的很快乐。让我想到了大一二和一帮机械的小伙伴玩游戏的逗比场景。我们那时周六日晚上肝到两、三点。多人一起玩游戏的美好的感觉也让我在现在会拉一些小伙伴一块玩。</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-54.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-54.png"></p>
 <p>这些是籽岷以前的视频<br>唯一可惜的就是没录制下来当时和小伙伴逗比的场景</p>
 <p>这些视频因为时间比较早，要往后面翻。籽岷我也很久没看过他更新的视频。现在的视频不是和很好的几个小伙伴玩游戏。而是为了涨粉，为了钱？</p>
 <p>这么说你一定会说不都这样嘛，是，我害怕的也就是你把这个当成了潜移默化的东西。缺少了和伙伴纯真玩乐的心。很多的“东西”也随着时间的推移，认知的增加。我们总会看的更多，事情不在纯粹总会变味道。</p>
@@ -523,8 +549,8 @@ sudo nginx -s reload</code></pre><p>之后才到通过浏览器访问直接安�
 <p>高中时的另一个爱好就是看各种评测视频。视频的内容大同小异，都是针对数码科技产品的一些测试之后给你相应的数据做成视频，那时看这样一个视频很投入。这是内心喜欢，我身边知道我这个爱好的哥们都让我推荐手机。</p>
 <p>就是这样，14年中旬的时候。看到了当初新起的锤子科技的创始人之一——罗永浩（俗称老罗、罗老师）和当时有名的视频评测机构Zealer（我从来都没有关注过他们，原因后谈）的创始人——王自如进行一场长达3小时的辩论，话题是针对锤子的第一部手机（T1）的品控等问题。Zealer给锤子科技的测评报告并没有说明确T1的问题，也没有按照规定在提交测评报告的时候指出问题。之后就直接发了一期公开的评测视频，对T1的各个不足都有提到（这里我重申下，评测机构提交测评报告是收了钱的，应该客观公正提出问题之后再制作评测视频并且还要询问厂商要不要公开视频），Zealer违反了职业道德。</p>
 <p>上面的这件事结果我没有说，也很容易知道谁赢。而且我今天的关注点不在测评机构的不严谨或者是某某厂商给钱让测评机构抹黑友商产品。</p>
-<p>只是时间从14年以下到了19年，19号正好读了一篇文章<a href="https://weibo.com/ttarticle/p/show?id=2309404384103788065490" target="_blank" rel="noopener">《 罗永浩 锤下那个理想主义者》</a> 如今的结局是什么，不客观的Zealer解散了？为了梦想锤子科技越做越大？并不是，结局正好相反。</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/3e2fe402ly4g43w9c6d09j20u00k0dg6-1024x683.jpg" alt=""></p>
+<p>只是时间从14年以下到了19年，19号正好读了一篇文章<a target="_blank" rel="noopener" href="https://weibo.com/ttarticle/p/show?id=2309404384103788065490">《 罗永浩 锤下那个理想主义者》</a> 如今的结局是什么，不客观的Zealer解散了？为了梦想锤子科技越做越大？并不是，结局正好相反。</p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/3e2fe402ly4g43w9c6d09j20u00k0dg6-1024x683.jpg"></p>
 <p>这张图片不是视觉中国的（笑）</p>
 <p>老罗因为自己的过于偏执，过于追求一些不必要的用户体验，让14年第一部T1做到了卖一部亏一部，坚果系列跟不上步伐。到18年5月的R1发布（R1的配置很好，但是发布会的重点不是手机…）TNT工作站的发布和“重新定义”办公软件。你可能不太了解，我就这样说。那一场发布会，锤子科技内部劝说过罗老师，办公软件和TNT根本不现实。但是罗老师还是做出来了样机。应该说彻底的压灭了锤子科技的最后希望</p>
 <p>Zealer呢？王自如活的很好，现在参加各种科技大会等（评测嘛，那一家厂商给的钱多就舔那一家）看Zealer的视频，我形容为百万剪辑，十块深度。放一个最近很“脱粉”的视频</p>
@@ -534,11 +560,11 @@ sudo nginx -s reload</code></pre><p>之后才到通过浏览器访问直接安�
 <p>如果你认真读了我上面分享的文章，不难发现。老罗也是一个极理想主义的人，有自己的梦想。我也挺震撼的，也有感悟。我也要有梦想，有信念。不是灵魂的空壳，一天抱怨物价房价，抱怨工作的人。</p>
 <p>所以说，给我带来的真是心情上的改变，不是简单的娱乐新闻看热闹。</p>
 <p>高中那会儿，最早是看的爱极客，当时做手机的短评。真的很喜欢爱极客当时的小祥、梁晨、杰女王、博士。（说实话他们的评测现在看起来很不专业，我喜欢的几个主持都走了，而且转型成评测车的了，我当时心里那个绝望）</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-55.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-55.png"></p>
 <p>最早的爱极客logo找不到了</p>
 <p>看他们就有点像憧憬我以后的生活</p>
 <p>后面开始自己收藏一些耳机，看测评的时候关注到了爱否科技</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/b7efecd12b932a0e9bd4d7d3a7ba769166479fff.jpg" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/b7efecd12b932a0e9bd4d7d3a7ba769166479fff.jpg"></p>
 <p>FView爱否LOGO</p>
 <p>客观独立第三方，评测视频有深度。</p>
 <p>你能学到很多，大爱FView，手机壳，手机膜，还准备入一个无线充电（每一期视频必追）看完每一个视频都是意犹未尽，很高兴。</p>
@@ -552,7 +578,7 @@ sudo nginx -s reload</code></pre><p>之后才到通过浏览器访问直接安�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://mimonatch.github.io/passages/e8-bf-99-e4-b8-80-e5-88-87-e9-83-bd-e5-a4-aa-e5-bf-ab-e4-ba-86/" data-id="ckqv2rh1l0040esvs6s0a5po4" class="article-share-link">Share</a>
+      <a data-url="http://mimonatch.github.io/passages/e8-bf-99-e4-b8-80-e5-88-87-e9-83-bd-e5-a4-aa-e5-bf-ab-e4-ba-86/" data-id="ckqvbhfuq000mbwvs5pvw16cu" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%88%91/" rel="tag">我</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%94%9F%E6%B4%BB/" rel="tag">生活</a></li></ul>
@@ -594,37 +620,45 @@ sudo nginx -s reload</code></pre><p>之后才到通过浏览器访问直接安�
 <p><strong>准备工作：</strong></p>
 <p>从官方的仓库下下载好实例程序代码</p>
 <p>之后将实例的代码上传到Ubuntu服务器（也就是开发环境）</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-42.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-42.png"></p>
 <p>已经下载好了，可以见到有部署脚本，运行程序停止程序脚本</p>
 <p>之后要配置两个环境变量（DDK_HOME和 LD_LIBRARY_PATH）这两个环境变量就是Mind Studio的环境变量，类同JDK、JAVA_HOME</p>
 <pre><code>export DDK_HOME=/home/[安装Mind Studio的用户名]/tools/che/ddk/ddk
-export LD_LIBRARY_PATH=$DDK_HOME/uihost/lib</code></pre><p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-43.png" alt=""></p>
+export LD_LIBRARY_PATH=$DDK_HOME/uihost/lib
+</code></pre>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-43.png"></p>
 <p>配置的环境变量，之后用.命令生效环境变量</p>
 <p><strong>部署：</strong></p>
 <p>在实例程序的根目录下运行部署脚本（这个脚本会执行三个动作：1、编译和部署Ascenddk公共库，2、下载网络模块，3、配置主机服务器）</p>
 <p>这里有一个小细节，用sh命令默认不是bash解释器执行sh脚本，所以会出现错误，这里要用bash解释器（Linux是多shell嘛，这里用bash这个shell）</p>
-<pre><code>bash deploy.sh x.x.x.x[默认的开发板IP] internet</code></pre><p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-44.png" alt=""></p>
+<pre><code>bash deploy.sh x.x.x.x[默认的开发板IP] internet
+</code></pre>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-44.png"></p>
 <p>上面提到的小细节</p>
 <p>部署脚本后有两个参数（host_ip：开发板IP，load_mode：就是加载模块的方式是本地还是从网络直接下载，如果从本地加载要提前下载好模块放到实例的script文件夹下）</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-45.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-45.png"></p>
 <p>运行部署脚本有一个步骤是选择演示IP，我选的是mind Studio同一个IP</p>
 <p>部署成功后开启演示服务器</p>
-<pre><code>python3 presenterserver/presenter_server.py --app face_detection &amp;</code></pre><p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-46.png" alt=""></p>
+<pre><code>python3 presenterserver/presenter_server.py --app face_detection &amp;
+</code></pre>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-46.png"></p>
 <p>可以通过-h查看如何实验这个命令  </p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-47.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-47.png"></p>
 <p>可以在7007端口查看演示服务器上的实例</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-48-1024x198.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-48-1024x198.png"></p>
 <p>什么实例都没有</p>
 <p><strong>运行实例程序：</strong></p>
 <p>先安装摄像头</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-49-1024x351.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-49-1024x351.png"></p>
 <p>拆盖子的时候小心，树莓派的摄像头一定要断电连接  </p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-50-1024x166.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-50-1024x166.png"></p>
 <p>可以看到正在运行的实例程序</p>
 <p>运行程序</p>
-<pre><code>bash run_facedetectionapp.sh x.x.x.x[开发板默认IP] video/image Channel-1/Channel-2 &amp;</code></pre><p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-52.png" alt=""></p>
+<pre><code>bash run_facedetectionapp.sh x.x.x.x[开发板默认IP] video/image Channel-1/Channel-2 &amp;
+</code></pre>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-52.png"></p>
 <p>可以看到step那个info</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-51-1024x592.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-51-1024x592.png"></p>
 <p>人脸检测</p>
 <p>PS：这个人脸检测的实例最大支持10个通道同时检测，视频的最高帧率为20fps，当网络带宽很窄时，会自动的降低帧率。</p>
 <p><strong>总结：</strong></p>
@@ -633,7 +667,7 @@ export LD_LIBRARY_PATH=$DDK_HOME/uihost/lib</code></pre><p><img src="https://www
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://mimonatch.github.io/passages/huawei-atlas200-e5-ad-a6-e4-b9-a0-e6-97-a5-e5-bf-97-ef-bc-88-e4-b8-89-ef-bc-89-e4-ba-ba-e8-84-b8-e8-af-86-e5-88-ab-e5-ae-9e-e4-be-8b/" data-id="ckqv2rh0p0023esvs9npjcx5p" class="article-share-link">Share</a>
+      <a data-url="http://mimonatch.github.io/passages/huawei-atlas200-e5-ad-a6-e4-b9-a0-e6-97-a5-e5-bf-97-ef-bc-88-e4-b8-89-ef-bc-89-e4-ba-ba-e8-84-b8-e8-af-86-e5-88-ab-e5-ae-9e-e4-be-8b/" data-id="ckqvbhfus000sbwvsacor1a0k" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI/" rel="tag">AI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/" rel="tag">嵌入式</a></li></ul>
@@ -680,15 +714,15 @@ export LD_LIBRARY_PATH=$DDK_HOME/uihost/lib</code></pre><p><img src="https://www
 <p>日志分成两种，一种是Deivce的log一种是Host的log。</p>
 <p>先来看device（对应文件/var/device-0*.log）主要是采集Control CPU上的日志</p>
 <p><strong>下面将演示如何查看日志</strong></p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-11.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-11.png"></p>
 <p>点击连接配置图标（WiFi图标的位置）  </p>
 <p>和Atlas200成功建立连接之后会出现device和host两个日志文件</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-12.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-12.png"></p>
 <p>可以点击左上角的设置，设置日志记录级别</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-13-1024x234.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-13-1024x234.png"></p>
 <p>可以在右上角设置是否自动刷新，也可以通过下拉框筛选日志</p>
 <p>之后是host（对应位置/var/host-0*.log）主要是用户态和内核态的日志</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-14-1024x327.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-14-1024x327.png"></p>
 <p>和查看device日志一样的操作</p>
 <p>下面是日志文件中各个字段的说明：</p>
 <p>Type：日志级别</p>
@@ -699,9 +733,9 @@ export LD_LIBRARY_PATH=$DDK_HOME/uihost/lib</code></pre><p><img src="https://www
 <p>PName：上报日志的进程名</p>
 <p>SubModule：上报日志的子模块名</p>
 <p><strong>日志的导出和上传：</strong></p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-15.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-15.png"></p>
 <p>日志同样也可以导出</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-16.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-16.png"></p>
 <p>还可以选择上传日志</p>
 <p><strong>系统化性能分析工具Profiling</strong></p>
 <p>Profiling可以实现硬件和软件的性能数据的采集、分析、汇总展示</p>
@@ -709,68 +743,68 @@ export LD_LIBRARY_PATH=$DDK_HOME/uihost/lib</code></pre><p><img src="https://www
 <p>硬件：Control CPU上的PMU事件、Task Schedule CPU上的PMU事件、AI CPU上的PMU事件、外围设备的性能数据等。</p>
 <p>软件：HIAI Engine、OME、RTS等模块的性能数据</p>
 <p><strong>下面演示如何使用图像化展示Profiling采集的数据</strong></p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-17.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-17.png"></p>
 <p>点击在.mind文件中的流程编排工具栏中的Profiling按钮</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-18.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-18.png"></p>
 <p>硬件数据采集配置界面和软件数据采集配置界面</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-19.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-19.png"></p>
 <p>硬件配置参数说明-Part1</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-20.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-20.png"></p>
 <p>硬件配置参数说明-Part2</p>
 <p>上图是硬件配置界面参数说明</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-21.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-21.png"></p>
 <p>软件配置参数说明</p>
 <p>上图是软件配置参数说明</p>
 <p>之后点击start按钮开始自动采集性能数据</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-22.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-22.png"></p>
 <p>当红色框标出的两条消息日志中间没有错误表示采集成功</p>
 <p><strong>展示性能数据：</strong></p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-23.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-23.png"></p>
 <p>节点右键点击Profiling Result直接可以跳转到msvp性能数据展示的页面</p>
 <p>下面对性能分析的各部分数据进行一个说明</p>
 <p>summary分析：（下面的数据是真实采集的数据）</p>
 <p>对采集的性能数据以表格的形式进行汇总呈现，其中包括很多部分采集的数据接下来一一说明</p>
 <p>Collection Info：呈现本次性能数据采集的起止时间及本次采集的性能数据大小</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-24.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-24.png"></p>
 <p>Host Info：呈现本次性能数据采集的Host侧基本信息，包括Host侧的操作系统和<br>CPU信息。在开发者板形态，由于Host和Device皆位于miniRC上，所以此处采集<br>到的数据即为miniRC的基本信息</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-25.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-25.png"></p>
 <p>Atlas200 8核可还行</p>
 <p>Device：呈现本次性能数据采集的Device侧信息</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-26.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-26.png"></p>
 <p>NPU（嵌入式神经网络处理器，华为手机上的寒武纪就是NPU）</p>
 <p>HiAi引擎的相关信息：显示每个Engine运行的起止时间</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-27-1024x385.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-27-1024x385.png"></p>
 <p>OME信息：模型的数据输入、推理、数据输出耗时；每个op运行的详细信<br>息，包括op name、op type、运行时间和内存使用情况等</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-28-1024x359.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-28-1024x359.png"></p>
 <p>Control CPU信息：</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-29-1024x322.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-29-1024x322.png"></p>
 <p>Control CPU使用量相关信息</p>
 <p>TS CPU信息：</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-30-1024x287.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-30-1024x287.png"></p>
 <p>AI CPU 信息：</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-31-1024x305.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-31-1024x305.png"></p>
 <p>AI CPU使用量截图</p>
 <p>AI Core信息：显示采集AI Core PMU事件计算出的指标数据以及AI Core状态<br>信息</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-32-1024x384.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-32-1024x384.png"></p>
 <p>Peripherals信息（外围设备信息）：</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-33-1024x254.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-33-1024x254.png"></p>
 <p>上下行数据：</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-34-1024x181.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-34-1024x181.png"></p>
 <p><strong>Timeline时间线分析：</strong></p>
 <p>HiAI Engine：每个Engine运行的起止时间</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-36-1024x193.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-36-1024x193.png"></p>
 <p>每个引擎的运行时间都很明确</p>
 <p>RTS分析：</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-37-1024x387.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-37-1024x387.png"></p>
 <p>其中有<br>Thread：每个线程调用runtime API的时序信息<br>compute：AI Core上kernel函数的运行时序信息，单击每个kernel函数运行的矩<br>形，可以显示kernel函数运行的起止时间和task-based模式采集的AI Core PMU<br>值<br>Streams：Stream内的task运行时序信息，包括流间同步信息</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-38-1024x378.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-38-1024x378.png"></p>
 <p>Scheduling：Task Scheduler调度的task的运行时序信息</p>
 <p>OME信息：每个op运行的起止时间和相关信息</p>
 <p><strong>黑匣子异常获取工具：</strong></p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-40.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-40.png"></p>
 <p>在tool选项卡下</p>
 <p>可以获取最新的异常信息、全部的异常信息、还有可以获得n条异常信息</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-41.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-41.png"></p>
 <p>显示没有异常（等有异常再更新下）</p>
 <p><strong>总结：</strong></p>
 <p>Mind Studio的性能分析工具异常的强大，灵活性很高，并且易于使用。有友好的UI界面，并且设计的监控数据足够的多且详细（官方文档只是针对了一部分数据采集字段的说明，其他也没说，网上也查不到太多资料。）用性能分析工具能够很好的得出卡发板功耗性能等数据，有助于做算法的优化。</p>
@@ -778,7 +812,7 @@ export LD_LIBRARY_PATH=$DDK_HOME/uihost/lib</code></pre><p><img src="https://www
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://mimonatch.github.io/passages/huawei-atlas200-e5-ad-a6-e4-b9-a0-e6-97-a5-e5-bf-97-ef-bc-88-e4-ba-8c-ef-bc-89mind-studio-e5-bc-80-e5-8f-91-e8-be-85-e5-8a-a9-e5-b7-a5-e5-85-b7-e7-9a-84-e4-bd-bf-e7-94-a8/" data-id="ckqv2rh0r0026esvs650rdsp5" class="article-share-link">Share</a>
+      <a data-url="http://mimonatch.github.io/passages/huawei-atlas200-e5-ad-a6-e4-b9-a0-e6-97-a5-e5-bf-97-ef-bc-88-e4-ba-8c-ef-bc-89mind-studio-e5-bc-80-e5-8f-91-e8-be-85-e5-8a-a9-e5-b7-a5-e5-85-b7-e7-9a-84-e4-bd-bf-e7-94-a8/" data-id="ckqvbhfuz0010bwvs2plt9ajc" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI/" rel="tag">AI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag">学习</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/" rel="tag">嵌入式</a></li></ul>
@@ -818,35 +852,35 @@ export LD_LIBRARY_PATH=$DDK_HOME/uihost/lib</code></pre><p><img src="https://www
       
         <p>华为Atlas开发者套件 Atlas 200 Developer Kit（缩写：Atlas 200 DK ）是以海思Ascend 310芯片为核心的一个开发者板形态产品，主要功能是将Ascend 310芯片的核心功能通过该板上的外围接口开放出来，方便用户快速简捷的接入并使用Ascend 310芯片强大的处理能力。</p>
 <p>Atlas DK配备一个核心系统模块Atlas 200模块，通过高速连接器将Ascend 310的主要业务接口通过底板扩展出来。</p>
-<p>可以运用于平安城市、无人机、机器人、视频服务器、闸机等众多领域。—<em><a href="https://www.huawei.com/minisite/ascend/cn/about.html" target="_blank" rel="noopener">来自官网简介</a></em></p>
+<p>可以运用于平安城市、无人机、机器人、视频服务器、闸机等众多领域。—<em><a target="_blank" rel="noopener" href="https://www.huawei.com/minisite/ascend/cn/about.html">来自官网简介</a></em></p>
 <p><strong>开发环境搭建：</strong></p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-1.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-1.png"></p>
 <p>官方文档的AI开发流程的一部分</p>
 <p>开发环境是基于Ubuntu16.04的，所以要干什么应该很清楚（必须是16.04）</p>
 <p>不需要clone整个仓库，只需要其中一个版本的工具就行</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-2-1024x304.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-2-1024x304.png"></p>
 <p>下载的工具是B750SP05</p>
 <p>之后就是在Ubuntu下安装Mine Studio</p>
-<p>安装可以通过_<a href="https://www.huawei.com/minisite/ascend/pdf/03%20Ascend%20310%20Mind%20Studio%20%E5%AE%89%E8%A3%85.pdf" target="_blank" rel="noopener">官方的文档</a>_，官方提供了两种安装的方式。引导式安装和手动安装，我用的是引导式安装</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-3.png" alt=""></p>
+<p>安装可以通过_<a target="_blank" rel="noopener" href="https://www.huawei.com/minisite/ascend/pdf/03%20Ascend%20310%20Mind%20Studio%20%E5%AE%89%E8%A3%85.pdf">官方的文档</a>_，官方提供了两种安装的方式。引导式安装和手动安装，我用的是引导式安装</p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-3.png"></p>
 <p>按照引导的流程走</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-4.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-4.png"></p>
 <p>可以看到安装就成功了，直接在浏览器里面IP:Port来访问</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-5-1024x576.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-5-1024x576.png"></p>
 <p>Mine Studio还有profile没截图</p>
 <p><strong>然后是Atlas200和Mine Studio的连接</strong></p>
-<p>_<a href="https://www.huawei.com/minisite/ascend/pdf/04%20Ascend%20310%20Atlas%20200%20DK%20%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97.pdf" target="_blank" rel="noopener">官方的文档</a>_提供了两种连接的方式（网线和usb）</p>
+<p>_<a target="_blank" rel="noopener" href="https://www.huawei.com/minisite/ascend/pdf/04%20Ascend%20310%20Atlas%20200%20DK%20%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97.pdf">官方的文档</a>_提供了两种连接的方式（网线和usb）</p>
 <p>我采用的是usb的方式连接Atlas200</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-9.png" alt=""></p>
-<p><em>USB</em> Type-<em>C</em> （type-c接口连接到电脑）</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-6.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-9.png"></p>
+<p><em>USB</em> Type-<em>C</em> （type-c接口连接到电脑）</p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-6.png"></p>
 <p>这是连接好后的usb网卡</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-7.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-7.png"></p>
 <p>这个是usb网卡的配置</p>
 <p>之后是制作UI Host交叉编译环境（如果用了制卡工具直接通过搭建的环境制作了Atlas的系统就不用后面这一步了）</p>
 <p>从官方的tools仓库下载交叉编译环境的python文件</p>
 <p>安装完成后就是在Mine Studio中添加Atlas200</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-8.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-8.png"></p>
 <p>通过usb进行通讯</p>
 <p>后续还可以配置openpgp公钥和完成验证软件的完整性工作。</p>
 <p><strong>总结</strong>：官方的文档非常的详细，虽然整个社区不大，资源不多。但是华为的官方资料感觉就能够完成基础的操作。</p>
@@ -854,7 +888,7 @@ export LD_LIBRARY_PATH=$DDK_HOME/uihost/lib</code></pre><p><img src="https://www
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://mimonatch.github.io/passages/huawei-atlas200-e5-ad-a6-e4-b9-a0-e6-97-a5-e5-bf-97-ef-bc-88-e4-b8-80-ef-bc-89mind-studio-e5-bc-80-e5-8f-91-e7-8e-af-e5-a2-83-e7-9a-84-e6-90-ad-e5-bb-ba/" data-id="ckqv2rh0o0021esvs8sancysa" class="article-share-link">Share</a>
+      <a data-url="http://mimonatch.github.io/passages/huawei-atlas200-e5-ad-a6-e4-b9-a0-e6-97-a5-e5-bf-97-ef-bc-88-e4-b8-80-ef-bc-89mind-studio-e5-bc-80-e5-8f-91-e7-8e-af-e5-a2-83-e7-9a-84-e6-90-ad-e5-bb-ba/" data-id="ckqvbhfux000xbwvs8ep3c7mv" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI/" rel="tag">AI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BC%80%E5%8F%91/" rel="tag">开发</a></li></ul>
@@ -898,7 +932,7 @@ export LD_LIBRARY_PATH=$DDK_HOME/uihost/lib</code></pre><p><img src="https://www
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://mimonatch.github.io/passages/e5-b0-8f-e5-8d-9a-e5-ae-a2-e9-87-8d-e8-a6-81-e9-80-9a-e7-9f-a5/" data-id="ckqv2rh07000uesvs09pwhcbz" class="article-share-link">Share</a>
+      <a data-url="http://mimonatch.github.io/passages/e5-b0-8f-e5-8d-9a-e5-ae-a2-e9-87-8d-e8-a6-81-e9-80-9a-e7-9f-a5/" data-id="ckqvbhfuj0009bwvs0zvxczis" class="article-share-link">Share</a>
       
       
     </footer>

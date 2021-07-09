@@ -44,22 +44,18 @@
   
 <link rel="stylesheet" href="/css/style.css">
 
-<meta name="generator" content="Hexo 4.2.1"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 <body>
   <div id="container">
     <div id="wrap">
       <header id="header">
-  <a href="https://www.pixiv.net/artworks/90437941" target="_blank" rel="noopener"><div id="banner"></div></a>
+  <a target="_blank" rel="noopener" href="https://www.pixiv.net/artworks/90437941"><div id="banner"></div></a>
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
         <a href="/" id="logo">集合</a>
       </h1>
-      
-        <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">万物终归一站</a>
-        </h2>
       
     </div>
     <div id="header-inner" class="inner">
@@ -114,37 +110,45 @@
 <p><strong>准备工作：</strong></p>
 <p>从官方的仓库下下载好实例程序代码</p>
 <p>之后将实例的代码上传到Ubuntu服务器（也就是开发环境）</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-42.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-42.png"></p>
 <p>已经下载好了，可以见到有部署脚本，运行程序停止程序脚本</p>
 <p>之后要配置两个环境变量（DDK_HOME和 LD_LIBRARY_PATH）这两个环境变量就是Mind Studio的环境变量，类同JDK、JAVA_HOME</p>
 <pre><code>export DDK_HOME=/home/[安装Mind Studio的用户名]/tools/che/ddk/ddk
-export LD_LIBRARY_PATH=$DDK_HOME/uihost/lib</code></pre><p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-43.png" alt=""></p>
+export LD_LIBRARY_PATH=$DDK_HOME/uihost/lib
+</code></pre>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-43.png"></p>
 <p>配置的环境变量，之后用.命令生效环境变量</p>
 <p><strong>部署：</strong></p>
 <p>在实例程序的根目录下运行部署脚本（这个脚本会执行三个动作：1、编译和部署Ascenddk公共库，2、下载网络模块，3、配置主机服务器）</p>
 <p>这里有一个小细节，用sh命令默认不是bash解释器执行sh脚本，所以会出现错误，这里要用bash解释器（Linux是多shell嘛，这里用bash这个shell）</p>
-<pre><code>bash deploy.sh x.x.x.x[默认的开发板IP] internet</code></pre><p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-44.png" alt=""></p>
+<pre><code>bash deploy.sh x.x.x.x[默认的开发板IP] internet
+</code></pre>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-44.png"></p>
 <p>上面提到的小细节</p>
 <p>部署脚本后有两个参数（host_ip：开发板IP，load_mode：就是加载模块的方式是本地还是从网络直接下载，如果从本地加载要提前下载好模块放到实例的script文件夹下）</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-45.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-45.png"></p>
 <p>运行部署脚本有一个步骤是选择演示IP，我选的是mind Studio同一个IP</p>
 <p>部署成功后开启演示服务器</p>
-<pre><code>python3 presenterserver/presenter_server.py --app face_detection &amp;</code></pre><p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-46.png" alt=""></p>
+<pre><code>python3 presenterserver/presenter_server.py --app face_detection &amp;
+</code></pre>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-46.png"></p>
 <p>可以通过-h查看如何实验这个命令  </p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-47.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-47.png"></p>
 <p>可以在7007端口查看演示服务器上的实例</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-48-1024x198.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-48-1024x198.png"></p>
 <p>什么实例都没有</p>
 <p><strong>运行实例程序：</strong></p>
 <p>先安装摄像头</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-49-1024x351.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-49-1024x351.png"></p>
 <p>拆盖子的时候小心，树莓派的摄像头一定要断电连接  </p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-50-1024x166.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-50-1024x166.png"></p>
 <p>可以看到正在运行的实例程序</p>
 <p>运行程序</p>
-<pre><code>bash run_facedetectionapp.sh x.x.x.x[开发板默认IP] video/image Channel-1/Channel-2 &amp;</code></pre><p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-52.png" alt=""></p>
+<pre><code>bash run_facedetectionapp.sh x.x.x.x[开发板默认IP] video/image Channel-1/Channel-2 &amp;
+</code></pre>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-52.png"></p>
 <p>可以看到step那个info</p>
-<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-51-1024x592.png" alt=""></p>
+<p><img src="https://www.xiaoblogs.cn/wp-content/uploads/2019/06/image-51-1024x592.png"></p>
 <p>人脸检测</p>
 <p>PS：这个人脸检测的实例最大支持10个通道同时检测，视频的最高帧率为20fps，当网络带宽很窄时，会自动的降低帧率。</p>
 <p><strong>总结：</strong></p>
@@ -153,7 +157,7 @@ export LD_LIBRARY_PATH=$DDK_HOME/uihost/lib</code></pre><p><img src="https://www
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://mimonatch.github.io/passages/huawei-atlas200-e5-ad-a6-e4-b9-a0-e6-97-a5-e5-bf-97-ef-bc-88-e4-b8-89-ef-bc-89-e4-ba-ba-e8-84-b8-e8-af-86-e5-88-ab-e5-ae-9e-e4-be-8b/" data-id="ckqv2rh0p0023esvs9npjcx5p" class="article-share-link">Share</a>
+      <a data-url="http://mimonatch.github.io/passages/huawei-atlas200-e5-ad-a6-e4-b9-a0-e6-97-a5-e5-bf-97-ef-bc-88-e4-b8-89-ef-bc-89-e4-ba-ba-e8-84-b8-e8-af-86-e5-88-ab-e5-ae-9e-e4-be-8b/" data-id="ckqvbhfus000sbwvsacor1a0k" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AI/" rel="tag">AI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/" rel="tag">嵌入式</a></li></ul>
