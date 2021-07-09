@@ -90,13 +90,48 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="webpack速览知识"><a href="#webpack速览知识" class="headerlink" title="webpack速览知识"></a>webpack速览知识</h1><h2 id="1-webpack是什么"><a href="#1-webpack是什么" class="headerlink" title="1. webpack是什么"></a>1. webpack是什么</h2><p>&emsp;按照官方的定义：webpack是一种静态资源的打包器。比如说有两个模块都通过CJS或者是ESM引入了一些js库，通过webpack就可以将引入的这些js库打包到bundle中去。再比如，要通过require的方式引入一个非js的文件，也可以通过webpack来转换为可以让其直接引用的模块<br><br/><br><img src="https://static.xiaoblogs.cn/img/20210708121523.png"><br><br/></p>
-<h2 id="2-webpack中的入口input、出口output、loader、plugin各个都是些什么"><a href="#2-webpack中的入口input、出口output、loader、plugin各个都是些什么" class="headerlink" title="2. webpack中的入口input、出口output、loader、plugin各个都是些什么"></a>2. webpack中的入口input、出口output、loader、plugin各个都是些什么</h2><blockquote>
-<p>入口input：webpack构建模块依赖图的起点，webpack会从这里开始打包模块需要的静态资源文件  </p>
-<p>出口output：webpack打包后的bundle的输出位置和名字 </p>
-<p>loader：能让webpack处理各种各样的文件的工具或者说是模块，比如React的JSX，就需要一个react-loader来进行处理</p>
-<p>plugin：拓展webpack的一些插件，常用的会紧接着补充</p>
-</blockquote>
+<h2 id="2-webpack中的入口input、出口output、loader、plugin各个都是些什么"><a href="#2-webpack中的入口input、出口output、loader、plugin各个都是些什么" class="headerlink" title="2. webpack中的入口input、出口output、loader、plugin各个都是些什么"></a>2. webpack中的入口input、出口output、loader、plugin各个都是些什么</h2><ul>
+<li>入口input：webpack构建模块依赖图的起点，webpack会从这里开始打包模块需要的静态资源文件  </li>
+<li>出口output：webpack打包后的bundle的输出位置和名字 </li>
+<li>loader：能让webpack处理各种各样的文件的工具或者说是模块，比如React的JSX，就需要一个react-loader来进行处理</li>
+<li>plugin：拓展webpack的一些插件，常用的会紧接着补充</li>
+</ul>
 <h2 id="3-webpack中的loader"><a href="#3-webpack中的loader" class="headerlink" title="3. webpack中的loader"></a>3. webpack中的loader</h2><p>&emsp;loader可以让webpack打包各种各样的文件，img，ttf，css，jsx等等。在使用这些资源的时候可以直接的import到相应的模块中去。在官方文档中将一个文件引入另一个文件这种关系称之为依赖关系。webpack可以自动的生成一张各种文件之间依赖关系的图（依赖图）</p>
+<hr>
+<p>首先，我创建了一个项目  </p>
+<p><img src="https://static.xiaoblogs.cn/img/20210709040442.png">  </p>
+<p>只要关心<code>app</code>文件夹和<code>public</code>文件夹以及<code>webpack.config.js</code>文件  </p>
+<p>app文件夹中的entry.js代码  </p>
+<pre><code>import greet from &#39;./greet&#39;
+import Image from &#39;../res/tetris.png&#39;
+
+const ImageDom = document.createElement(&#39;img&#39;);
+ImageDom.src = Image;
+
+document.getElementById(&quot;container&quot;).appendChild(greet());
+document.getElementById(&quot;container&quot;).appendChild(ImageDom);
+</code></pre>
+<p>我的目标是直接通过import引入一张图片，图片在res文件夹下。现在就需要fs-loader来完成这个任务了  </p>
+<p>在webpack.config.js中要这样配置  </p>
+<pre><code>module.exports=&#123;
+    entry:__dirname+&quot;/app/entry.js&quot;,   //入口文件
+    output:&#123;                           
+        path:__dirname+&quot;/public&quot;,      //输出文件的存放位置
+        filename:&quot;bundle.js&quot;           //输出文件的名称
+    &#125;,
+    module:&#123;
+        rules:[
+        &#123;
+            test: /\.(png|svg|jpg|gif)$/,
+            use: [
+                &#39;file-loader&#39;
+                ]
+        &#125;
+&#125;
+</code></pre>
+<p>module是要使用的webpack模块，rules是对应的*-loader匹配的规则，里面test（条件）可以填写正则表达式，字符串等。use为loader的入口，表示你要用什么loader来处理  </p>
+<p>这样就很容易的完成了webpack的配置及简单的使用  </p>
+<p>简单的了解解决不了实际情况下的复杂问题，你要问我要不要来点复杂问题的例子，我只能说我的复杂问题不是你的，你的不是我的，要不断实践去解决自己的问题</p>
 
       
     </div>
